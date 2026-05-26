@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ | Agrim International</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/animations.css">
+  <link rel="stylesheet" href="../assets/css/responsive.css">
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <style>
+    .faq-item {
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding: 1.5rem 0;
+    }
+    .faq-question {
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1.1rem;
+      font-weight: 500;
+      transition: color var(--transition-fast);
+    }
+    .faq-question:hover { color: var(--color-gold); }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height var(--transition-smooth), padding var(--transition-smooth);
+    }
+    .faq-item.open .faq-answer {
+      max-height: 300px;
+      padding-top: 1rem;
+    }
+    .faq-item.open .faq-question { color: var(--color-gold); }
+    .faq-icon {
+      font-size: 1.5rem;
+      transition: transform var(--transition-fast);
+    }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+  </style>
+</head>
+<body>
+  
+  <div class="page-transition"></div>
+
+  <nav class="navbar">
+    <div class="container">
+      <a href="../index.html" class="nav-logo">AGRIM</a>
+      <ul class="nav-links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="subsidiaries.html">Subsidiaries</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button class="nav-toggle"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <main>
+    <section style="padding:12rem 0 4rem;">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="../index.html">Home</a>
+          <span class="breadcrumb-separator">/</span>
+          <span>FAQ</span>
+        </div>
+        
+        <h1 style="text-align:center; margin-bottom:3rem;">Frequently Asked <span class="gold-text">Questions</span></h1>
+        
+        <div style="max-width:800px; margin:0 auto;">
+          <div class="faq-item">
+            <div class="faq-question">
+              What products does Agrim International manufacture?
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+              <p>Agrim International manufactures a diverse range of products including premium beverages (Tombo Bitters, Vodka, Brandy, Whiskey, Cremica), confectionery products through Agrim Global, healthcare products through Agrim Pharmaceutical (sanitary pads, diapers, condoms, syringes), and food products through Mohan Afro Foods (Topisto Tomato).</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="faq-question">
+              Where are Agrim International products available?
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+              <p>Our products are available in over 40 countries across Africa, the Middle East, Asia Pacific, and Europe. We are continuously expanding our distribution network to reach more markets globally.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="faq-question">
+              How can I become a distributor?
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+              <p>We welcome distribution partnerships. Please visit our Contact page and select "Distributor Application" in the inquiry form. Our business development team will review your application and get back to you within 5-7 business days.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="faq-question">
+              Does Agrim International have sustainability initiatives?
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+              <p>Yes. Sustainability is a core value at Agrim International. We have committed to achieving zero waste by 2030, implementing eco-friendly packaging solutions, reducing our carbon footprint, and supporting community development programs in the regions where we operate.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="faq-question">
+              How can I apply for a job at Agrim International?
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+              <p>Visit our Careers page to view current openings and submit your application. We are always looking for talented individuals to join our team across various departments and locations.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">AGRIM</div>
+          <p class="footer-desc">A global leader in manufacturing and consumer goods.</p>
+        </div>
+        <div class="footer-column">
+          <h4>Company</h4>
+          <a href="about.html">About Us</a>
+          <a href="careers.html">Careers</a>
+        </div>
+        <div class="footer-column">
+          <h4>Quick Links</h4>
+          <a href="products.html">Products</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2024 Agrim International. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/core.js"></script>
+  <script src="../assets/js/components.js"></script>
+</body>
+</html>

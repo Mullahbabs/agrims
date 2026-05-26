@@ -1,0 +1,1554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Product Details - Discover specifications, ingredients, benefits, and packaging information for Agrim International products.">
+  <meta name="keywords" content="Agrim International product details, Tombo, 4D Womaneezz, Tobo, Topisto, product specifications">
+  
+  <title>Product Details | Agrim International</title>
+  
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/animations.css">
+  <link rel="stylesheet" href="../assets/css/responsive.css">
+  
+  <!-- Swiper CSS for product gallery -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  
+  <!-- Additional styles for product detail page -->
+  <style>
+    /* Product Detail Hero */
+    .product-hero {
+      padding: 10rem 0 4rem;
+      background: var(--color-black);
+    }
+    
+    .product-hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    
+    /* Product Gallery */
+    .product-gallery {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      background: var(--color-off-black);
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+    
+    .product-gallery .swiper {
+      width: 100%;
+      aspect-ratio: 1;
+    }
+    
+    .product-gallery .swiper-slide {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--color-off-black);
+    }
+    
+    .product-gallery .swiper-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    
+    .product-gallery .swiper-slide:hover img {
+      transform: scale(1.03);
+    }
+    
+    .gallery-thumbs {
+      display: flex;
+      gap: 0.75rem;
+      padding: 1rem;
+      background: var(--color-off-black);
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    
+    .gallery-thumb {
+      width: 70px;
+      height: 70px;
+      border-radius: 8px;
+      overflow: hidden;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: all 0.3s ease;
+      flex-shrink: 0;
+      opacity: 0.6;
+    }
+    
+    .gallery-thumb:hover {
+      opacity: 0.9;
+      border-color: rgba(196, 167, 71, 0.4);
+    }
+    
+    .gallery-thumb.active {
+      opacity: 1;
+      border-color: var(--color-gold);
+    }
+    
+    .gallery-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    /* Product Info */
+    .product-badge {
+      display: inline-block;
+      padding: 0.4rem 1.25rem;
+      background: rgba(196, 167, 71, 0.1);
+      border: 1px solid rgba(196, 167, 71, 0.3);
+      border-radius: 100px;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      margin-bottom: 1rem;
+    }
+    
+    .product-category-link {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      margin-bottom: 1rem;
+      display: block;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .product-category-link:hover {
+      color: var(--color-gold-light);
+    }
+    
+    .product-name {
+      font-size: clamp(2.5rem, 4vw, 4rem);
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
+    }
+    
+    .product-tagline {
+      font-size: 1.2rem;
+      color: var(--color-silver);
+      margin-bottom: 2rem;
+      font-style: italic;
+    }
+    
+    .product-meta {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    
+    .product-meta-item {
+      text-align: center;
+    }
+    
+    .product-meta-value {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      color: var(--color-gold);
+      display: block;
+    }
+    
+    .product-meta-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-silver);
+      margin-top: 0.25rem;
+    }
+    
+    .product-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    
+    /* Tabs Section */
+    .product-tabs-section {
+      background: var(--color-off-black);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      position: sticky;
+      top: 80px;
+      z-index: 50;
+    }
+    
+    .product-tabs-nav {
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    
+    .product-tabs-nav::-webkit-scrollbar {
+      display: none;
+    }
+    
+    .product-tab-btn {
+      padding: 1.25rem 2rem;
+      background: transparent;
+      border: none;
+      color: var(--color-silver);
+      font-family: var(--font-secondary);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+      position: relative;
+      flex-shrink: 0;
+    }
+    
+    .product-tab-btn::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 2px;
+      background: var(--color-gold);
+      transition: width 0.3s ease;
+    }
+    
+    .product-tab-btn:hover {
+      color: var(--color-white);
+    }
+    
+    .product-tab-btn.active {
+      color: var(--color-gold);
+    }
+    
+    .product-tab-btn.active::after {
+      width: 60%;
+    }
+    
+    /* Tab Content */
+    .product-tab-panel {
+      display: none;
+      padding: 4rem 0;
+      animation: fadeIn 0.5s ease;
+    }
+    
+    .product-tab-panel.active {
+      display: block;
+    }
+    
+    /* Specifications Table */
+    .specs-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    .specs-table tr {
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    
+    .specs-table tr:last-child {
+      border-bottom: none;
+    }
+    
+    .specs-table td {
+      padding: 1.25rem 0;
+      font-size: 0.9rem;
+    }
+    
+    .specs-table td:first-child {
+      font-weight: 600;
+      color: var(--color-gold);
+      width: 250px;
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    
+    .specs-table td:last-child {
+      color: var(--color-silver);
+    }
+    
+    /* Benefits Grid */
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    .benefit-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 12px;
+      padding: 2rem;
+      transition: all 0.3s ease;
+    }
+    
+    .benefit-card:hover {
+      border-color: rgba(196, 167, 71, 0.3);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+    
+    .benefit-icon {
+      font-size: 2.5rem;
+      display: block;
+      margin-bottom: 1rem;
+    }
+    
+    .benefit-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: var(--color-white);
+    }
+    
+    .benefit-desc {
+      font-size: 0.85rem;
+      color: var(--color-silver);
+      line-height: 1.6;
+    }
+    
+    /* Packaging Variations */
+    .packaging-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    .packaging-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    
+    .packaging-card:hover {
+      border-color: rgba(196, 167, 71, 0.3);
+      transform: translateY(-4px);
+    }
+    
+    .packaging-card.featured {
+      border-color: rgba(196, 167, 71, 0.4);
+      background: rgba(196, 167, 71, 0.03);
+    }
+    
+    .packaging-size {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      color: var(--color-gold);
+      margin-bottom: 0.5rem;
+    }
+    
+    .packaging-desc {
+      font-size: 0.85rem;
+      color: var(--color-silver);
+    }
+    
+    .packaging-badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      background: var(--color-gold);
+      color: var(--color-black);
+      font-size: 0.65rem;
+      border-radius: 100px;
+      margin-top: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+    
+    /* Safety & Certifications */
+    .certification-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    .certification-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      padding: 1.5rem;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 12px;
+      transition: all 0.3s ease;
+    }
+    
+    .certification-item:hover {
+      border-color: rgba(196, 167, 71, 0.3);
+    }
+    
+    .certification-check {
+      width: 24px;
+      height: 24px;
+      background: var(--color-gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--color-black);
+      font-weight: bold;
+      font-size: 0.8rem;
+    }
+    
+    .certification-text h5 {
+      font-size: 0.9rem;
+      margin-bottom: 0.25rem;
+      color: var(--color-white);
+    }
+    
+    .certification-text p {
+      font-size: 0.8rem;
+      color: var(--color-silver);
+      line-height: 1.5;
+    }
+    
+    /* Related Products */
+    .related-products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    /* Inquiry Form */
+    .inquiry-form-container {
+      background: var(--color-off-black);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 16px;
+      padding: 3rem;
+    }
+    
+    .inquiry-form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+    
+    .inquiry-form-grid .full-width {
+      grid-column: 1 / -1;
+    }
+    
+    /* Usage Instructions */
+    .usage-steps {
+      counter-reset: step;
+      list-style: none;
+      padding: 0;
+    }
+    
+    .usage-step {
+      counter-increment: step;
+      position: relative;
+      padding-left: 4rem;
+      margin-bottom: 2.5rem;
+    }
+    
+    .usage-step:last-child {
+      margin-bottom: 0;
+    }
+    
+    .usage-step::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 40px;
+      height: 40px;
+      background: var(--color-gold);
+      color: var(--color-black);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+      font-family: var(--font-display);
+    }
+    
+    .usage-step h5 {
+      font-size: 1.05rem;
+      margin-bottom: 0.5rem;
+      color: var(--color-white);
+    }
+    
+    .usage-step p {
+      font-size: 0.9rem;
+      color: var(--color-silver);
+      line-height: 1.6;
+    }
+    
+    /* Ingredients List */
+    .ingredients-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+    
+    .ingredient-tag {
+      padding: 0.75rem 1.25rem;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 100px;
+      font-size: 0.85rem;
+      color: var(--color-silver);
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    
+    .ingredient-tag:hover {
+      border-color: rgba(196, 167, 71, 0.4);
+      color: var(--color-white);
+      background: rgba(196, 167, 71, 0.05);
+    }
+    
+    .ingredient-tag.highlight {
+      border-color: rgba(196, 167, 71, 0.4);
+      color: var(--color-gold);
+      background: rgba(196, 167, 71, 0.05);
+    }
+    
+    /* Warning/Note Box */
+    .info-box {
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+    }
+    
+    .info-box.warning {
+      background: rgba(255, 193, 7, 0.05);
+      border: 1px solid rgba(255, 193, 7, 0.2);
+      color: #ffc107;
+    }
+    
+    .info-box.info {
+      background: rgba(196, 167, 71, 0.05);
+      border: 1px solid rgba(196, 167, 71, 0.2);
+    }
+    
+    .info-box h5 {
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+    }
+    
+    .info-box p {
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+    
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .product-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+      
+      .product-gallery {
+        max-width: 500px;
+        margin: 0 auto;
+      }
+      
+      .inquiry-form-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .product-hero {
+        padding: 8rem 0 3rem;
+      }
+      
+      .product-tab-btn {
+        padding: 1rem 1.25rem;
+        font-size: 0.7rem;
+      }
+      
+      .specs-table td:first-child {
+        width: 150px;
+      }
+      
+      .product-meta {
+        gap: 1rem;
+      }
+      
+      .usage-step {
+        padding-left: 3rem;
+      }
+      
+      .inquiry-form-container {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Page Transition -->
+  <div class="page-transition"></div>
+
+  <!-- Search Overlay -->
+  <div class="search-overlay">
+    <button class="search-close" style="position:absolute;top:2rem;right:2rem;background:none;border:none;color:var(--color-gold);font-size:2rem;cursor:pointer;z-index:2001;">✕</button>
+    <input type="text" class="search-input" placeholder="Search products...">
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="../index.html" class="nav-logo">AGRIM</a>
+      
+      <ul class="nav-links">
+        <li><a href="about.html">About</a></li>
+        <li class="mega-menu-trigger">
+          <a href="#">Subsidiaries ▾</a>
+          <div class="mega-menu">
+            <div class="mega-menu-column">
+              <h4>Main Company</h4>
+              <a href="subsidiaries.html#agrim-international">Agrim International</a>
+              <a href="products.html">All Products</a>
+              <a href="manufacturing.html">Manufacturing</a>
+            </div>
+            <div class="mega-menu-column">
+              <h4>Subsidiaries</h4>
+              <a href="subsidiaries.html#agrim-global">Agrim Global</a>
+              <a href="subsidiaries.html#agrim-pharma">Agrim Pharmaceutical</a>
+              <a href="subsidiaries.html#mohan-afro">Mohan Afro Foods</a>
+            </div>
+            <div class="mega-menu-column">
+              <h4>Quick Links</h4>
+              <a href="careers.html">Careers</a>
+              <a href="investor.html">Investor Relations</a>
+              <a href="contact.html">Contact Us</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="products.html" style="color:var(--color-gold);">Products</a></li>
+        <li><a href="manufacturing.html">Manufacturing</a></li>
+        <li><a href="csr.html">CSR</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="#" class="search-trigger">🔍</a></li>
+      </ul>
+      
+      <button class="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Navigation -->
+  <div class="mobile-nav">
+    <button class="mobile-nav-close">✕</button>
+    <a href="about.html">About</a>
+    <a href="subsidiaries.html">Subsidiaries</a>
+    <a href="products.html">Products</a>
+    <a href="manufacturing.html">Manufacturing</a>
+    <a href="csr.html">CSR</a>
+    <a href="news.html">News</a>
+    <a href="careers.html">Careers</a>
+    <a href="contact.html">Contact</a>
+    <a href="investor.html">Investors</a>
+    <a href="faq.html">FAQ</a>
+  </div>
+
+  <main>
+    <!-- Breadcrumb -->
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="products.html">Products</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>Product Details</span>
+      </div>
+    </div>
+
+    <!-- Product Hero Section -->
+    <section class="product-hero">
+      <div class="container">
+        <div class="product-hero-grid">
+          
+          <!-- Product Gallery -->
+          <div class="product-gallery reveal-left">
+            <div class="swiper product-swiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img src="https://images.pexels.com/photos/1283219/pexels-photo-1283219.jpeg?auto=compress&cs=tinysrgb&w=600" 
+                       alt="Product Image 1" 
+                       loading="eager">
+                </div>
+                <div class="swiper-slide">
+                  <img src="https://images.pexels.com/photos/5947038/pexels-photo-5947038.jpeg?auto=compress&cs=tinysrgb&w=600" 
+                       alt="Product Image 2" 
+                       loading="lazy">
+                </div>
+                <div class="swiper-slide">
+                  <img src="https://images.pexels.com/photos/602750/pexels-photo-602750.jpeg?auto=compress&cs=tinysrgb&w=600" 
+                       alt="Product Image 3" 
+                       loading="lazy">
+                </div>
+                <div class="swiper-slide">
+                  <img src="https://images.pexels.com/photos/5947030/pexels-photo-5947030.jpeg?auto=compress&cs=tinysrgb&w=600" 
+                       alt="Product Image 4" 
+                       loading="lazy">
+                </div>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+            
+            <!-- Thumbnail Navigation -->
+            <div class="gallery-thumbs">
+              <div class="gallery-thumb active" data-slide="0">
+                <img src="https://images.pexels.com/photos/1283219/pexels-photo-1283219.jpeg?auto=compress&cs=tinysrgb&w=150" 
+                     alt="Thumbnail 1" 
+                     loading="lazy">
+              </div>
+              <div class="gallery-thumb" data-slide="1">
+                <img src="https://images.pexels.com/photos/5947038/pexels-photo-5947038.jpeg?auto=compress&cs=tinysrgb&w=150" 
+                     alt="Thumbnail 2" 
+                     loading="lazy">
+              </div>
+              <div class="gallery-thumb" data-slide="2">
+                <img src="https://images.pexels.com/photos/602750/pexels-photo-602750.jpeg?auto=compress&cs=tinysrgb&w=150" 
+                     alt="Thumbnail 3" 
+                     loading="lazy">
+              </div>
+              <div class="gallery-thumb" data-slide="3">
+                <img src="https://images.pexels.com/photos/5947030/pexels-photo-5947030.jpeg?auto=compress&cs=tinysrgb&w=150" 
+                     alt="Thumbnail 4" 
+                     loading="lazy">
+              </div>
+            </div>
+          </div>
+          
+          <!-- Product Information -->
+          <div class="reveal-right">
+            <span class="product-badge">Bestseller</span>
+            <a href="products.html#beverages" class="product-category-link">← Back to Beverages</a>
+            
+            <h1 class="product-name">Tombo <span class="gold-text">Bitters</span></h1>
+            <p class="product-tagline">Premium aromatic bitters crafted with a unique blend of herbs and spices for the discerning palate.</p>
+            
+            <div class="product-meta">
+              <div class="product-meta-item">
+                <span class="product-meta-value">40%</span>
+                <span class="product-meta-label">ABV</span>
+              </div>
+              <div class="product-meta-item">
+                <span class="product-meta-value">750ml</span>
+                <span class="product-meta-label">Standard Size</span>
+              </div>
+              <div class="product-meta-item">
+                <span class="product-meta-value">4.8</span>
+                <span class="product-meta-label">★ Rating</span>
+              </div>
+              <div class="product-meta-item">
+                <span class="product-meta-value">40+</span>
+                <span class="product-meta-label">Countries</span>
+              </div>
+            </div>
+            
+            <div class="product-actions">
+              <a href="#inquiry" class="btn btn-primary">
+                Request Quote
+                <span>→</span>
+              </a>
+              <a href="#" class="btn btn-outline">
+                Download Brochure
+                <span>📄</span>
+              </a>
+              <a href="#" class="btn btn-glass">
+                Find Distributor
+                <span>📍</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Product Tabs Navigation -->
+    <div class="product-tabs-section">
+      <div class="container">
+        <div class="product-tabs-nav">
+          <button class="product-tab-btn active" data-tab="description">Description</button>
+          <button class="product-tab-btn" data-tab="specifications">Specifications</button>
+          <button class="product-tab-btn" data-tab="ingredients">Ingredients</button>
+          <button class="product-tab-btn" data-tab="benefits">Benefits</button>
+          <button class="product-tab-btn" data-tab="packaging">Packaging</button>
+          <button class="product-tab-btn" data-tab="usage">Usage</button>
+          <button class="product-tab-btn" data-tab="safety">Safety & Certs</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab Content Sections -->
+    
+    <!-- Description Tab -->
+    <section class="product-tab-panel active" id="tab-description">
+      <div class="container">
+        <div class="reveal" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start;">
+          <div>
+            <h3 style="font-size: 2rem; margin-bottom: 1.5rem;">Product <span class="gold-text">Description</span></h3>
+            <p style="margin-bottom: 1.25rem; font-size: 1.05rem; line-height: 1.8;">
+              Tombo Bitters is our flagship aromatic bitters, meticulously crafted using a proprietary 
+              blend of carefully selected herbs, roots, and spices sourced from around the world. 
+              Each batch is produced following traditional methods combined with modern quality 
+              control to ensure consistent, exceptional quality.
+            </p>
+            <p style="margin-bottom: 1.25rem; line-height: 1.8;">
+              The unique formulation delivers a complex flavor profile with notes of gentian, 
+              citrus peel, cardamom, and a secret blend of African botanicals. Perfect as a 
+              digestif, cocktail ingredient, or enjoyed neat over ice.
+            </p>
+            <p style="line-height: 1.8;">
+              Since its introduction, Tombo Bitters has become the preferred choice for 
+              connoisseurs and mixologists across Africa and beyond, earning numerous 
+              industry accolades for its distinctive taste and premium quality.
+            </p>
+          </div>
+          <div class="glass-panel" style="padding: 2.5rem;">
+            <h4 style="color: var(--color-gold); margin-bottom: 1.25rem; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase;">Key Highlights</h4>
+            <ul style="list-style: none; padding: 0;">
+              <li style="padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; gap: 0.75rem; align-items: center;">
+                <span style="color: var(--color-gold); font-size: 1.2rem;">✓</span>
+                <span>Crafted with 14+ natural botanicals</span>
+              </li>
+              <li style="padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; gap: 0.75rem; align-items: center;">
+                <span style="color: var(--color-gold); font-size: 1.2rem;">✓</span>
+                <span>Triple-filtered for exceptional clarity</span>
+              </li>
+              <li style="padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; gap: 0.75rem; align-items: center;">
+                <span style="color: var(--color-gold); font-size: 1.2rem;">✓</span>
+                <span>Aged in oak barrels for 6 months</span>
+              </li>
+              <li style="padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; gap: 0.75rem; align-items: center;">
+                <span style="color: var(--color-gold); font-size: 1.2rem;">✓</span>
+                <span>ISO 9001:2015 certified production</span>
+              </li>
+              <li style="padding: 0.75rem 0; display: flex; gap: 0.75rem; align-items: center;">
+                <span style="color: var(--color-gold); font-size: 1.2rem;">✓</span>
+                <span>Available in 20+ international markets</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Specifications Tab -->
+    <section class="product-tab-panel" id="tab-specifications">
+      <div class="container">
+        <h3 style="font-size: 2rem; margin-bottom: 2.5rem;">Technical <span class="gold-text">Specifications</span></h3>
+        
+        <div class="reveal" style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;">
+          <div>
+            <table class="specs-table">
+              <tbody>
+                <tr>
+                  <td>Product Name</td>
+                  <td>Tombo Bitters</td>
+                </tr>
+                <tr>
+                  <td>Brand</td>
+                  <td>Tombo</td>
+                </tr>
+                <tr>
+                  <td>Category</td>
+                  <td>Aromatic Bitters</td>
+                </tr>
+                <tr>
+                  <td>Alcohol Content</td>
+                  <td>40% ABV (80 Proof)</td>
+                </tr>
+                <tr>
+                  <td>Volume</td>
+                  <td>750ml / 375ml / 200ml</td>
+                </tr>
+                <tr>
+                  <td>Bottle Type</td>
+                  <td>Premium Flint Glass</td>
+                </tr>
+                <tr>
+                  <td>Closure</td>
+                  <td>Screw Cap / Cork Finish</td>
+                </tr>
+                <tr>
+                  <td>Shelf Life</td>
+                  <td>Indefinite (when stored properly)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <table class="specs-table">
+              <tbody>
+                <tr>
+                  <td>Manufacturing</td>
+                  <td>Agrim International</td>
+                </tr>
+                <tr>
+                  <td>Country of Origin</td>
+                  <td>Nigeria</td>
+                </tr>
+                <tr>
+                  <td>Production Method</td>
+                  <td>Maceration & Distillation</td>
+                </tr>
+                <tr>
+                  <td>Aging Process</td>
+                  <td>6 months in oak barrels</td>
+                </tr>
+                <tr>
+                  <td>Filtration</td>
+                  <td>Triple charcoal filtration</td>
+                </tr>
+                <tr>
+                  <td>Color</td>
+                  <td>Deep amber / mahogany</td>
+                </tr>
+                <tr>
+                  <td>Aroma</td>
+                  <td>Herbal, citrus, warm spices</td>
+                </tr>
+                <tr>
+                  <td>Taste</td>
+                  <td>Bitter-sweet, complex, smooth finish</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ingredients Tab -->
+    <section class="product-tab-panel" id="tab-ingredients">
+      <div class="container">
+        <h3 style="font-size: 2rem; margin-bottom: 2.5rem;">Ingredients & <span class="gold-text">Composition</span></h3>
+        
+        <div class="reveal">
+          <p style="margin-bottom: 2rem; font-size: 1.05rem;">
+            Tombo Bitters is crafted from a proprietary blend of natural ingredients, 
+            carefully selected for their quality and flavor characteristics.
+          </p>
+          
+          <h4 style="color: var(--color-gold); margin-bottom: 1rem; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase;">Primary Botanicals</h4>
+          <div class="ingredients-list" style="margin-bottom: 2.5rem;">
+            <span class="ingredient-tag highlight">Gentian Root</span>
+            <span class="ingredient-tag">Bitter Orange Peel</span>
+            <span class="ingredient-tag">Cardamom</span>
+            <span class="ingredient-tag">Cinnamon Bark</span>
+            <span class="ingredient-tag">Clove</span>
+            <span class="ingredient-tag">Star Anise</span>
+            <span class="ingredient-tag">Ginger Root</span>
+            <span class="ingredient-tag">Licorice Root</span>
+            <span class="ingredient-tag">Angelica Root</span>
+            <span class="ingredient-tag">African Bird Pepper</span>
+            <span class="ingredient-tag">Quassia Wood</span>
+            <span class="ingredient-tag">Cinchona Bark</span>
+            <span class="ingredient-tag">Lemon Peel</span>
+            <span class="ingredient-tag">Vanilla Bean</span>
+          </div>
+          
+          <h4 style="color: var(--color-gold); margin-bottom: 1rem; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase;">Base Ingredients</h4>
+          <div class="ingredients-list">
+            <span class="ingredient-tag">Neutral Grain Spirit</span>
+            <span class="ingredient-tag">Purified Water</span>
+            <span class="ingredient-tag">Sugar (trace amounts)</span>
+            <span class="ingredient-tag">Natural Caramel Color</span>
+          </div>
+          
+          <div class="info-box info" style="margin-top: 2.5rem;">
+            <h5>ℹ️ Allergen Information</h5>
+            <p>This product does not contain any of the major allergens (milk, eggs, fish, shellfish, tree nuts, peanuts, wheat, or soy). Produced in a facility that processes tree nuts and grains.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits Tab -->
+    <section class="product-tab-panel" id="tab-benefits">
+      <div class="container">
+        <h3 style="font-size: 2rem; margin-bottom: 2.5rem;">Product <span class="gold-text">Benefits</span></h3>
+        
+        <div class="benefits-grid stagger-children">
+          <div class="benefit-card">
+            <span class="benefit-icon">🌿</span>
+            <div class="benefit-title">100% Natural Botanicals</div>
+            <div class="benefit-desc">
+              Made with carefully sourced natural herbs, roots, and spices. No artificial 
+              flavors, colors, or preservatives added.
+            </div>
+          </div>
+          <div class="benefit-card">
+            <span class="benefit-icon">🍸</span>
+            <div class="benefit-title">Versatile Usage</div>
+            <div class="benefit-desc">
+              Perfect as a digestive aid, cocktail bitter, or enjoyed neat. Enhances 
+              the flavor profile of any drink.
+            </div>
+          </div>
+          <div class="benefit-card">
+            <span class="benefit-icon">🏆</span>
+            <div class="benefit-title">Award-Winning Quality</div>
+            <div class="benefit-desc">
+              Recognized at multiple international spirits competitions for exceptional 
+              quality and taste.
+            </div>
+          </div>
+          <div class="benefit-card">
+            <span class="benefit-icon">🔬</span>
+            <div class="benefit-title">Quality Tested</div>
+            <div class="benefit-desc">
+              Each batch undergoes rigorous quality testing including gas chromatography 
+              and sensory evaluation by expert tasters.
+            </div>
+          </div>
+          <div class="benefit-card">
+            <span class="benefit-icon">📦</span>
+            <div class="benefit-title">Premium Packaging</div>
+            <div class="benefit-desc">
+              Elegant bottle design with tamper-evident closure, perfect for retail 
+              display and gifting occasions.
+            </div>
+          </div>
+          <div class="benefit-card">
+            <span class="benefit-icon">🌍</span>
+            <div class="benefit-title">Global Availability</div>
+            <div class="benefit-desc">
+              Distributed across 40+ countries with reliable supply chain ensuring 
+              consistent availability worldwide.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Packaging Tab -->
+    <section class="product-tab-panel" id="tab-packaging">
+      <div class="container">
+        <h3 style="font-size: 2rem; margin-bottom: 2.5rem;">Packaging <span class="gold-text">Variations</span></h3>
+        
+        <div class="packaging-grid stagger-children">
+          <div class="packaging-card featured">
+            <div class="packaging-size">750ml</div>
+            <div class="packaging-desc">Standard Bottle</div>
+            <p style="font-size: 0.8rem; color: var(--color-silver); margin-top: 0.5rem;">
+              Premium glass bottle with cork finish
+            </p>
+            <span class="packaging-badge">Most Popular</span>
+          </div>
+          <div class="packaging-card">
+            <div class="packaging-size">375ml</div>
+            <div class="packaging-desc">Half Bottle</div>
+            <p style="font-size: 0.8rem; color: var(--color-silver); margin-top: 0.5rem;">
+              Compact size for personal use
+            </p>
+          </div>
+          <div class="packaging-card">
+            <div class="packaging-size">200ml</div>
+            <div class="packaging-desc">Travel Size</div>
+            <p style="font-size: 0.8rem; color: var(--color-silver); margin-top: 0.5rem;">
+              Perfect for travel and sampling
+            </p>
+          </div>
+          <div class="packaging-card">
+            <div class="packaging-size">Case</div>
+            <div class="packaging-desc">12 × 750ml</div>
+            <p style="font-size: 0.8rem; color: var(--color-silver); margin-top: 0.5rem;">
+              Wholesale case for retailers
+            </p>
+            <span class="packaging-badge">Bulk</span>
+          </div>
+        </div>
+        
+        <div class="info-box info" style="margin-top: 2.5rem;">
+          <h5>📦 Custom Packaging Available</h5>
+          <p>We offer custom labeling and packaging solutions for bulk orders, private label partnerships, and special editions. Contact our sales team for more information.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Usage Tab -->
+    <section class="product-tab-panel" id="tab-usage">
+      <div class="container">
+        <h3 style="font-size: 2rem; margin-bottom: 2.5rem;">Usage <span class="gold-text">Instructions</span></h3>
+        
+        <div class="reveal" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;">
+          <div>
+            <h4 style="color: var(--color-gold); margin-bottom: 1.5rem; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase;">Serving Suggestions</h4>
+            <ol class="usage-steps">
+              <li class="usage-step">
+                <h5>As a Digestif</h5>
+                <p>Pour 30-50ml into a glass. Sip neat or over ice after meals to aid digestion and enjoy the complex herbal flavors.</p>
+              </li>
+              <li class="usage-step">
+                <h5>In Cocktails</h5>
+                <p>Add 2-3 dashes to classic cocktails like Old Fashioned, Manhattan, or Negroni for enhanced depth and complexity.</p>
+              </li>
+              <li class="usage-step">
+                <h5>With Soda</h5>
+                <p>Mix 50ml Tombo Bitters with 150ml soda water or tonic over ice. Garnish with a citrus twist.</p>
+              </li>
+              <li class="usage-step">
+                <h5>Culinary Use</h5>
+                <p>A few drops can enhance sauces, marinades, and desserts with a sophisticated bitter-sweet note.</p>
+              </li>
+            </ol>
+          </div>
+          
+          <div>
+            <h4 style="color: var(--color-gold); margin-bottom: 1.5rem; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase;">Storage Instructions</h4>
+            <div class="glass-panel" style="padding: 2rem;">
+              <ul style="list-style: none; padding: 0;">
+                <li style="padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.05);">
+                  <strong style="color: var(--color-white);">Temperature:</strong> 
+                  <span style="color: var(--color-silver);">Store at 15-25°C (59-77°F)</span>
+                </li>
+                <li style="padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.05);">
+                  <strong style="color: var(--color-white);">Light Exposure:</strong> 
+                  <span style="color: var(--color-silver);">Keep away from direct sunlight</span>
+                </li>
+                <li style="padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.05);">
+                  <strong style="color: var(--color-white);">Position:</strong> 
+                  <span style="color: var(--color-silver);">Store upright to prevent cork deterioration</span>
+                </li>
+                <li style="padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.05);">
+                  <strong style="color: var(--color-white);">Shelf Life:</strong> 
+                  <span style="color: var(--color-silver);">Indefinite when unopened and stored properly</span>
+                </li>
+                <li style="padding: 0.75rem 0;">
+                  <strong style="color: var(--color-white);">After Opening:</strong> 
+                  <span style="color: var(--color-silver);">Consume within 24 months for optimal flavor</span>
+                </li>
+              </ul>
+            </div>
+            
+            <div class="info-box warning" style="margin-top: 1.5rem;">
+              <h5>⚠️ Important Safety Information</h5>
+              <p>This product contains alcohol. Please drink responsibly. Not for sale to persons under the legal drinking age. Do not consume if pregnant or nursing without consulting a healthcare professional.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Safety & Certifications Tab -->
+    <section class="product-tab-panel" id="tab-safety">
+      <div class="container">
+        <h3 style="font-size: 2rem; margin-bottom: 2.5rem;">Safety & <span class="gold-text">Certifications</span></h3>
+        
+        <div class="certification-list stagger-children">
+          <div class="certification-item">
+            <div class="certification-check">✓</div>
+            <div class="certification-text">
+              <h5>ISO 9001:2015 Certified</h5>
+              <p>Quality management system certification ensuring consistent product quality and continuous improvement.</p>
+            </div>
+          </div>
+          <div class="certification-item">
+            <div class="certification-check">✓</div>
+            <div class="certification-text">
+              <h5>HACCP Compliant</h5>
+              <p>Hazard Analysis and Critical Control Points certification for food safety management.</p>
+            </div>
+          </div>
+          <div class="certification-item">
+            <div class="certification-check">✓</div>
+            <div class="certification-text">
+              <h5>GMP Certified</h5>
+              <p>Good Manufacturing Practices certification for production quality and safety standards.</p>
+            </div>
+          </div>
+          <div class="certification-item">
+            <div class="certification-check">✓</div>
+            <div class="certification-text">
+              <h5>NAFDAC Approved</h5>
+              <p>Registered and approved by the National Agency for Food and Drug Administration.</p>
+            </div>
+          </div>
+          <div class="certification-item">
+            <div class="certification-check">✓</div>
+            <div class="certification-text">
+              <h5>FDA Registered Facility</h5>
+              <p>Manufacturing facility registered with the U.S. Food and Drug Administration.</p>
+            </div>
+          </div>
+          <div class="certification-item">
+            <div class="certification-check">✓</div>
+            <div class="certification-text">
+              <h5>Third-Party Lab Tested</h5>
+              <p>Independent laboratory testing for purity, potency, and safety compliance.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Products -->
+    <section style="padding: 5rem 0; background: var(--color-off-black);">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="section-eyebrow">Complete Your Collection</p>
+          <h3 style="font-size: 2rem;">Related <span class="gold-text">Products</span></h3>
+          <div class="section-line"></div>
+        </div>
+        
+        <div class="related-products-grid stagger-children">
+          <a href="product-detail.html" class="card hover-glow" style="display: block;">
+            <div class="hover-scale-img">
+              <img src="https://images.pexels.com/photos/5947038/pexels-photo-5947038.jpeg?auto=compress&cs=tinysrgb&w=400" 
+                   alt="Tombo Vodka" 
+                   class="card-image" 
+                   loading="lazy">
+            </div>
+            <div class="card-content">
+              <p class="card-tag">Beverages</p>
+              <h3>Tombo Vodka</h3>
+              <p>Smooth, triple-distilled premium vodka.</p>
+            </div>
+          </a>
+          
+          <a href="product-detail.html" class="card hover-glow" style="display: block;">
+            <div class="hover-scale-img">
+              <img src="https://images.pexels.com/photos/602750/pexels-photo-602750.jpeg?auto=compress&cs=tinysrgb&w=400" 
+                   alt="Tombo Brandy" 
+                   class="card-image" 
+                   loading="lazy">
+            </div>
+            <div class="card-content">
+              <p class="card-tag">Beverages</p>
+              <h3>Tombo Brandy</h3>
+              <p>Rich, oak-aged brandy with complex notes.</p>
+            </div>
+          </a>
+          
+          <a href="product-detail.html" class="card hover-glow" style="display: block;">
+            <div class="hover-scale-img">
+              <img src="https://images.pexels.com/photos/5947030/pexels-photo-5947030.jpeg?auto=compress&cs=tinysrgb&w=400" 
+                   alt="Tombo Whiskey" 
+                   class="card-image" 
+                   loading="lazy">
+            </div>
+            <div class="card-content">
+              <p class="card-tag">Beverages</p>
+              <h3>Tombo Whiskey</h3>
+              <p>Aged to perfection with smoky notes.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Product Inquiry Form -->
+    <section id="inquiry" style="padding: 5rem 0;">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="section-eyebrow">Get in Touch</p>
+          <h3 style="font-size: 2rem;">Product <span class="gold-text">Inquiry</span></h3>
+          <div class="section-line"></div>
+          <p style="max-width: 600px; margin: 1.5rem auto 0;">
+            Interested in this product? Fill out the form below and our sales team will 
+            get back to you within 24 hours.
+          </p>
+        </div>
+        
+        <div class="reveal" style="max-width: 800px; margin: 0 auto;">
+          <div class="inquiry-form-container">
+            <form class="contact-form">
+              <div class="inquiry-form-grid">
+                <div class="form-group">
+                  <label class="form-label">Full Name *</label>
+                  <input type="text" class="form-input" placeholder="Your full name" required>
+                </div>
+                
+                <div class="form-group">
+                  <label class="form-label">Email Address *</label>
+                  <input type="email" class="form-input" placeholder="your@email.com" required>
+                </div>
+                
+                <div class="form-group">
+                  <label class="form-label">Phone Number</label>
+                  <input type="tel" class="form-input" placeholder="+234 123 456 7890">
+                </div>
+                
+                <div class="form-group">
+                  <label class="form-label">Company Name</label>
+                  <input type="text" class="form-input" placeholder="Your company">
+                </div>
+                
+                <div class="form-group">
+                  <label class="form-label">Inquiry Type *</label>
+                  <select class="form-select" required>
+                    <option value="">Select inquiry type</option>
+                    <option>Wholesale Purchase</option>
+                    <option>Distribution Partnership</option>
+                    <option>Private Label Inquiry</option>
+                    <option>Product Information</option>
+                    <option>Sample Request</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+                
+                <div class="form-group">
+                  <label class="form-label">Estimated Quantity</label>
+                  <select class="form-select">
+                    <option value="">Select quantity range</option>
+                    <option>100 - 1,000 units</option>
+                    <option>1,000 - 10,000 units</option>
+                    <option>10,000 - 50,000 units</option>
+                    <option>50,000+ units</option>
+                    <option>Not sure yet</option>
+                  </select>
+                </div>
+                
+                <div class="form-group full-width">
+                  <label class="form-label">Country / Region *</label>
+                  <select class="form-select" required>
+                    <option value="">Select your country</option>
+                    <option>Nigeria</option>
+                    <option>Ghana</option>
+                    <option>Kenya</option>
+                    <option>South Africa</option>
+                    <option>United Kingdom</option>
+                    <option>United States</option>
+                    <option>United Arab Emirates</option>
+                    <option>India</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+                
+                <div class="form-group full-width">
+                  <label class="form-label">Message *</label>
+                  <textarea class="form-textarea" placeholder="Tell us about your requirements, specific product interests, or any questions you may have..." required></textarea>
+                </div>
+              </div>
+              
+              <div style="margin-top: 1.5rem;">
+                <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                  Submit Inquiry
+                  <span>→</span>
+                </button>
+              </div>
+              
+              <p style="font-size: 0.75rem; color: var(--color-silver-dark); text-align: center; margin-top: 1rem;">
+                By submitting this form, you agree to our 
+                <a href="#" style="color: var(--color-gold);">Privacy Policy</a> and 
+                <a href="#" style="color: var(--color-gold);">Terms of Service</a>.
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Download Brochure CTA -->
+    <section style="padding: 4rem 0; background: var(--color-off-black); text-align: center;">
+      <div class="container">
+        <div class="reveal">
+          <h3 style="font-size: 2rem; margin-bottom: 1rem;">Download Product <span class="gold-text">Brochure</span></h3>
+          <p style="max-width: 500px; margin: 0 auto 2rem; color: var(--color-silver);">
+            Get detailed product specifications, pricing tiers, and partnership opportunities in our comprehensive brochure.
+          </p>
+          <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <a href="#" class="btn btn-primary">
+              Download PDF
+              <span>📄</span>
+            </a>
+            <a href="#" class="btn btn-outline">
+              View Online
+              <span>👁️</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">AGRIM</div>
+          <p class="footer-desc">A global leader in manufacturing and consumer goods, delivering excellence across beverages, pharmaceuticals, and food products.</p>
+        </div>
+        <div class="footer-column">
+          <h4>Company</h4>
+          <a href="about.html">About Us</a>
+          <a href="manufacturing.html">Manufacturing</a>
+          <a href="csr.html">CSR</a>
+          <a href="careers.html">Careers</a>
+        </div>
+        <div class="footer-column">
+          <h4>Subsidiaries</h4>
+          <a href="subsidiaries.html#agrim-global">Agrim Global</a>
+          <a href="subsidiaries.html#agrim-pharma">Agrim Pharmaceutical</a>
+          <a href="subsidiaries.html#mohan-afro">Mohan Afro Foods</a>
+        </div>
+        <div class="footer-column">
+          <h4>Products</h4>
+          <a href="products.html">All Products</a>
+          <a href="products.html#beverages">Beverages</a>
+          <a href="products.html#pharma">Healthcare</a>
+          <a href="products.html#food">Food</a>
+        </div>
+        <div class="footer-column">
+          <h4>Contact</h4>
+          <a href="contact.html">Contact Us</a>
+          <a href="investor.html">Investors</a>
+          <a href="faq.html">FAQ</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2024 Agrim International. All rights reserved.</span>
+        <span>
+          <a href="#">Privacy Policy</a> · 
+          <a href="#">Terms of Service</a> · 
+          <a href="#">Cookie Policy</a>
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Chat Widget -->
+  <div class="chat-widget">
+    <button class="chat-toggle">💬</button>
+    <div class="chat-panel">
+      <div style="padding: 1.5rem; background: var(--color-charcoal); border-bottom: 1px solid rgba(255,255,255,0.1);">
+        <h4 style="font-size: 0.9rem;">Product Support</h4>
+        <p style="font-size: 0.75rem;">Ask us about this product</p>
+      </div>
+      <div style="padding: 1.5rem; flex: 1; overflow-y: auto;">
+        <div style="background: rgba(255,255,255,0.05); padding: 1rem; border-radius: 8px;">
+          <p style="font-size: 0.85rem;">👋 Hello! Have questions about this product? I'm here to help with pricing, availability, and specifications.</p>
+        </div>
+      </div>
+      <div style="padding: 1rem; border-top: 1px solid rgba(255,255,255,0.1);">
+        <input type="text" class="form-input" placeholder="Type your message..." style="width: 100%;">
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="../assets/js/animations.js"></script>
+  <script src="../assets/js/navigation.js"></script>
+  <script src="../assets/js/components.js"></script>
+  <script src="../assets/js/core.js"></script>
+  
+  <!-- Product Detail Page Scripts -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Initialize Product Gallery Swiper
+      const productSwiper = new Swiper('.product-swiper', {
+        slidesPerView: 1,
+        spaceBetween: 0,
+        loop: true,
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        on: {
+          slideChange: function() {
+            updateActiveThumbnail(this.realIndex);
+          }
+        }
+      });
+      
+      // Thumbnail click handlers
+      const thumbnails = document.querySelectorAll('.gallery-thumb');
+      
+      function updateActiveThumbnail(index) {
+        thumbnails.forEach(thumb => thumb.classList.remove('active'));
+        const activeThumb = document.querySelector(`.gallery-thumb[data-slide="${index}"]`);
+        if (activeThumb) {
+          activeThumb.classList.add('active');
+        }
+      }
+      
+      thumbnails.forEach(thumb => {
+        thumb.addEventListener('click', () => {
+          const slideIndex = parseInt(thumb.getAttribute('data-slide'));
+          productSwiper.slideToLoop(slideIndex);
+          updateActiveThumbnail(slideIndex);
+        });
+      });
+      
+      // Product Tabs Functionality
+      const tabButtons = document.querySelectorAll('.product-tab-btn');
+      const tabPanels = document.querySelectorAll('.product-tab-panel');
+      
+      tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const targetTab = button.getAttribute('data-tab');
+          
+          // Update active button
+          tabButtons.forEach(btn => btn.classList.remove('active'));
+          button.classList.add('active');
+          
+          // Show corresponding panel
+          tabPanels.forEach(panel => {
+            panel.classList.remove('active');
+            if (panel.id === `tab-${targetTab}`) {
+              panel.classList.add('active');
+            }
+          });
+          
+          // Refresh animations for newly visible content
+          if (typeof Animations !== 'undefined') {
+            setTimeout(() => Animations.refresh(), 100);
+          }
+        });
+      });
+      
+      // Smooth scroll to inquiry form
+      document.querySelectorAll('a[href="#inquiry"]').forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const target = document.getElementById('inquiry');
+          if (target) {
+            if (window.lenis) {
+              window.lenis.scrollTo(target, {
+                offset: -80,
+                duration: 1.5,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
+              });
+            } else {
+              target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore Agrim International's subsidiaries - Agrim Global, Agrim Pharmaceutical & Healthcare, and Mohan Afro Foods. Discover our diverse portfolio of products across confectionery, healthcare, and food categories.">
+  <meta name="keywords" content="Agrim International subsidiaries, Agrim Global, Agrim Pharmaceutical, Mohan Afro Foods, corporate structure">
+  
+  <title>Subsidiaries | Agrim International - Our Global Business Units</title>
+  
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/animations.css">
+  <link rel="stylesheet" href="../assets/css/responsive.css">
+  
+  <!-- Additional styles for subsidiaries page -->
+  <style>
+    /* Subsidiary Hero Cards */
+    .subsidiary-hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 8rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    
+    .subsidiary-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 40%;
+      height: 100%;
+      background: rgba(196, 167, 71, 0.03);
+      z-index: 0;
+    }
+    
+    .subsidiary-hero-content {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    
+    .subsidiary-hero-image {
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+      aspect-ratio: 4/3;
+    }
+    
+    .subsidiary-hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s ease;
+    }
+    
+    .subsidiary-hero-image:hover img {
+      transform: scale(1.05);
+    }
+    
+    .subsidiary-hero-image::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 1px solid rgba(196, 167, 71, 0.2);
+      border-radius: 16px;
+      pointer-events: none;
+    }
+    
+    .subsidiary-badge {
+      display: inline-block;
+      padding: 0.5rem 1.25rem;
+      background: rgba(196, 167, 71, 0.1);
+      border: 1px solid rgba(196, 167, 71, 0.3);
+      border-radius: 100px;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      margin-bottom: 1.5rem;
+    }
+    
+    .subsidiary-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    
+    .subsidiary-stat-value {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      color: var(--color-gold);
+      display: block;
+      line-height: 1;
+    }
+    
+    .subsidiary-stat-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-silver);
+      margin-top: 0.5rem;
+      display: block;
+    }
+    
+    /* Product Grid within Subsidiary */
+    .product-mini-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    
+    .product-mini-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 8px;
+      padding: 1.25rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    
+    .product-mini-card:hover {
+      background: rgba(255,255,255,0.05);
+      border-color: rgba(196, 167, 71, 0.3);
+      transform: translateY(-4px);
+    }
+    
+    .product-mini-icon {
+      font-size: 2.5rem;
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+    
+    .product-mini-name {
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+    }
+    
+    .product-mini-category {
+      font-size: 0.7rem;
+      color: var(--color-gold);
+      letter-spacing: 0.05em;
+    }
+    
+    /* Subsidiary Navigation Tabs */
+    .subsidiary-tabs {
+      position: sticky;
+      top: 80px;
+      z-index: 100;
+      background: rgba(10, 10, 10, 0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 1rem 0;
+      margin-bottom: 0;
+    }
+    
+    .subsidiary-tabs-nav {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    
+    .subsidiary-tabs-nav::-webkit-scrollbar {
+      display: none;
+    }
+    
+    .subsidiary-tab-btn {
+      padding: 0.75rem 1.5rem;
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 100px;
+      color: var(--color-silver);
+      font-family: var(--font-secondary);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    
+    .subsidiary-tab-btn:hover {
+      border-color: rgba(196, 167, 71, 0.4);
+      color: var(--color-white);
+    }
+    
+    .subsidiary-tab-btn.active {
+      background: var(--color-gold);
+      color: var(--color-black);
+      border-color: var(--color-gold);
+    }
+    
+    /* Certification Grid */
+    .certification-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    
+    .certification-card {
+      background: var(--color-off-black);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    
+    .certification-card:hover {
+      border-color: rgba(196, 167, 71, 0.3);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    
+    .certification-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    
+    .certification-name {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+    }
+    
+    .certification-desc {
+      font-size: 0.8rem;
+      color: var(--color-silver);
+      line-height: 1.6;
+    }
+    
+    /* Distribution Map */
+    .distribution-map {
+      background: var(--color-off-black);
+      border-radius: 16px;
+      padding: 2rem;
+      border: 1px solid rgba(255,255,255,0.05);
+      position: relative;
+      overflow: hidden;
+      min-height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .region-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+      width: 100%;
+    }
+    
+    .region-item {
+      padding: 1.25rem;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+    
+    .region-item:hover {
+      border-color: rgba(196, 167, 71, 0.3);
+      background: rgba(196, 167, 71, 0.03);
+    }
+    
+    .region-name {
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+      font-size: 0.9rem;
+    }
+    
+    .region-countries {
+      font-size: 0.75rem;
+      color: var(--color-silver);
+    }
+    
+    /* Timeline in subsidiaries */
+    .milestone-timeline {
+      position: relative;
+      padding-left: 2rem;
+      border-left: 2px solid rgba(196, 167, 71, 0.3);
+    }
+    
+    .milestone-item {
+      position: relative;
+      padding-bottom: 2.5rem;
+    }
+    
+    .milestone-item:last-child {
+      padding-bottom: 0;
+    }
+    
+    .milestone-item::before {
+      content: '';
+      position: absolute;
+      left: -2.45rem;
+      top: 0.25rem;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--color-gold);
+      border: 2px solid var(--color-black);
+    }
+    
+    .milestone-year {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      color: var(--color-gold);
+      margin-bottom: 0.25rem;
+    }
+    
+    .milestone-title {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    
+    .milestone-desc {
+      font-size: 0.85rem;
+      color: var(--color-silver);
+    }
+    
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .subsidiary-hero-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      
+      .subsidiary-hero-image {
+        order: -1;
+      }
+      
+      .subsidiary-stats {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .subsidiary-stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .subsidiary-tab-btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.7rem;
+      }
+      
+      .product-mini-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Page Transition -->
+  <div class="page-transition"></div>
+
+  <!-- Search Overlay -->
+  <div class="search-overlay">
+    <button class="search-close" style="position:absolute;top:2rem;right:2rem;background:none;border:none;color:var(--color-gold);font-size:2rem;cursor:pointer;">✕</button>
+    <input type="text" class="search-input" placeholder="Search subsidiaries, products...">
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="../index.html" class="nav-logo">AGRIM</a>
+      
+      <ul class="nav-links">
+        <li><a href="about.html">About</a></li>
+        <li class="mega-menu-trigger">
+          <a href="#" style="color:var(--color-gold);">Subsidiaries ▾</a>
+          <div class="mega-menu">
+            <div class="mega-menu-column">
+              <h4>Main Company</h4>
+              <a href="#agrim-international">Agrim International</a>
+              <a href="products.html">All Products</a>
+              <a href="manufacturing.html">Manufacturing</a>
+            </div>
+            <div class="mega-menu-column">
+              <h4>Subsidiaries</h4>
+              <a href="#agrim-global">Agrim Global</a>
+              <a href="#agrim-pharma">Agrim Pharmaceutical</a>
+              <a href="#mohan-afro">Mohan Afro Foods</a>
+            </div>
+            <div class="mega-menu-column">
+              <h4>Quick Links</h4>
+              <a href="careers.html">Careers</a>
+              <a href="investor.html">Investor Relations</a>
+              <a href="contact.html">Contact Us</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="manufacturing.html">Manufacturing</a></li>
+        <li><a href="csr.html">CSR</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="#" class="search-trigger">🔍</a></li>
+      </ul>
+      
+      <button class="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Navigation -->
+  <div class="mobile-nav">
+    <button class="mobile-nav-close">✕</button>
+    <a href="about.html">About</a>
+    <a href="subsidiaries.html">Subsidiaries</a>
+    <a href="products.html">Products</a>
+    <a href="manufacturing.html">Manufacturing</a>
+    <a href="csr.html">CSR</a>
+    <a href="news.html">News</a>
+    <a href="careers.html">Careers</a>
+    <a href="contact.html">Contact</a>
+    <a href="investor.html">Investors</a>
+    <a href="faq.html">FAQ</a>
+  </div>
+
+  <main>
+    <!-- Page Header -->
+    <section style="padding: 12rem 0 4rem; text-align: center; background: var(--color-off-black);">
+      <div class="container">
+        <div class="breadcrumb" style="justify-content: center;">
+          <a href="../index.html">Home</a>
+          <span class="breadcrumb-separator">/</span>
+          <span>Subsidiaries</span>
+        </div>
+        <p class="section-eyebrow reveal" style="margin-top: 2rem;">Our Corporate Structure</p>
+        <h1 class="reveal" style="font-size: clamp(2.5rem, 6vw, 5rem);">
+          Global <span class="gold-text">Business</span> Units
+        </h1>
+        <p class="reveal" style="max-width: 700px; margin: 1.5rem auto; font-size: 1.1rem;">
+          Each subsidiary operates with specialized expertise while benefiting from the collective 
+          strength of the Agrim International ecosystem.
+        </p>
+        
+        <!-- Quick Jump Tabs -->
+        <div class="reveal" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;">
+          <a href="#agrim-international" class="btn btn-outline" style="font-size: 0.75rem;">Parent Company</a>
+          <a href="#agrim-global" class="btn btn-outline" style="font-size: 0.75rem;">Agrim Global</a>
+          <a href="#agrim-pharma" class="btn btn-outline" style="font-size: 0.75rem;">Pharmaceutical</a>
+          <a href="#mohan-afro" class="btn btn-outline" style="font-size: 0.75rem;">Mohan Afro Foods</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Subsidiary Tabs (Sticky Navigation) -->
+    <div class="subsidiary-tabs">
+      <div class="container">
+        <div class="subsidiary-tabs-nav">
+          <button class="subsidiary-tab-btn active" data-target="agrim-international">Agrim International</button>
+          <button class="subsidiary-tab-btn" data-target="agrim-global">Agrim Global</button>
+          <button class="subsidiary-tab-btn" data-target="agrim-pharma">Agrim Pharmaceutical</button>
+          <button class="subsidiary-tab-btn" data-target="mohan-afro">Mohan Afro Foods</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- PARENT COMPANY: Agrim International -->
+    <!-- ============================================ -->
+    <section id="agrim-international" class="subsidiary-hero" style="background: var(--color-black);">
+      <div class="container">
+        <div class="subsidiary-hero-content">
+          <div class="reveal-left">
+            <span class="subsidiary-badge">Parent Company</span>
+            <h2 style="font-size: clamp(2rem, 4vw, 3.5rem); margin-bottom: 1.5rem;">
+              Agrim <span class="gold-text">International</span>
+            </h2>
+            <p style="font-size: 1.1rem; margin-bottom: 1rem;">
+              The flagship corporation and parent company overseeing all subsidiaries. 
+              Agrim International is the driving force behind our premium beverage portfolio 
+              and the strategic hub for global operations.
+            </p>
+            <p style="margin-bottom: 1.5rem;">
+              Founded with a commitment to excellence, the parent company manages the iconic 
+              Tombo brand family and Cremica, setting the standard for quality across all 
+              our business units.
+            </p>
+            
+            <div class="subsidiary-stats">
+              <div>
+                <span class="subsidiary-stat-value">2005</span>
+                <span class="subsidiary-stat-label">Founded</span>
+              </div>
+              <div>
+                <span class="subsidiary-stat-value">40+</span>
+                <span class="subsidiary-stat-label">Countries</span>
+              </div>
+              <div>
+                <span class="subsidiary-stat-value">5</span>
+                <span class="subsidiary-stat-label">Core Brands</span>
+              </div>
+            </div>
+            
+            <div style="margin-top: 2rem; display: flex; gap: 1rem;">
+              <a href="manufacturing.html" class="btn btn-primary">Manufacturing →</a>
+              <a href="contact.html" class="btn btn-outline">Partner With Us</a>
+            </div>
+          </div>
+          
+          <div class="subsidiary-hero-image reveal-scale">
+            <img src="https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&w=800" 
+                 alt="Agrim International Headquarters" 
+                 loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Agrim International Products -->
+    <section style="padding: 5rem 0; background: var(--color-off-black);">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="section-eyebrow">Premium Portfolio</p>
+          <h3 style="font-size: 2rem;">Flagship <span class="gold-text">Brands</span></h3>
+          <div class="section-line"></div>
+        </div>
+        
+        <div class="product-mini-grid stagger-children">
+          <a href="product-detail.html" class="product-mini-card">
+            <span class="product-mini-icon">🍾</span>
+            <div class="product-mini-name">Tombo Bitters</div>
+            <div class="product-mini-category">Beverages</div>
+          </a>
+          <a href="product-detail.html" class="product-mini-card">
+            <span class="product-mini-icon">🥃</span>
+            <div class="product-mini-name">Tombo Vodka</div>
+            <div class="product-mini-category">Spirits</div>
+          </a>
+          <a href="product-detail.html" class="product-mini-card">
+            <span class="product-mini-icon">🍷</span>
+            <div class="product-mini-name">Tombo Brandy</div>
+            <div class="product-mini-category">Spirits</div>
+          </a>
+          <a href="product-detail.html" class="product-mini-card">
+            <span class="product-mini-icon">🥃</span>
+            <div class="product-mini-name">Tombo Whiskey</div>
+            <div class="product-mini-category">Spirits</div>
+          </a>
+          <a href="product-detail.html" class="product-mini-card">
+            <span class="product-mini-icon">🥛</span>
+            <div class="product-mini-name">Cremica</div>
+            <div class="product-mini-category">Liqueur</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Agrim International Certifications -->
+    <section style="padding: 5rem 0;">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="section-eyebrow">Quality Assurance</p>
+          <h3 style="font-size: 2rem;">Industry <span class="gold-text">Certifications</span></h3>
+          <div class="section-line"></div>
+        </div>
+        
+        <div class="certification-grid stagger-children">
+          <div class="certification-card">
+            <span class="certification-icon">📋</span>
+            <div class="certification-name">ISO 9001:2015</div>
+            <div class="certification-desc">Quality Management Systems certification for manufacturing excellence.</div>
+          </div>
+          <div class="certification-card">
+            <span class="certification-icon">🏭</span>
+            <div class="certification-name">GMP Certified</div>
+            <div class="certification-desc">Good Manufacturing Practices ensuring product safety and quality.</div>
+          </div>
+          <div class="certification-card">
+            <span class="certification-icon">🌍</span>
+            <div class="certification-name">HACCP</div>
+            <div class="certification-desc">Hazard Analysis Critical Control Point for food safety management.</div>
+          </div>
+          <div class="certification-card">
+            <span class="certification-icon">✅</span>
+            <div class="certification-name">FDA Approved</div>
+            <div class="certification-desc">Compliance with international food and drug administration standards.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SUBSIDIARY 1: Agrim Global -->
+    <!-- ============================================ -->
+    <section id="agrim-global" class="subsidiary-hero" style="background: var(--color-black);">
+      <div class="container">
+        <div class="subsidiary-hero-content">
+          <div class="subsidiary-hero-image reveal-scale" style="order: -1;">
+            <img src="https://images.pexels.com/photos/1092730/pexels-photo-1092730.jpeg?auto=compress&cs=tinysrgb&w=800" 
+                 alt="Agrim Global Confectionery" 
+                 loading="lazy">
+          </div>
+          
+          <div class="reveal-right">
+            <span class="subsidiary-badge">Subsidiary</span>
+            <h2 style="font-size: clamp(2rem, 4vw, 3.5rem); margin-bottom: 1.5rem;">
+              Agrim <span class="gold-text">Global</span>
+            </h2>
+            <p style="font-size: 1.1rem; margin-bottom: 1rem;">
+              The confectionery and sweets division of Agrim International. Agrim Global 
+              delights consumers worldwide with beloved candy brands including Tobo and 
+              Cremica confectionery products.
+            </p>
+            <p style="margin-bottom: 1.5rem;">
+              From nostalgic hard candies to innovative lollipops, Agrim Global combines 
+              traditional recipes with modern manufacturing to create treats that bring 
+              joy to every generation.
+            </p>
+            
+            <div class="subsidiary-stats">
+              <div>
+                <span class="subsidiary-stat-value">2010</span>
+                <span class="subsidiary-stat-label">Established</span>
+              </div>
+              <div>
+                <span class="subsidiary-stat-value">20+</span>
+                <span class="subsidiary-stat-label">Markets</span>
+              </div>
+              <div>
+                <span class="subsidiary-stat-value">4</span>
+                <span class="subsidiary-stat-label">Core Products</span>
+              </div>
+            </div>
+            
+            <div style="margin-top: 2rem; display: flex; gap: 1rem;">
+              <a href="products.html#confectionery" class="btn btn-primary">View Products →</a>
+              <a href="contact.html" class="btn btn-outline">Distributor Inquiry</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Agrim Global Products -->
+    <section style="padding: 5rem 0; background: var(--color-off-black);">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="section-eyebrow">Sweet Portfolio</p>
+          <h3 style="font-size: 2rem;">Confectionery <span class="gold-text">Brands</span></h3>
+          <div class="section-line"></div>
+        </div>
+        
+        <div class="product-mini-grid stagger-children">
+          <a href="product-detail.html" class="product-mini-card">
+            <span class="product-mini-icon">🍊</span>
+            <div class="product-mini-name">Tobo Orange Sweet</div>
+            <div class="product-mini-category">Hard Candy</div>
+          </a>
+          <a href="product-detail.html" class="product-mini-card">
+            <span class="product-mini-icon">🍍</span>
+            <div class="product-mini-name">Tobo Pineapple Sweet</div>
+            <div class="product-mini-category">Hard Candy</div>
+          </a>
+          <a href="product-detail.html" class="product-mini-card">
+            <span class="product-mini-icon">🍭</span>
+            <div class="product-mini-name">Tobo Popup Lollipop</div>
+            <div class="product-mini-category">Lollipop</div>
+          </a>
+          <a href="product-detail.html" class="product-mini-card">
+            <span class="product-mini-icon">🍫</span>
+            <div class="product-mini-name">Eclairs</div>
+            <div class="product-mini-category">Chocolate</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Agrim Global Distribution -->
+    <section style="padding: 5rem 0;">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="section-eyebrow">Market Reach</p>
+          <h3 style="font-size: 2rem;">Distribution <span class="gold-text">Network</span></h3>
+          <div class="section-line"></div>
+        </div>
+        
+        <div class="distribution-map reveal-scale">
+          <div class="region-list">
+            <div class="region-item">
+              <div class="region-name">🌍 West Africa</div>
+              <div class="region-countries">Nigeria, Ghana, Ivory Coast, Senegal, Cameroon</div>
+            </div>
+            <div class="region-item">
+              <div class="region-name">🌍 East Africa</div>
+              <div class="region-countries">Kenya, Tanzania, Uganda, Rwanda, Ethiopia</div>
+            </div>
+            <div class="region-item">
+              <div class="region-name">🌍 Southern Africa</div>
+              <div class="region-countries">South Africa, Zambia, Zimbabwe, Botswana, Namibia</div>
+            </div>
+            <div class="region-item">
+              <div class="region-name">🌏 Middle East</div>
+              <div class="region-countries">UAE, Saudi Arabia, Qatar, Kuwait, Oman</div>
+            </div>
+            <div class="region-item">
+              <div class="region-name">🌏 Asia Pacific</div>
+              <div class="region-countries">India, Malaysia, Indonesia, Philippines</div>
+            </div>
+            <div class="region-item">
+              <div class="region-name">🌍 Europe</div>
+              <div class="region-countries">UK, France, Germany, Netherlands, Belgium</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SUBSIDIARY 2: Agrim Pharmaceutical & Healthcare -->
+    <!-- ============================================ -->
+    <section id="agrim-pharma" class="subsidiary-hero" style="background: var(--color-black);">
+      <div class="container">
+        <div class="subsidiary-hero-content">
+          <div class="reveal-left">
+            <span class="subsidiary-badge">Subsidiary</span>
+            <h2 style="font-size: clamp(2rem, 4vw, 3.5rem); margin-bottom: 1.5rem;">
+              Agrim <span class="gold-text">Pharmaceutical</span> & Healthcare
+            </h2>
+            <p style="font-size: 1.1rem; margin-bottom: 1rem;">
+              Our healthcare division dedicated to improving lives through essential medical 
+              and personal care products. From feminine hygiene to baby care, sexual wellness 
+              to medical supplies, we provide reliable, high-quality healthcare solutions.
+            </p>
+            <p style="margin-bottom: 1.5rem;">
+              With state-of-the-art manufacturing facilities and rigorous quality control, 
+              Agrim Pharmaceutical ensures every product meets the highest standards of 
+              safety and efficacy.
+            </p>
+            
+            <div class="subsidiary-stats">
+              <div>
+                <span class="subsidiary-stat-value">2015</span>
+                <span class="subsidiary-stat-label">Established</span>
+              </div>
+              <div>
+                <span class="subsidiary-stat-value">30+</span>
+                <span class="subsidiary-stat-label">Countries</span>
+              </div>
+              <div>
+                <span class="subsidiary-stat-value">7</span>
+                <span class="subsidiary-stat-label">Products</span>
+              </div>
+            </div>
+            
+            <div style="margin-top: 2rem; display: flex; gap: 1rem;">
+              <a href="products.html#pharma" class="btn btn-primary">View Products →</a>
+              <a href="contact.html" class="btn btn-outline">Healthcare Partnerships</a>
+            </div>
+          </div>
+          
+          <div class="subsidiary-hero-image reveal-scale">
+            <img src="https://images.pexels.com/photos/2280571/pexels-photo-2280571.jpeg?auto=compress&cs=tinysrgb&w=800" 
+                 alt="Agrim Pharmaceutical Laboratory" 
+                 loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Agrim Pharmaceutical Products -->
+    <section style="padding: 5rem 0; background: var(--color-off-black);">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="section-eyebrow">Healthcare Portfolio</p>
+          <h3 style="font-size: 2rem;">Medical & Personal <span class="gold-text">Care</span></h3>
+          <div class="section-line"></div>
+        </div>
+        
+        <!-- Feminine Care -->
+        <div class="reveal" style="margin-bottom: 3rem;">
+          <h4 style="color: var(--color-gold); font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1.5rem;">Feminine Care</h4>
+          <div class="product-mini-grid">
+            <a href="product-detail.html" class="product-mini-card">
+              <span class="product-mini-icon">🩸</span>
+              <div class="product-mini-name">4D Womaneezz (Heavy Flow)</div>
+              <div class="product-mini-category">Sanitary Pad</div>
+            </a>
+            <a href="product-detail.html" class="product-mini-card">
+              <span class="product-mini-icon">🩸</span>
+              <div class="product-mini-name">4D Womaneezz (Light Flow)</div>
+              <div class="product-mini-category">Sanitary Pad</div>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Baby Care -->
+        <div class="reveal" style="margin-bottom: 3rem;">
+          <h4 style="color: var(--color-gold); font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1.5rem;">Baby Care</h4>
+          <div class="product-mini-grid">
+            <a href="product-detail.html" class="product-mini-card">
+              <span class="product-mini-icon">👶</span>
+              <div class="product-mini-name">4D Babyeezz Open Diaper</div>
+              <div class="product-mini-category">Baby Diaper</div>
+            </a>
+            <a href="product-detail.html" class="product-mini-card">
+              <span class="product-mini-icon">👶</span>
+              <div class="product-mini-name">4D Babyeezz Nappy Pants</div>
+              <div class="product-mini-category">Nappy Pants</div>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Sexual Wellness -->
+        <div class="reveal" style="margin-bottom: 3rem;">
+          <h4 style="color: var(--color-gold); font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1.5rem;">Sexual Wellness</h4>
+          <div class="product-mini-grid">
+            <a href="product-detail.html" class="product-mini-card">
+              <span class="product-mini-icon">🛡️</span>
+              <div class="product-mini-name">Tango Condom</div>
+              <div class="product-mini-category">Protection</div>
+            </a>
+            <a href="product-detail.html" class="product-mini-card">
+              <span class="product-mini-icon">🛡️</span>
+              <div class="product-mini-name">Kuchi Kuchi Condom</div>
+              <div class="product-mini-category">Protection</div>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Medical Supplies -->
+        <div class="reveal">
+          <h4 style="color: var(--color-gold); font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1.5rem;">Medical Supplies</h4>
+          <div class="product-mini-grid">
+            <a href="product-detail.html" class="product-mini-card">
+              <span class="product-mini-icon">💉</span>
+              <div class="product-mini-name">Treejet Syringe</div>
+              <div class="product-mini-category">Medical Device</div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Agrim Pharmaceutical Certifications -->
+    <section style="padding: 5rem 0;">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="section-eyebrow">Safety & Compliance</p>
+          <h3 style="font-size: 2rem;">Healthcare <span class="gold-text">Standards</span></h3>
+          <div class="section-line"></div>
+        </div>
+        
+        <div class="certification-grid stagger-children">
+          <div class="certification-card">
+            <span class="certification-icon">🏥</span>
+            <div class="certification-name">ISO 13485</div>
+            <div class="certification-desc">Medical devices quality management systems certification.</div>
+          </div>
+          <div class="certification-card">
+            <span class="certification-icon">🔬</span>
+            <div class="certification-name">WHO-GMP</div>
+            <div class="certification-desc">World Health Organization Good Manufacturing Practices.</div>
+          </div>
+          <div class="certification-card">
+            <span class="certification-icon">💊</span>
+            <div class="certification-name">CE Marking</div>
+            <div class="certification-desc">European conformity for medical devices and healthcare products.</div>
+          </div>
+          <div class="certification-card">
+            <span class="certification-icon">🩺</span>
+            <div class="certification-name">NAFDAC Registered</div>
+            <div class="certification-desc">National Agency for Food and Drug Administration approved.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Agrim Pharmaceutical Milestones -->
+    <section style="padding: 5rem 0; background: var(--color-off-black);">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="section-eyebrow">Our Journey</p>
+          <h3 style="font-size: 2rem;">Key <span class="gold-text">Milestones</span></h3>
+          <div class="section-line"></div>
+        </div>
+        
+        <div class="reveal" style="max-width: 600px; margin: 2rem auto 0;">
+          <div class="milestone-timeline">
+            <div class="milestone-item">
+              <div class="milestone-year">2015</div>
+              <div class="milestone-title">Division Established</div>
+              <div class="milestone-desc">Agrim Pharmaceutical & Healthcare launched to address growing healthcare needs.</div>
+            </div>
+            <div class="milestone-item">
+              <div class="milestone-year">2017</div>
+              <div class="milestone-title">4D Technology Introduction</div>
+              <div class="milestone-desc">Launch of 4D Womaneezz with advanced absorption technology.</div>
+            </div>
+            <div class="milestone-item">
+              <div class="milestone-year">2019</div>
+              <div class="milestone-title">Baby Care Expansion</div>
+              <div class="milestone-desc">Introduction of 4D Babyeezz diaper range for infant care.</div>
+            </div>
+            <div class="milestone-item">
+              <div class="milestone-year">2021</div>
+              <div class="milestone-title">Sexual Wellness Launch</div>
+              <div class="milestone-desc">Tango and Kuchi Kuchi condom brands introduced to market.</div>
+            </div>
+            <div class="milestone-item">
+              <div class="milestone-year">2023</div>
+              <div class="milestone-title">Medical Supplies Division</div>
+              <div class="milestone-desc">Treejet Syringe launched, expanding into medical devices.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SUBSIDIARY 3: Mohan Afro Foods -->
+    <!-- ============================================ -->
+    <section id="mohan-afro" class="subsidiary-hero" style="background: var(--color-black);">
+      <div class="container">
+        <div class="subsidiary-hero-content">
+          <div class="subsidiary-hero-image reveal-scale" style="order: -1;">
+            <img src="https://images.pexels.com/photos/533280/pexels-photo-533280.jpeg?auto=compress&cs=tinysrgb&w=800" 
+                 alt="Mohan Afro Foods Production" 
+                 loading="lazy">
+          </div>
+          
+          <div class="reveal-right">
+            <span class="subsidiary-badge">Subsidiary</span>
+            <h2 style="font-size: clamp(2rem, 4vw, 3.5rem); margin-bottom: 1.5rem;">
+              Mohan <span class="gold-text">Afro</span> Foods
+            </h2>
+            <p style="font-size: 1.1rem; margin-bottom: 1rem;">
+              Our newest subsidiary specializing in premium food products. Mohan Afro Foods 
+              represents our strategic expansion into the food industry, starting with the 
+              flagship Topisto Tomato brand.
+            </p>
+            <p style="margin-bottom: 1.5rem;">
+              Built on a foundation of agricultural excellence and modern food processing, 
+              Mohan Afro Foods is positioned to become a leading name in quality food 
+              products across the continent and beyond.
+            </p>
+            
+            <div class="subsidiary-stats">
+              <div>
+                <span class="subsidiary-stat-value">2022</span>
+                <span class="subsidiary-stat-label">Established</span>
+              </div>
+              <div>
+                <span class="subsidiary-stat-value">10+</span>
+                <span class="subsidiary-stat-label">Countries</span>
+              </div>
+              <div>
+                <span class="subsidiary-stat-value">1</span>
+                <span class="subsidiary-stat-label">Flagship Brand</span>
+              </div>
+            </div>
+            
+            <div style="margin-top: 2rem; display: flex; gap: 1rem;">
+              <a href="products.html#food" class="btn btn-primary">View Products →</a>
+              <a href="contact.html" class="btn btn-outline">Supplier Partnerships</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mohan Afro Foods Products -->
+    <section style="padding: 5rem 0; background: var(--color-off-black);">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="section-eyebrow">Food Portfolio</p>
+          <h3 style="font-size: 2rem;">Premium <span class="gold-text">Food</span> Products</h3>
+          <div class="section-line"></div>
+        </div>
+        
+        <div class="reveal" style="max-width: 400px; margin: 0 auto;">
+          <a href="product-detail.html" class="product-mini-card" style="padding: 2rem;">
+            <span class="product-mini-icon" style="font-size: 4rem;">🍅</span>
+            <div class="product-mini-name" style="font-size: 1.2rem;">Topisto Tomato</div>
+            <div class="product-mini-category" style="font-size: 0.85rem;">Premium Tomato Products</div>
+            <p style="font-size: 0.8rem; color: var(--color-silver); margin-top: 0.75rem;">
+              Made from carefully selected, vine-ripened tomatoes from the finest farms.
+            </p>
+          </a>
+        </div>
+        
+        <div class="reveal" style="text-align: center; margin-top: 3rem;">
+          <p style="color: var(--color-gold); font-style: italic;">
+            "More exciting food products coming soon. Mohan Afro Foods is committed to 
+            expanding its portfolio with innovative, high-quality food products."
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mohan Afro Foods Future Vision -->
+    <section style="padding: 5rem 0;">
+      <div class="container">
+        <div class="reveal" style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
+          <div>
+            <p class="section-eyebrow">Future Vision</p>
+            <h3 style="font-size: 2rem; margin-bottom: 1.5rem;">Growing the <span class="gold-text">Food</span> Division</h3>
+            <p style="margin-bottom: 1rem;">
+              Mohan Afro Foods represents our commitment to diversification and growth. 
+              With plans to expand into multiple food categories including processed foods, 
+              condiments, sauces, and ready-to-cook products.
+            </p>
+            <p>
+              Our vision is to become a household name in food products across Africa and 
+              international markets, maintaining the same standards of quality and excellence 
+              that define all Agrim International subsidiaries.
+            </p>
+          </div>
+          <div class="glass-panel" style="padding: 2.5rem;">
+            <h4 style="color: var(--color-gold); margin-bottom: 1.5rem;">Planned Categories</h4>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+              <span style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border-radius: 100px; font-size: 0.8rem;">🍅 Tomato Products</span>
+              <span style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border-radius: 100px; font-size: 0.8rem;">🌶️ Sauces & Condiments</span>
+              <span style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border-radius: 100px; font-size: 0.8rem;">🥫 Canned Foods</span>
+              <span style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border-radius: 100px; font-size: 0.8rem;">🍝 Pasta & Noodles</span>
+              <span style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border-radius: 100px; font-size: 0.8rem;">🧃 Beverages</span>
+              <span style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border-radius: 100px; font-size: 0.8rem;">🍚 Rice & Grains</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- Corporate Structure Overview -->
+    <!-- ============================================ -->
+    <section style="padding: 5rem 0; background: var(--color-off-black);">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="section-eyebrow">Corporate Overview</p>
+          <h3 style="font-size: 2rem;">Our <span class="gold-text">Structure</span></h3>
+          <div class="section-line"></div>
+        </div>
+        
+        <div class="reveal" style="max-width: 900px; margin: 0 auto;">
+          <!-- Corporate Structure Diagram -->
+          <div style="text-align: center; padding: 3rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px;">
+            <!-- Parent -->
+            <div style="display: inline-block; padding: 1.5rem 3rem; background: rgba(196, 167, 71, 0.1); border: 1px solid rgba(196, 167, 71, 0.4); border-radius: 12px; margin-bottom: 2rem;">
+              <div style="font-family: var(--font-display); font-size: 1.5rem; color: var(--color-gold);">AGRIM INTERNATIONAL</div>
+              <div style="font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-silver); margin-top: 0.5rem;">Parent Company</div>
+            </div>
+            
+            <!-- Connector Line -->
+            <div style="width: 2px; height: 40px; background: rgba(196, 167, 71, 0.3); margin: 0 auto 0.5rem;"></div>
+            <div style="width: 80%; height: 1px; background: rgba(196, 167, 71, 0.3); margin: 0 auto 0.5rem; position: relative;">
+              <div style="position: absolute; left: 25%; top: -4px; width: 8px; height: 8px; background: var(--color-gold); border-radius: 50%;"></div>
+              <div style="position: absolute; left: 50%; top: -4px; width: 8px; height: 8px; background: var(--color-gold); border-radius: 50%;"></div>
+              <div style="position: absolute; left: 75%; top: -4px; width: 8px; height: 8px; background: var(--color-gold); border-radius: 50%;"></div>
+            </div>
+            
+            <!-- Subsidiaries -->
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 1rem;">
+              <div style="padding: 1.5rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px;">
+                <div style="font-weight: 600; margin-bottom: 0.25rem;">Agrim Global</div>
+                <div style="font-size: 0.7rem; color: var(--color-silver);">Confectionery & Sweets</div>
+              </div>
+              <div style="padding: 1.5rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px;">
+                <div style="font-weight: 600; margin-bottom: 0.25rem;">Agrim Pharmaceutical</div>
+                <div style="font-size: 0.7rem; color: var(--color-silver);">Healthcare Products</div>
+              </div>
+              <div style="padding: 1.5rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px;">
+                <div style="font-weight: 600; margin-bottom: 0.25rem;">Mohan Afro Foods</div>
+                <div style="font-size: 0.7rem; color: var(--color-silver);">Food Products</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- Call to Action -->
+    <!-- ============================================ -->
+    <section style="padding: 6rem 0; text-align: center;">
+      <div class="container">
+        <div class="reveal">
+          <h3 style="font-size: 2.5rem; margin-bottom: 1rem;">Interested in <span class="gold-text">Partnering</span> With Us?</h3>
+          <p style="max-width: 600px; margin: 0 auto 2rem;">
+            Whether you're looking for distribution opportunities, supplier partnerships, 
+            or investment possibilities, we'd love to hear from you.
+          </p>
+          <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <a href="contact.html" class="btn btn-primary">Contact Our Team →</a>
+            <a href="investor.html" class="btn btn-outline">Investor Relations</a>
+            <a href="manufacturing.html" class="btn btn-glass">Manufacturing Capabilities</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">AGRIM</div>
+          <p class="footer-desc">A global leader in manufacturing and consumer goods, delivering excellence across beverages, pharmaceuticals, and food products.</p>
+        </div>
+        <div class="footer-column">
+          <h4>Company</h4>
+          <a href="about.html">About Us</a>
+          <a href="manufacturing.html">Manufacturing</a>
+          <a href="csr.html">CSR</a>
+          <a href="careers.html">Careers</a>
+        </div>
+        <div class="footer-column">
+          <h4>Subsidiaries</h4>
+          <a href="subsidiaries.html#agrim-global">Agrim Global</a>
+          <a href="subsidiaries.html#agrim-pharma">Agrim Pharmaceutical</a>
+          <a href="subsidiaries.html#mohan-afro">Mohan Afro Foods</a>
+        </div>
+        <div class="footer-column">
+          <h4>Products</h4>
+          <a href="products.html">All Products</a>
+          <a href="products.html#beverages">Beverages</a>
+          <a href="products.html#pharma">Healthcare</a>
+          <a href="products.html#food">Food</a>
+        </div>
+        <div class="footer-column">
+          <h4>Contact</h4>
+          <a href="contact.html">Contact Us</a>
+          <a href="investor.html">Investors</a>
+          <a href="faq.html">FAQ</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2024 Agrim International. All rights reserved.</span>
+        <span>
+          <a href="#">Privacy Policy</a> · 
+          <a href="#">Terms of Service</a> · 
+          <a href="#">Cookie Policy</a>
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Chat Widget -->
+  <div class="chat-widget">
+    <button class="chat-toggle">💬</button>
+    <div class="chat-panel">
+      <div style="padding: 1.5rem; background: var(--color-charcoal); border-bottom: 1px solid rgba(255,255,255,0.1);">
+        <h4 style="font-size: 0.9rem;">Agrim Subsidiaries Support</h4>
+        <p style="font-size: 0.75rem;">Ask us about our business units</p>
+      </div>
+      <div style="padding: 1.5rem; flex: 1; overflow-y: auto;">
+        <div style="background: rgba(255,255,255,0.05); padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+          <p style="font-size: 0.85rem;">👋 Hello! Interested in learning more about our subsidiaries? I'm here to help!</p>
+        </div>
+      </div>
+      <div style="padding: 1rem; border-top: 1px solid rgba(255,255,255,0.1);">
+        <input type="text" class="form-input" placeholder="Type your message..." style="width: 100%;">
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <script src="../assets/js/animations.js"></script>
+  <script src="../assets/js/navigation.js"></script>
+  <script src="../assets/js/components.js"></script>
+  <script src="../assets/js/core.js"></script>
+  
+  <!-- Subsidiary Tabs Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Subsidiary tab navigation
+      const tabButtons = document.querySelectorAll('.subsidiary-tab-btn');
+      const sections = document.querySelectorAll('.subsidiary-hero');
+      
+      // Click handler for tab buttons
+      tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const targetId = button.getAttribute('data-target');
+          const targetSection = document.getElementById(targetId);
+          
+          if (targetSection) {
+            // Smooth scroll to section
+            if (window.lenis) {
+              window.lenis.scrollTo(targetSection, {
+                offset: -120,
+                duration: 1.5,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
+              });
+            } else {
+              targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          }
+        });
+      });
+      
+      // Update active tab based on scroll position
+      const updateActiveTab = () => {
+        const scrollPosition = window.scrollY + 200; // Offset for sticky header
+        
+        let activeSectionId = null;
+        
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop;
+          const sectionBottom = sectionTop + section.offsetHeight;
+          
+          if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+            activeSectionId = section.getAttribute('id');
+          }
+        });
+        
+        if (activeSectionId) {
+          tabButtons.forEach(button => {
+            button.classList.remove('active');
+            if (button.getAttribute('data-target') === activeSectionId) {
+              button.classList.add('active');
+            }
+          });
+        }
+      };
+      
+      // Listen for scroll events
+      window.addEventListener('scroll', updateActiveTab, { passive: true });
+      
+      // Initial check
+      updateActiveTab();
+      
+      // Handle hash links from mega menu
+      if (window.location.hash) {
+        setTimeout(() => {
+          const target = document.querySelector(window.location.hash);
+          if (target) {
+            if (window.lenis) {
+              window.lenis.scrollTo(target, { offset: -120, immediate: true });
+            } else {
+              target.scrollIntoView();
+            }
+          }
+        }, 300);
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+<!-- components/footer.html -->
+<footer class="site-footer">
+  <p>&copy; <span id="year-footer"></span> Agrims. All rights reserved.</p>
+</footer>
+<script>document.getElementById('year-footer')?.replaceWith(new Date().getFullYear());</script>
