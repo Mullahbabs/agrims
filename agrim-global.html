@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agrim Global - Confectionery & Sweets Division | Agrim International</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .page-banner {
+            background: linear-gradient(rgba(26, 58, 92, 0.8), rgba(26, 58, 92, 0.9)), url('https://images.unsplash.com/photo-1582058091505-f87a2e55a40f?w=1920');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .mission-vision {
+            background: var(--white);
+        }
+        
+        .mv-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .mv-card {
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .mv-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .mv-card.mission {
+            background: var(--primary);
+            color: var(--white);
+        }
+        
+        .mv-card.vision {
+            background: var(--light);
+            border: 2px solid var(--accent);
+        }
+        
+        .mv-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .mv-card.mission h3 {
+            color: var(--accent);
+        }
+        
+        .mv-card.vision h3 {
+            color: var(--primary);
+        }
+        
+        .product-showcase {
+            background: var(--light);
+        }
+        
+        .product-item {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .product-item-image {
+            background-size: cover;
+            background-position: center;
+            min-height: 300px;
+        }
+        
+        .product-item-content {
+            padding: 40px;
+        }
+        
+        .product-item-content h3 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .key-features {
+            list-style: none;
+            margin: 20px 0;
+        }
+        
+        .key-features li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .key-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+        
+        .quality-section {
+            background: var(--white);
+        }
+        
+        .certification-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .certification-card {
+            text-align: center;
+            padding: 30px;
+            background: var(--light);
+            border-radius: 10px;
+            transition: var(--transition);
+        }
+        
+        .certification-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+        
+        .certification-card i {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+        
+        @media (max-width: 768px) {
+            .mv-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .product-item {
+                grid-template-columns: 1fr;
+            }
+            
+            .product-item-image {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div><i class="fas fa-globe-africa"></i> Agrim International - Excellence Across Africa</div>
+            <div>
+                <a href="tel:+2348000000000"><i class="fas fa-phone"></i> +234 800 000 0000</a>
+                <a href="mailto:info@agrimglobal.com"><i class="fas fa-envelope"></i> info@agrimglobal.com</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon"><i class="fas fa-crown"></i></div>
+                    Agrim<span>International</span>
+                </a>
+                <div class="hamburger" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <nav class="main-nav" id="mainNav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#products">Products</a></li>
+                        <li><a href="index.html#subsidiaries">Subsidiaries</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <a href="index.html">Home</a> / <a href="index.html#subsidiaries">Subsidiaries</a> / <span>Agrim Global</span>
+        </div>
+    </div>
+
+    <!-- Page Banner -->
+    <section class="page-banner">
+        <div class="container">
+            <h1>Agrim Global</h1>
+            <p>Confectionery & Sweets Division - Sweetening Lives Across Africa</p>
+        </div>
+    </section>
+
+    <!-- About Agrim Global -->
+    <section class="about-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Agrim Global</h2>
+                <p>Bringing joy through quality confectionery products</p>
+            </div>
+            <div class="about-grid">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1582058091505-f87a2e55a40f?w=800" alt="Agrim Global">
+                </div>
+                <div class="about-content">
+                    <h3>Africa's Favorite Confectionery Brand</h3>
+                    <p>Agrim Global is the confectionery arm of Agrim International, dedicated to producing high-quality sweets, candies, and chocolates that delight consumers of all ages. With state-of-the-art manufacturing facilities and stringent quality control measures, we ensure every product meets international standards.</p>
+                    <p>Our products are crafted using the finest ingredients, combining traditional recipes with modern innovation to create unforgettable taste experiences.</p>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="4">0</span>
+                            <span>Core Brands</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="20">0</span>
+                            <span>Countries</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="1000">0</span>
+                            <span>Employees</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section class="mission-vision">
+        <div class="container">
+            <div class="mv-grid">
+                <div class="mv-card mission">
+                    <i class="fas fa-bullseye" style="font-size: 3rem; margin-bottom: 20px;"></i>
+                    <h3>Our Mission</h3>
+                    <p>To produce and distribute the highest quality confectionery products that bring smiles to faces across Africa and beyond, while maintaining affordable prices and creating value for our stakeholders.</p>
+                </div>
+                <div class="mv-card vision">
+                    <i class="fas fa-eye" style="font-size: 3rem; margin-bottom: 20px; color: var(--primary);"></i>
+                    <h3>Our Vision</h3>
+                    <p>To become Africa's leading confectionery manufacturer, recognized globally for quality, innovation, and our commitment to spreading sweetness and happiness.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Showcase -->
+    <section class="product-showcase">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Products</h2>
+                <p>Delicious treats crafted with care and quality</p>
+            </div>
+            
+            <div class="product-item">
+                <div class="product-item-image" style="background-image: url('https://images.unsplash.com/photo-1584278860047-22db9ff82bed?w=600');"></div>
+                <div class="product-item-content">
+                    <h3>Tobo Orange Sweet</h3>
+                    <p>Zesty and refreshing orange-flavored hard candy that delivers a burst of citrus flavor in every bite. Made with real orange extracts and natural colors.</p>
+                    <ul class="key-features">
+                        <li>Real orange flavor</li>
+                        <li>Individually wrapped for freshness</li>
+                        <li>No artificial colors</li>
+                        <li>Available in multiple pack sizes</li>
+                        <li>Perfect for all ages</li>
+                    </ul>
+                    <p><strong>Available Sizes:</strong> 50g, 100g, 200g, 500g packs</p>
+                    <a href="#contact" class="learn-more">Order Now</a>
+                </div>
+            </div>
+
+            <div class="product-item">
+                <div class="product-item-image" style="background-image: url('https://images.unsplash.com/photo-1599490659213-e2b3887d8c1c?w=600');"></div>
+                <div class="product-item-content">
+                    <h3>Tobo Pineapple Sweet</h3>
+                    <p>Tropical pineapple-flavored candy that transports you to paradise with its authentic, tangy-sweet taste. A favorite among fruit candy lovers.</p>
+                    <ul class="key-features">
+                        <li>Authentic pineapple taste</li>
+                        <li>Tropical fruit experience</li>
+                        <li>Long-lasting flavor</li>
+                        <li>Attractive packaging</li>
+                        <li>Great for sharing</li>
+                    </ul>
+                    <p><strong>Available Sizes:</strong> 50g, 100g, 200g, 500g packs</p>
+                    <a href="#contact" class="learn-more">Order Now</a>
+                </div>
+            </div>
+
+            <div class="product-item">
+                <div class="product-item-image" style="background-image: url('https://images.unsplash.com/photo-1528975604071-b4dc52a2d18c?w=600');"></div>
+                <div class="product-item-content">
+                    <h3>Tobo Popup Lollipop</h3>
+                    <p>Fun, colorful lollipops in assorted flavors that kids absolutely love. Each popup lollipop is a delightful treat that combines great taste with playful fun.</p>
+                    <ul class="key-features">
+                        <li>Multiple fruit flavors</li>
+                        <li>Colorful and attractive</li>
+                        <li>Safe for children</li>
+                        <li>Individually sealed</li>
+                        <li>Party pack options</li>
+                    </ul>
+                    <p><strong>Available Sizes:</strong> Individual, 12-pack, 24-pack, 50-pack</p>
+                    <a href="#contact" class="learn-more">Order Now</a>
+                </div>
+            </div>
+
+            <div class="product-item">
+                <div class="product-item-image" style="background-image: url('https://images.unsplash.com/photo-1549007994-cb92caebd54b?w=600');"></div>
+                <div class="product-item-content">
+                    <h3>Eclairs</h3>
+                    <p>Premium caramel-filled chocolate eclairs that melt in your mouth. Our eclairs combine rich chocolate with smooth, creamy caramel for an indulgent experience.</p>
+                    <ul class="key-features">
+                        <li>Rich chocolate coating</li>
+                        <li>Creamy caramel center</li>
+                        <li>Premium quality ingredients</li>
+                        <li>Elegant packaging</li>
+                        <li>Perfect for gifting</li>
+                    </ul>
+                    <p><strong>Available Sizes:</strong> 100g, 200g, 500g, 1kg packs</p>
+                    <a href="#contact" class="learn-more">Order Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quality & Certifications -->
+    <section class="quality-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Quality Assurance</h2>
+                <p>Committed to the highest standards of quality and safety</p>
+            </div>
+            <div class="certification-grid">
+                <div class="certification-card">
+                    <i class="fas fa-certificate"></i>
+                    <h4>ISO 22000</h4>
+                    <p>Food Safety Management</p>
+                </div>
+                <div class="certification-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h4>HACCP</h4>
+                    <p>Hazard Analysis Certified</p>
+                </div>
+                <div class="certification-card">
+                    <i class="fas fa-check-circle"></i>
+                    <h4>NAFDAC</h4>
+                    <p>Approved by Nigerian Authority</p>
+                </div>
+                <div class="certification-card">
+                    <i class="fas fa-globe"></i>
+                    <h4>International Standards</h4>
+                    <p>Export Quality Certified</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section style="background: var(--light);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Agrim Global?</h2>
+                <p>What sets us apart in the confectionery industry</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-leaf"></i></div>
+                    <h4>Quality Ingredients</h4>
+                    <p>We source the finest ingredients to ensure superior taste and quality in every product.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-industry"></i></div>
+                    <h4>Modern Facilities</h4>
+                    <p>State-of-the-art manufacturing plants with automated production lines for consistency.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-flask"></i></div>
+                    <h4>R&D Excellence</h4>
+                    <p>Continuous research and development to create innovative and exciting new products.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-truck"></i></div>
+                    <h4>Wide Distribution</h4>
+                    <p>Extensive distribution network ensuring product availability across 20+ African countries.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Agrim Global</h2>
+                <p>Get in touch for inquiries, orders, or partnerships</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-form">
+                    <h3 style="margin-bottom: 30px; color: var(--primary);">Send Us a Message</h3>
+                    <form onsubmit="handleSubsidiaryContact(event, 'Agrim Global')">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Company / Organization</label>
+                            <input type="text" id="company">
+                        </div>
+                        <div class="form-group">
+                            <label for="product">Product Interest</label>
+                            <select id="product">
+                                <option value="">Select a product</option>
+                                <option value="orange">Tobo Orange Sweet</option>
+                                <option value="pineapple">Tobo Pineapple Sweet</option>
+                                <option value="lollipop">Tobo Popup Lollipop</option>
+                                <option value="eclairs">Eclairs</option>
+                                <option value="all">All Products</option>
+                                <option value="distribution">Distribution Inquiry</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message *</label>
+                            <textarea id="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>
+                            <h3>Agrim Global Office</h3>
+                            <p>25 Industrial Estate<br>Lagos, Nigeria</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-phone"></i></div>
+                        <div>
+                            <h3>Phone</h3>
+                            <p>+234 800 000 1000<br>+234 800 000 1001</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <h3>Email</h3>
+                            <p>info@agrimglobal.com<br>orders@agrimglobal.com</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-clock"></i></div>
+                        <div>
+                            <h3>Business Hours</h3>
+                            <p>Monday - Friday: 8:00 AM - 6:00 PM<br>Saturday: 9:00 AM - 1:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>Agrim Global</h3>
+                    <p>The confectionery division of Agrim International, bringing sweetness to Africa since 2000.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Agrim International</a></li>
+                        <li><a href="#about">About Agrim Global</a></li>
+                        <li><a href="#products">Our Products</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Our Products</h3>
+                    <ul>
+                        <li><a href="#">Tobo Orange Sweet</a></li>
+                        <li><a href="#">Tobo Pineapple Sweet</a></li>
+                        <li><a href="#">Tobo Popup Lollipop</a></li>
+                        <li><a href="#">Eclairs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe for product updates and sweet news</p>
+                    <form onsubmit="handleNewsletterSubmit(event)" style="margin-top: 20px;">
+                        <div class="form-group">
+                            <input type="email" placeholder="Enter your email" required style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); color: white;">
+                        </div>
+                        <button type="submit" class="submit-btn" style="background: var(--accent); color: var(--dark);">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Agrim Global - A Division of Agrim International. All Rights Reserved. | <a href="#" style="color: #b0b0b0;">Privacy Policy</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        function handleSubsidiaryContact(event, subsidiaryName) {
+            event.preventDefault();
+            alert(`Thank you for contacting ${subsidiaryName}! Our team will respond within 24 hours.`);
+            event.target.reset();
+        }
+    </script>
+</body>
+</html>

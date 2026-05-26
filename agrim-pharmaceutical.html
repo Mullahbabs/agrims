@@ -1,0 +1,1223 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Agrim Pharmaceutical & Healthcare - Wellness Division | Agrim
+      International
+    </title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+      .page-banner {
+        background:
+          linear-gradient(rgba(26, 58, 92, 0.85), rgba(26, 58, 92, 0.9)),
+          url("https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=1920");
+        background-size: cover;
+        background-position: center;
+      }
+
+      .healthcare-categories {
+        background: var(--light);
+      }
+
+      .category-tabs {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 40px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .category-tab {
+        padding: 15px 30px;
+        background: var(--white);
+        border: 2px solid var(--primary);
+        border-radius: 30px;
+        cursor: pointer;
+        transition: var(--transition);
+        font-weight: 600;
+        color: var(--primary);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 0.9rem;
+      }
+
+      .category-tab:hover,
+      .category-tab.active {
+        background: var(--primary);
+        color: var(--white);
+      }
+
+      .product-category {
+        display: none;
+      }
+
+      .product-category.active {
+        display: block;
+      }
+
+      .product-detail-card {
+        background: var(--white);
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        margin-bottom: 40px;
+        display: grid;
+        grid-template-columns: 350px 1fr;
+        gap: 0;
+        align-items: center;
+        height: 100%;
+        justify-content: center;
+      }
+
+      .product-detail-image {
+        background-size: fit;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 100%;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .product-badge-large {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        background: var(--accent);
+        color: var(--dark);
+        padding: 8px 20px;
+        border-radius: 20px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 0.85rem;
+        white-space: nowrap;
+      }
+
+      .product-detail-content {
+        padding: 30px 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .product-detail-content h3 {
+        font-size: 1.8rem;
+        color: var(--primary);
+        margin-bottom: 6px;
+        line-height: 1.2;
+      }
+
+      .product-detail-content .product-description {
+        font-size: 1.05rem;
+        color: var(--gray);
+        margin-bottom: 8px;
+        line-height: 1.2;
+      }
+
+      .product-variants {
+        display: flex;
+        gap: 10px;
+        margin: 15px 0;
+        flex-wrap: wrap;
+      }
+
+      .variant-tag {
+        padding: 6px 16px;
+        background: var(--light);
+        border-radius: 20px;
+        font-weight: 600;
+        color: var(--primary);
+        border: 1px solid var(--primary);
+        font-size: 0.85rem;
+        white-space: nowrap;
+      }
+
+      .benefits-list {
+        list-style: none;
+        margin: 15px 0;
+      }
+
+      .benefits-list li {
+        padding: 8px 0;
+        padding-left: 28px;
+        position: relative;
+        border-bottom: 1px solid #f0f0f0;
+        font-size: 0.95rem;
+        line-height: 1.5;
+      }
+
+      .benefits-list li:last-child {
+        border-bottom: none;
+      }
+
+      .benefits-list li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: #27ae60;
+        font-weight: bold;
+        font-size: 1rem;
+        top: 8px;
+      }
+
+      .quality-assurance {
+        background: var(--white);
+      }
+
+      .qa-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+      }
+
+      .qa-card {
+        background: var(--light);
+        padding: 35px;
+        border-radius: 10px;
+        text-align: center;
+        transition: var(--transition);
+        border-top: 4px solid var(--primary);
+      }
+
+      .qa-card:hover {
+        transform: translateY(-8px);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .qa-card i {
+        font-size: 2.5rem;
+        color: var(--primary);
+        margin-bottom: 20px;
+      }
+
+      .qa-card h4 {
+        color: var(--primary);
+        margin-bottom: 15px;
+        font-size: 1.2rem;
+      }
+
+      .stats-highlight {
+        background: var(--primary);
+        color: var(--white);
+        padding: 60px 0;
+        text-align: center;
+      }
+
+      .stats-highlight-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 30px;
+      }
+
+      .stat-highlight-item {
+        padding: 20px;
+      }
+
+      .stat-highlight-number {
+        font-size: 3rem;
+        font-weight: 800;
+        color: var(--accent);
+        display: block;
+      }
+
+      .stat-highlight-label {
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-top: 10px;
+      }
+
+      /* Order button styling */
+      .product-detail-content .learn-more {
+        align-self: flex-start;
+        margin-top: 15px;
+      }
+
+      /* Tablet Responsive */
+      @media (max-width: 1024px) {
+        .product-detail-card {
+          grid-template-columns: 300px 1fr;
+        }
+
+        .product-detail-content {
+          padding: 25px 30px;
+        }
+
+        .product-detail-content h3 {
+          font-size: 1.5rem;
+        }
+
+        .product-detail-image {
+          min-height: 300px;
+        }
+      }
+
+      /* Mobile Responsive */
+      @media (max-width: 768px) {
+        .product-detail-card {
+          grid-template-columns: 1fr;
+          max-width: 500px;
+          margin-left: auto;
+          margin-right: auto;
+          overflow:hidden;
+        }
+
+        .product-detail-image {
+          height: 280px;
+          min-height: auto;
+          width: 100%;
+        }
+
+        .product-detail-content {
+          padding: 25px 20px;
+        }
+
+        .product-detail-content h3 {
+          font-size: 1.4rem;
+          text-align: center;
+        }
+
+        .product-detail-content .product-description {
+          text-align: center;
+          font-size: 0.95rem;
+        }
+
+        .product-variants {
+          justify-content: center;
+          gap: 8px;
+        }
+
+        .variant-tag {
+          padding: 5px 12px;
+          font-size: 0.8rem;
+        }
+
+        .benefits-list li {
+          font-size: 0.9rem;
+          padding: 7px 0;
+          padding-left: 25px;
+        }
+
+        .benefits-list li::before {
+          font-size: 0.9rem;
+          top: 7px;
+        }
+
+        .category-tab {
+          padding: 10px 18px;
+          font-size: 0.8rem;
+          flex: 1 1 auto;
+          text-align: center;
+          min-width: 120px;
+        }
+
+        .category-tabs {
+          gap: 8px;
+          padding: 0 10px;
+        }
+
+        .product-detail-content .learn-more {
+          align-self: center;
+          width: 100%;
+          text-align: center;
+          margin-top: 15px;
+        }
+
+        .product-badge-large {
+          top: 15px;
+          left: 15px;
+          padding: 6px 15px;
+          font-size: 0.75rem;
+        }
+      }
+
+      /* Small Mobile Responsive */
+      @media (max-width: 480px) {
+        .product-detail-image {
+          height: 220px;
+        }
+
+        .product-detail-content {
+          padding: 20px 15px;
+        }
+
+        .product-detail-content h3 {
+          font-size: 1.3rem;
+        }
+
+        .product-detail-content .product-description {
+          font-size: 0.9rem;
+        }
+
+        .variant-tag {
+          padding: 4px 10px;
+          font-size: 0.75rem;
+        }
+
+        .benefits-list li {
+          font-size: 0.85rem;
+        }
+
+        .category-tab {
+          padding: 8px 14px;
+          font-size: 0.75rem;
+          min-width: 100px;
+        }
+      }
+
+      /* Ensure images maintain aspect ratio and don't stretch */
+      .product-detail-image {
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+
+      /* Fix for very large screens */
+      @media (min-width: 1400px) {
+        .product-detail-card {
+          grid-template-columns: 400px 1fr;
+        }
+
+        .product-detail-image {
+          min-height: 400px;
+        }
+
+        .product-detail-content {
+          padding: 40px 50px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+      <div class="container">
+        <div>
+          <i class="fas fa-globe-africa"></i> Agrim International - Excellence
+          Across Africa
+        </div>
+        <div>
+          <a href="tel:+2348000000000"
+            ><i class="fas fa-phone"></i> +234 800 000 0000</a
+          >
+          <a href="mailto:info@agrimpharma.com"
+            ><i class="fas fa-envelope"></i> info@agrimpharma.com</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Header -->
+    <header class="main-header">
+      <div class="container">
+        <div class="header-content">
+          <a href="index.html" class="logo">
+            <div class="logo-icon"><i class="fas fa-crown"></i></div>
+            Agrim<span>International</span>
+          </a>
+          <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <nav class="main-nav" id="mainNav">
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="index.html#about">About</a></li>
+              <li><a href="index.html#products">Products</a></li>
+              <li><a href="index.html#subsidiaries">Subsidiaries</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+      <div class="container">
+        <a href="index.html">Home</a> /
+        <a href="index.html#subsidiaries">Subsidiaries</a> /
+        <span>Agrim Pharmaceutical & Healthcare</span>
+      </div>
+    </div>
+
+    <!-- Page Banner -->
+    <section class="page-banner">
+      <div class="container">
+        <h1>Agrim Pharmaceutical & Healthcare</h1>
+        <p>
+          Caring for Families, Enhancing Lives Through Quality Healthcare
+          Products
+        </p>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+      <div class="container">
+        <div class="section-title">
+          <h2>About Agrim Pharmaceutical & Healthcare</h2>
+          <p>Committed to improving health and wellness across Africa</p>
+        </div>
+        <div class="about-grid">
+          <div class="about-image">
+            <img
+              src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=800"
+              alt="Agrim Pharmaceutical"
+            />
+          </div>
+          <div class="about-content">
+            <h3>Healthcare Excellence Since 2005</h3>
+            <p>
+              Agrim Pharmaceutical & Healthcare is dedicated to manufacturing
+              and distributing high-quality healthcare products that support
+              maternal health, childcare, and personal wellness. Our
+              state-of-the-art facilities adhere to strict international quality
+              standards.
+            </p>
+            <p>
+              We understand the importance of accessible, affordable, and
+              reliable healthcare products. Every product we manufacture
+              undergoes rigorous testing to ensure safety and effectiveness.
+            </p>
+            <div class="stats-grid">
+              <div class="stat-item">
+                <span class="stat-number" data-target="6">0</span>
+                <span>Product Lines</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number" data-target="15">0</span>
+                <span>Countries</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number" data-target="2000">0</span>
+                <span>Healthcare Partners</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Highlight -->
+    <section class="stats-highlight">
+      <div class="container">
+        <div class="stats-highlight-grid">
+          <div class="stat-highlight-item">
+            <span class="stat-highlight-number">10M+</span>
+            <span class="stat-highlight-label">Products Sold Annually</span>
+          </div>
+          <div class="stat-highlight-item">
+            <span class="stat-highlight-number">50+</span>
+            <span class="stat-highlight-label">Distribution Centers</span>
+          </div>
+          <div class="stat-highlight-item">
+            <span class="stat-highlight-number">100%</span>
+            <span class="stat-highlight-label">Quality Tested</span>
+          </div>
+          <div class="stat-highlight-item">
+            <span class="stat-highlight-number">24/7</span>
+            <span class="stat-highlight-label">Customer Support</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Products by Category -->
+    <section class="healthcare-categories">
+      <div class="container">
+        <div class="section-title">
+          <h2>Our Products</h2>
+          <p>Comprehensive healthcare solutions for every need</p>
+        </div>
+
+        <div class="category-tabs">
+          <div class="category-tab active" onclick="showCategory('feminine')">
+            Feminine Care
+          </div>
+          <div class="category-tab" onclick="showCategory('baby')">
+            Baby Care
+          </div>
+          <div class="category-tab" onclick="showCategory('sexual')">
+            Sexual Wellness
+          </div>
+          <div class="category-tab" onclick="showCategory('medical')">
+            Medical Supplies
+          </div>
+        </div>
+
+        <!-- Feminine Care Category - Example -->
+        <div class="product-category active" id="feminine">
+          <div class="product-detail-card">
+            <div
+              class="product-detail-image"
+              style="
+                background-image: url(&quot;https://images.unsplash.com/photo-1583947215259-38e31be8751f?w=600&quot;);
+                background-color: #f8e8f0;
+              "
+            >
+              <span class="product-badge-large">Best Seller</span>
+            </div>
+            <div class="product-detail-content">
+              <h3>4D Womaneezz Sanitary Pad</h3>
+              <p class="product-description">
+                Premium sanitary protection designed for the modern woman,
+                available in Heavy Flow and Light Flow variants for personalized
+                comfort and confidence.
+              </p>
+
+              <h4
+                style="
+                  color: var(--primary);
+                  margin-bottom: 10px;
+                  font-size: 1rem;
+                "
+              >
+                Available Variants:
+              </h4>
+              <div class="product-variants">
+                <span class="variant-tag">Heavy Flow - 8 Pack</span>
+                <span class="variant-tag">Heavy Flow - 16 Pack</span>
+                <span class="variant-tag">Light Flow - 10 Pack</span>
+                <span class="variant-tag">Light Flow - 20 Pack</span>
+              </div>
+
+              <h4
+                style="
+                  color: var(--primary);
+                  margin: 15px 0 10px;
+                  font-size: 1rem;
+                "
+              >
+                Key Benefits:
+              </h4>
+              <ul class="benefits-list">
+                <li>4D Leak Guard Technology for maximum protection</li>
+                <li>Ultra-soft cotton top sheet for all-day comfort</li>
+                <li>Breathable material prevents skin irritation</li>
+                <li>Super absorbent core locks moisture instantly</li>
+                <li>Dermatologically tested and hypoallergenic</li>
+                <li>Side guards for extra leakage protection</li>
+                <li>Individually wrapped for hygiene and portability</li>
+              </ul>
+
+              <a href="#contact" class="learn-more">Order Womaneezz →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Baby Care Category -->
+        <div class="product-category" id="baby">
+          <div class="product-detail-card">
+            <div
+              class="product-detail-image"
+              style="
+                background-image: url(&quot;https://images.unsplash.com/photo-1522771930-78848d9293e8?w=600&quot;);
+                background-color: #e8f4fd;
+              "
+            >
+              <span class="product-badge-large">New</span>
+            </div>
+            <div class="product-detail-content">
+              <h3>4D Babyeezz Open Diaper</h3>
+              <p
+                style="
+                  font-size: 1.1rem;
+                  color: var(--gray);
+                  margin-bottom: 15px;
+                "
+              >
+                Premium open-style diapers providing ultimate comfort and
+                protection for babies of all sizes.
+              </p>
+
+              <h4 style="color: var(--primary); margin-bottom: 10px">
+                Available Sizes:
+              </h4>
+              <div class="product-variants">
+                <span class="variant-tag">Small (3-6 kg)</span>
+                <span class="variant-tag">Medium (5-10 kg)</span>
+                <span class="variant-tag">Large (9-14 kg)</span>
+                <span class="variant-tag">X-Large (13+ kg)</span>
+              </div>
+
+              <h4 style="color: var(--primary); margin: 20px 0 10px">
+                Key Benefits:
+              </h4>
+              <ul class="benefits-list">
+                <li>4D Absorption Core for up to 12 hours of dryness</li>
+                <li>Wetness indicator changes color when diaper is wet</li>
+                <li>Stretchy side panels for a comfortable fit</li>
+                <li>Soft elastic leg cuffs prevent leaks</li>
+                <li>Breathable outer layer reduces diaper rash</li>
+                <li>Adhesive tapes with re-sealable grip</li>
+                <li>Hypoallergenic and fragrance-free</li>
+              </ul>
+
+              <a href="#contact" class="learn-more" style="margin-top: 20px"
+                >Order Babyeezz Diapers →</a
+              >
+            </div>
+          </div>
+
+          <div class="product-detail-card">
+            <div
+              class="product-detail-image"
+              style="
+                background-image: url(&quot;https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&quot;);
+                background-color: #e8f4fd;
+              "
+            >
+              <span class="product-badge-large">Popular</span>
+            </div>
+            <div class="product-detail-content">
+              <h3>4D Babyeezz Nappy Pants</h3>
+              <p
+                style="
+                  font-size: 1.1rem;
+                  color: var(--gray);
+                  margin-bottom: 15px;
+                "
+              >
+                Easy-to-wear nappy pants designed for active babies and toddlers
+                on the move.
+              </p>
+
+              <h4 style="color: var(--primary); margin-bottom: 10px">
+                Available Sizes:
+              </h4>
+              <div class="product-variants">
+                <span class="variant-tag">Medium (6-11 kg)</span>
+                <span class="variant-tag">Large (9-14 kg)</span>
+                <span class="variant-tag">X-Large (12-17 kg)</span>
+                <span class="variant-tag">XX-Large (15+ kg)</span>
+              </div>
+
+              <h4 style="color: var(--primary); margin: 20px 0 10px">
+                Key Benefits:
+              </h4>
+              <ul class="benefits-list">
+                <li>360° stretchy waistband for easy pull-up wear</li>
+                <li>4D Channel Technology for even liquid distribution</li>
+                <li>Easy tear sides for quick removal</li>
+                <li>Ultra-thin design for freedom of movement</li>
+                <li>Fun printed designs that toddlers love</li>
+                <li>Super absorbent for overnight protection</li>
+                <li>Soft and gentle on sensitive skin</li>
+              </ul>
+
+              <a href="#contact" class="learn-more" style="margin-top: 20px"
+                >Order Nappy Pants →</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Sexual Wellness Category -->
+        <div class="product-category" id="sexual">
+          <div class="product-detail-card">
+            <div
+              class="product-detail-image"
+              style="
+                background-image: url(&quot;https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600&quot;);
+                background-color: #f0f0f0;
+              "
+            >
+              <span class="product-badge-large">Trusted</span>
+            </div>
+            <div class="product-detail-content">
+              <h3>Tango Condom</h3>
+              <p
+                style="
+                  font-size: 1.1rem;
+                  color: var(--gray);
+                  margin-bottom: 15px;
+                "
+              >
+                Premium quality condoms designed for ultimate pleasure and
+                protection.
+              </p>
+
+              <h4 style="color: var(--primary); margin-bottom: 10px">
+                Available Variants:
+              </h4>
+              <div class="product-variants">
+                <span class="variant-tag">Classic - 3 Pack</span>
+                <span class="variant-tag">Classic - 12 Pack</span>
+                <span class="variant-tag">Ribbed - 3 Pack</span>
+                <span class="variant-tag">Ultra Thin - 3 Pack</span>
+              </div>
+
+              <h4 style="color: var(--primary); margin: 20px 0 10px">
+                Key Benefits:
+              </h4>
+              <ul class="benefits-list">
+                <li>Electronically tested for safety and reliability</li>
+                <li>Natural latex for superior sensitivity</li>
+                <li>Silicon lubricated for comfort</li>
+                <li>Anatomical shape for better fit</li>
+                <li>Discreet and hygienic packaging</li>
+                <li>WHO and ISO certified quality</li>
+                <li>Affordable price without compromising quality</li>
+              </ul>
+
+              <a href="#contact" class="learn-more" style="margin-top: 20px"
+                >Order Tango Condoms →</a
+              >
+            </div>
+          </div>
+
+          <div class="product-detail-card">
+            <div
+              class="product-detail-image"
+              style="
+                background-image: url(&quot;https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&quot;);
+                background-color: #fef5f0;
+              "
+            >
+              <span class="product-badge-large">Value</span>
+            </div>
+            <div class="product-detail-content">
+              <h3>Kuchi Kuchi Condom</h3>
+              <p
+                style="
+                  font-size: 1.1rem;
+                  color: var(--gray);
+                  margin-bottom: 15px;
+                "
+              >
+                Affordable and reliable condoms providing essential protection
+                for everyone.
+              </p>
+
+              <h4 style="color: var(--primary); margin-bottom: 10px">
+                Available Variants:
+              </h4>
+              <div class="product-variants">
+                <span class="variant-tag">Standard - 3 Pack</span>
+                <span class="variant-tag">Standard - 12 Pack</span>
+                <span class="variant-tag">Economy - 24 Pack</span>
+              </div>
+
+              <h4 style="color: var(--primary); margin: 20px 0 10px">
+                Key Benefits:
+              </h4>
+              <ul class="benefits-list">
+                <li>Quality tested to international standards</li>
+                <li>Comfortable fit with natural latex</li>
+                <li>Pre-lubricated for ease of use</li>
+                <li>Affordable price point for accessibility</li>
+                <li>Discreet packaging</li>
+                <li>Ideal for bulk distribution programs</li>
+                <li>Meets all regulatory requirements</li>
+              </ul>
+
+              <a href="#contact" class="learn-more" style="margin-top: 20px"
+                >Order Kuchi Kuchi →</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Medical Supplies Category -->
+        <div class="product-category" id="medical">
+          <div class="product-detail-card">
+            <div
+              class="product-detail-image"
+              style="
+                background-image: url(&quot;https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600&quot;);
+                background-color: #f5f5f5;
+              "
+            >
+              <span class="product-badge-large">Essential</span>
+            </div>
+            <div class="product-detail-content">
+              <h3>Treejet Syringe</h3>
+              <p
+                style="
+                  font-size: 1.1rem;
+                  color: var(--gray);
+                  margin-bottom: 15px;
+                "
+              >
+                High-quality sterile syringes for medical and healthcare
+                applications, manufactured to precise specifications.
+              </p>
+
+              <h4 style="color: var(--primary); margin-bottom: 10px">
+                Available Sizes:
+              </h4>
+              <div class="product-variants">
+                <span class="variant-tag">1ml</span>
+                <span class="variant-tag">2ml</span>
+                <span class="variant-tag">3ml</span>
+                <span class="variant-tag">5ml</span>
+                <span class="variant-tag">10ml</span>
+                <span class="variant-tag">20ml</span>
+              </div>
+
+              <h4 style="color: var(--primary); margin: 20px 0 10px">
+                Key Benefits:
+              </h4>
+              <ul class="benefits-list">
+                <li>Sterile and individually sealed packaging</li>
+                <li>Smooth plunger action for precise dosing</li>
+                <li>Clear barrel with bold, easy-to-read graduations</li>
+                <li>Sharp, tri-beveled needle for minimal discomfort</li>
+                <li>Latex-free plunger tip to prevent allergies</li>
+                <li>Luer lock and luer slip options available</li>
+                <li>Meets ISO 7886-1 standards</li>
+                <li>Suitable for hospitals, clinics, and home care</li>
+              </ul>
+
+              <a href="#contact" class="learn-more" style="margin-top: 20px"
+                >Order Treejet Syringes →</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quality Assurance -->
+    <section class="quality-assurance">
+      <div class="container">
+        <div class="section-title">
+          <h2>Quality Assurance & Certifications</h2>
+          <p>Our commitment to healthcare excellence</p>
+        </div>
+        <div class="qa-grid">
+          <div class="qa-card">
+            <i class="fas fa-certificate"></i>
+            <h4>ISO 13485:2016</h4>
+            <p>
+              Certified for medical device quality management systems, ensuring
+              consistent design and production.
+            </p>
+          </div>
+          <div class="qa-card">
+            <i class="fas fa-microscope"></i>
+            <h4>GMP Certified</h4>
+            <p>
+              Following Good Manufacturing Practices for pharmaceutical and
+              healthcare products.
+            </p>
+          </div>
+          <div class="qa-card">
+            <i class="fas fa-check-double"></i>
+            <h4>CE Marking</h4>
+            <p>
+              Products meet European health, safety, and environmental
+              requirements.
+            </p>
+          </div>
+          <div class="qa-card">
+            <i class="fas fa-flask"></i>
+            <h4>NAFDAC Approved</h4>
+            <p>
+              Registered and approved by the National Agency for Food and Drug
+              Administration.
+            </p>
+          </div>
+          <div class="qa-card">
+            <i class="fas fa-globe-africa"></i>
+            <h4>WHO Compliant</h4>
+            <p>
+              Meeting World Health Organization standards for healthcare
+              products.
+            </p>
+          </div>
+          <div class="qa-card">
+            <i class="fas fa-shield-virus"></i>
+            <h4>ISO 9001:2015</h4>
+            <p>
+              Quality management systems for continuous improvement and customer
+              satisfaction.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section style="background: var(--light)">
+      <div class="container">
+        <div class="section-title">
+          <h2>Why Choose Agrim Pharmaceutical?</h2>
+          <p>What makes us the trusted healthcare partner</p>
+        </div>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fas fa-flask"></i></div>
+            <h4>Advanced R&D</h4>
+            <p>
+              Continuous research and development to improve product quality and
+              introduce innovative healthcare solutions.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fas fa-industry"></i></div>
+            <h4>Modern Manufacturing</h4>
+            <p>
+              State-of-the-art production facilities with automated processes
+              ensuring consistency and hygiene.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-clipboard-check"></i>
+            </div>
+            <h4>Rigorous Testing</h4>
+            <p>
+              Each batch undergoes thorough quality control testing before
+              reaching the market.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fas fa-truck"></i></div>
+            <h4>Reliable Distribution</h4>
+            <p>
+              Efficient supply chain ensuring products are available when and
+              where they're needed.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-hand-holding-heart"></i>
+            </div>
+            <h4>Affordable Healthcare</h4>
+            <p>
+              Committed to making quality healthcare products accessible and
+              affordable for all.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fas fa-headset"></i></div>
+            <h4>Customer Support</h4>
+            <p>
+              Dedicated support team available to address inquiries and provide
+              product information.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+      <div class="container">
+        <div class="section-title">
+          <h2>Contact Agrim Pharmaceutical</h2>
+          <p>Get in touch for inquiries, orders, or healthcare partnerships</p>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-form">
+            <h3 style="margin-bottom: 30px; color: var(--primary)">
+              Send Us a Message
+            </h3>
+            <form
+              onsubmit="
+                handleSubsidiaryContact(
+                  event,
+                  'Agrim Pharmaceutical & Healthcare',
+                )
+              "
+            >
+              <div class="form-group">
+                <label for="name">Full Name *</label>
+                <input type="text" id="name" required />
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" required />
+              </div>
+              <div class="form-group">
+                <label for="organization">Organization / Hospital</label>
+                <input type="text" id="organization" />
+              </div>
+              <div class="form-group">
+                <label for="product">Product Interest</label>
+                <select id="product">
+                  <option value="">Select a product</option>
+                  <option value="womaneezz">4D Womaneezz Sanitary Pad</option>
+                  <option value="babyeezz-diaper">
+                    4D Babyeezz Open Diaper
+                  </option>
+                  <option value="babyeezz-pants">
+                    4D Babyeezz Nappy Pants
+                  </option>
+                  <option value="tango">Tango Condom</option>
+                  <option value="kuchi">Kuchi Kuchi Condom</option>
+                  <option value="treejet">Treejet Syringe</option>
+                  <option value="distribution">Distribution Partnership</option>
+                  <option value="other">Other Inquiry</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="quantity">Estimated Quantity</label>
+                <input
+                  type="text"
+                  id="quantity"
+                  placeholder="e.g., 10,000 units"
+                />
+              </div>
+              <div class="form-group">
+                <label for="message">Your Message *</label>
+                <textarea id="message" rows="5" required></textarea>
+              </div>
+              <button type="submit" class="submit-btn">Send Inquiry</button>
+            </form>
+          </div>
+          <div class="contact-info">
+            <div class="info-item">
+              <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+              <div>
+                <h3>Agrim Pharmaceutical Office</h3>
+                <p>42 Healthcare Avenue<br />Lagos, Nigeria</p>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon"><i class="fas fa-phone"></i></div>
+              <div>
+                <h3>Phone</h3>
+                <p>+234 800 000 2000<br />+234 800 000 2001</p>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon"><i class="fas fa-envelope"></i></div>
+              <div>
+                <h3>Email</h3>
+                <p>info@agrimpharma.com<br />orders@agrimpharma.com</p>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon"><i class="fas fa-clock"></i></div>
+              <div>
+                <h3>Business Hours</h3>
+                <p>
+                  Monday - Friday: 8:00 AM - 6:00 PM<br />Saturday: 9:00 AM -
+                  1:00 PM
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-column">
+            <h3>Agrim Pharmaceutical</h3>
+            <p>
+              The healthcare division of Agrim International, dedicated to
+              improving lives through quality medical products.
+            </p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+          <div class="footer-column">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="index.html">Agrim International</a></li>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#products">Our Products</a></li>
+              <li><a href="#contact">Contact Us</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>Products</h3>
+            <ul>
+              <li><a href="#">4D Womaneezz</a></li>
+              <li><a href="#">4D Babyeezz Diapers</a></li>
+              <li><a href="#">4D Babyeezz Pants</a></li>
+              <li><a href="#">Tango Condoms</a></li>
+              <li><a href="#">Kuchi Kuchi Condoms</a></li>
+              <li><a href="#">Treejet Syringes</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>Newsletter</h3>
+            <p>Subscribe for healthcare updates and product news</p>
+            <form
+              onsubmit="handleNewsletterSubmit(event)"
+              style="margin-top: 20px"
+            >
+              <div class="form-group">
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  required
+                  style="
+                    background: rgba(255, 255, 255, 0.08);
+                    border: 1px solid rgba(255, 255, 255, 0.2);
+                    color: white;
+                  "
+                />
+              </div>
+              <button
+                type="submit"
+                class="submit-btn"
+                style="background: var(--accent); color: var(--dark)"
+              >
+                Subscribe
+              </button>
+            </form>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; 2024 Agrim Pharmaceutical & Healthcare - A Division of Agrim
+            International. All Rights Reserved. |
+            <a href="#" style="color: #b0b0b0">Privacy Policy</a> |
+            <a href="#" style="color: #b0b0b0">Medical Disclaimer</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+      function handleSubsidiaryContact(event, subsidiaryName) {
+        event.preventDefault();
+        alert(
+          `Thank you for contacting ${subsidiaryName}! Our healthcare team will respond within 24 hours.`,
+        );
+        event.target.reset();
+      }
+
+      function showCategory(categoryId) {
+        // Hide all categories
+        document.querySelectorAll(".product-category").forEach((cat) => {
+          cat.classList.remove("active");
+        });
+
+        // Remove active class from all tabs
+        document.querySelectorAll(".category-tab").forEach((tab) => {
+          tab.classList.remove("active");
+        });
+
+        // Show selected category
+        document.getElementById(categoryId).classList.add("active");
+
+        // Add active class to clicked tab
+        event.target.classList.add("active");
+      }
+    </script>
+  </body>
+</html>

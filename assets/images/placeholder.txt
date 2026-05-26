@@ -1,4 +1,0 @@
-PLACEHOLDER
-
-Add image files here (e.g. logo.png, hero.jpg, product-1.jpg).
-This folder is for static image assets used by the site.
