@@ -48,11 +48,46 @@ function moveProducts(direction) {
   productTrack.style.transform = `translateX(-${productPosition}px)`;
 }
 
-// Mobile Menu
+// Mobile Menu Toggle with overlay
 function toggleMenu() {
-  const nav = document.getElementById("mainNav");
-  if (nav) nav.classList.toggle("active");
+    const nav = document.getElementById('mainNav');
+    const hamburger = document.querySelector('.hamburger');
+    let overlay = document.querySelector('.menu-overlay');
+    
+    // Create overlay if it doesn't exist
+    if (!overlay) {
+        overlay = document.createElement('div');
+        overlay.className = 'menu-overlay';
+        document.body.appendChild(overlay);
+        
+        overlay.addEventListener('click', () => {
+            nav.classList.remove('active');
+            hamburger.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+    }
+    
+    nav.classList.toggle('active');
+    hamburger.classList.toggle('active');
+    overlay.classList.toggle('active');
+    
+    // Prevent body scroll when menu is open
+    document.body.style.overflow = nav.classList.contains('active') ? 'hidden' : '';
 }
+
+// Close menu when clicking a link
+document.querySelectorAll('.main-nav a').forEach(link => {
+    link.addEventListener('click', () => {
+        const nav = document.getElementById('mainNav');
+        const hamburger = document.querySelector('.hamburger');
+        const overlay = document.querySelector('.menu-overlay');
+        
+        nav.classList.remove('active');
+        hamburger.classList.remove('active');
+        if (overlay) overlay.classList.remove('active');
+        document.body.style.overflow = '';
+    });
+});
 
 // Smooth Scroll
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
