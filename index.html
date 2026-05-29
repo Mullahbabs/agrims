@@ -1,417 +1,308 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agrim International - Global Consumer Goods Excellence</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>FasNexi · luxury fashion hub</title>
+  <!-- Google Fonts for DM Sans & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  
 </head>
 <body>
-    <!-- Top Bar -->
-    <div class="top-bar">
-        <div class="container">
-            <div><i class="fas fa-globe-africa"></i> Agrim International - Excellence Across Africa</div>
-            <div>
-                <a href="tel:+2348000000000"><i class="fas fa-phone"></i> +234 800 000 0000</a>
-                <a href="mailto:info@agriminternational.com"><i class="fas fa-envelope"></i> info@agriminternational.com</a>
-            </div>
+  <!-- Sticky Navigation -->
+  <header class="nav">
+    <div class="nav-container">
+      <a href="#" class="logo">Fas<span>Nexi</span></a>
+      
+      <!-- Desktop links -->
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Designers</a></li>
+        <li><a href="#">Collections</a></li>
+        <li><a href="#">Thrift</a></li>
+        <li><a href="#">Custom</a></li>
+        <li><a href="#">Rentals</a></li>
+        <li><a href="#">Blog</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="icon-btn" aria-label="Wishlist">
+          <span style="font-size:1.4rem;">♡</span>
+          <span class="wishlist-count">3</span>
+        </button>
+        <button class="icon-btn" aria-label="Cart">
+          <span style="font-size:1.4rem;">🛒</span>
+          <span class="cart-count">2</span>
+        </button>
+        
+        <div class="user-menu">
+          <button class="icon-btn" id="userIconBtn" aria-label="User account">
+            <span style="font-size:1.5rem;">👤</span>
+          </button>
+          <div class="user-dropdown" id="userDropdown">
+            <a href="#"><span>🔑</span> Login</a>
+            <a href="#"><span>✨</span> Sign Up</a>
+          </div>
         </div>
+        <!-- Hamburger button -->
+        <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile menu overlay -->
+  <ul class="mobile-menu" id="mobileMenu">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Designers</a></li>
+    <li><a href="#">Collections</a></li>
+    <li><a href="#">Thrift</a></li>
+    <li><a href="#">Custom</a></li>
+    <li><a href="#">Rentals</a></li>
+    <li><a href="#">Blog</a></li>
+  </ul>
+
+  <!-- Header fade-in carousel (3 slides) -->
+  <section class="hero-carousel">
+    <div class="carousel-track" id="carouselTrack">
+      <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1485968579580-b6d095142e6e?q=80&w=1886&auto=format&fit=crop');">
+        <div class="slide-content">
+          <h2>New Season Luxe</h2>
+          <p>Designer collections with timeless elegance</p>
+          <a href="#" class="btn-outline-light">Explore Designers</a>
+        </div>
+      </div>
+      <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?q=80&w=1740&auto=format&fit=crop');">
+        <div class="slide-content">
+          <h2>Thrift Treasures</h2>
+          <p>Curated vintage finds, sustainable style</p>
+          <a href="#" class="btn-outline-light">Shop Thrift</a>
+        </div>
+      </div>
+      <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1740&auto=format&fit=crop');">
+        <div class="slide-content">
+          <h2>Custom Atelier</h2>
+          <p>Bespoke tailoring made for you</p>
+          <a href="#" class="btn-outline-light">Discover Custom</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Running ticker text under carousel -->
+  <div class="ticker-wrap">
+    <div class="ticker-text">
+      <span>✦ NEW ARRIVALS</span> LUXURY THRIFT COLLECTION <span>✦</span> BESPOKE CUSTOM PIECES <span>✦</span> LIMITED DESIGNER DROPS <span>✦</span> RENT THE RUNWAY <span>✦</span> SUSTAINABLE FASHION <span>✦</span>
+      <span>✦ NEW ARRIVALS</span> LUXURY THRIFT COLLECTION <span>✦</span> BESPOKE CUSTOM PIECES <span>✦</span> LIMITED DESIGNER DROPS <span>✦</span> RENT THE RUNWAY <span>✦</span> SUSTAINABLE FASHION <span>✦</span>
+    </div>
+  </div>
+
+  <!-- About section: text left, image right -->
+  <section class="about-section">
+    <div class="about-text">
+      <h2>Fashion beyond borders</h2>
+      <p>FasNexi connects visionary designers, vintage curators, and modern renters in one refined space. We believe style is personal, sustainable, and meant to be shared. From custom atelier pieces to rare thrift finds, every item tells a story.</p>
+      <a href="#" class="btn-about">Our story</a>
+    </div>
+    <div class="about-image">
+      <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?q=80&w=1887&auto=format&fit=crop" alt="fashion designer working">
+    </div>
+  </section>
+
+ <!-- Interactive Grid Cards Section -->
+<section class="featured-grid">
+  <div class="grid-container">
+    <div class="grid-card" data-category="marketplace">
+      <div class="card-image">
+        <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1740&auto=format&fit=crop" alt="Global Marketplace">
+        <div class="card-overlay"></div>
+      </div>
+      <div class="card-content">
+        <span class="card-tag">Connect</span>
+        <h3>Global Marketplace</h3>
+        <p>Buy & sell fashion across 50+ countries seamlessly</p>
+        <a href="#" class="card-link">Explore <span>→</span></a>
+      </div>
+      <div class="card-shine"></div>
     </div>
 
-    <!-- Main Header -->
-    <header class="main-header">
-        <div class="container">
-            <div class="header-content">
-                <a href="index.html" class="logo">
-                    <div class="logo-icon"><i class="fas fa-crown"></i></div>
-                    Agrim<span>International</span>
-                </a>
-                <div class="hamburger" onclick="toggleMenu()">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-                <nav class="main-nav" id="mainNav">
-                    <ul>
-                        <li><a href="index.html" class="active">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#products">Products</a></li>
-                        <li><a href="#subsidiaries">Subsidiaries</a></li>
-                        <li><a href="#blog">Blog</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </header>
+    <div class="grid-card" data-category="ai-assistance">
+      <div class="card-image">
+        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1740&auto=format&fit=crop" alt="AI Assistance">
+        <div class="card-overlay"></div>
+      </div>
+      <div class="card-content">
+        <span class="card-tag">Smart</span>
+        <h3>AI Assistance</h3>
+        <p>Personal stylist powered by intelligent algorithms</p>
+        <a href="#" class="card-link">Try Now <span>→</span></a>
+      </div>
+      <div class="card-shine"></div>
+    </div>
 
-    <!-- Hero Carousel -->
-    <section class="hero-carousel" id="home">
-        <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1569529465841-dfecdab7503b?w=1920')">
-            <div class="slide-content">
-                <h1>Excellence in Consumer Goods</h1>
-                <p>Delivering premium quality beverages, healthcare products, and food items across Africa and beyond</p>
-                <a href="products.html" class="cta-button">Explore Our Brands</a>
-            </div>
-        </div>
-        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1584225064785-c62a8b43d148?w=1920')">
-            <div class="slide-content">
-                <h1>Innovation Across Industries</h1>
-                <p>From spirits to healthcare, Agrim International leads with quality and trust</p>
-                <a href="#subsidiaries" class="cta-button">Our Companies</a>
-            </div>
-        </div>
-        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=1920')">
-            <div class="slide-content">
-                <h1>Growing Stronger Together</h1>
-                <p>Building lasting partnerships and delivering value to communities worldwide</p>
-                <a href="#contact" class="cta-button">Partner With Us</a>
-            </div>
-        </div>
-        <div class="carousel-controls">
-            <div class="carousel-dot active" onclick="goToSlide(0)"></div>
-            <div class="carousel-dot" onclick="goToSlide(1)"></div>
-            <div class="carousel-dot" onclick="goToSlide(2)"></div>
-        </div>
-    </section>
+    <div class="grid-card" data-category="ar-tryons">
+      <div class="card-image">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?q=80&w=1740&auto=format&fit=crop" alt="AR Try-Ons">
+        <div class="card-overlay"></div>
+      </div>
+      <div class="card-content">
+        <span class="card-tag">Virtual</span>
+        <h3>AR Try-Ons</h3>
+        <p>See how pieces look on you before you buy</p>
+        <a href="#" class="card-link">Experience <span>→</span></a>
+      </div>
+      <div class="card-shine"></div>
+    </div>
 
-    <!-- About Section -->
-    <section class="about-section" id="about">
-        <div class="container">
-            <div class="section-title">
-                <h2>About Agrim International</h2>
-                <p>A legacy of quality, innovation, and trust across multiple industries</p>
-            </div>
-            <div class="about-grid">
-                <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=800" alt="Agrim International">
-                </div>
-                <div class="about-content">
-                    <h3>Leading Africa's Consumer Revolution</h3>
-                    <p>Agrim International stands as a beacon of excellence in the manufacturing and distribution of premium beverages, pharmaceutical products, and food items. With a diverse portfolio spanning spirits, healthcare essentials, and consumer foods, we are committed to enhancing lives through quality products.</p>
-                    <p>Our mother company oversees strategic subsidiaries that specialize in distinct market segments, ensuring focused expertise and exceptional product delivery across all categories.</p>
-                    <div class="stats-grid">
-                        <div class="stat-item">
-                            <span class="stat-number" data-target="15">0</span>
-                            <span>Brands</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number" data-target="25">0</span>
-                            <span>Countries</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number" data-target="5000">0</span>
-                            <span>Employees</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div class="grid-card" data-category="logistics">
+      <div class="card-image">
+        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1740&auto=format&fit=crop" alt="Smart Logistics">
+        <div class="card-overlay"></div>
+      </div>
+      <div class="card-content">
+        <span class="card-tag">Fast</span>
+        <h3>Smart Logistics</h3>
+        <p>Tracked delivery & carbon-neutral shipping worldwide</p>
+        <a href="#" class="card-link">Track <span>→</span></a>
+      </div>
+      <div class="card-shine"></div>
+    </div>
 
-    <!-- Products Section -->
-    <section class="products-section" id="products">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Signature Products</h2>
-                <p>Premium beverages crafted for excellence</p>
-            </div>
-            <div class="product-carousel">
-                <button class="product-nav prev" onclick="moveProducts(-1)">❮</button>
-                <div class="product-track" id="productTrack">
-                    <div class="product-card">
-                        <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1514218953589-2d7d37efd2dc?w=400'); background-color: #1a3a5c;">
-                            <span class="product-badge">Premium</span>
-                        </div>
-                        <div class="product-info">
-                            <h3>Tombo Bitters</h3>
-                            <p>Authentic herbal bitters crafted with traditional African botanicals.</p>
-                            <a href="products.html#tombo-bitters" class="learn-more">Product Details</a>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1569529465841-dfecdab7503b?w=400'); background-color: #c8a45c;">
-                            <span class="product-badge">Smooth</span>
-                        </div>
-                        <div class="product-info">
-                            <h3>Tombo Vodka</h3>
-                            <p>Triple-distilled premium vodka offering exceptional smoothness.</p>
-                            <a href="products.html#tombo-vodka" class="learn-more">Product Details</a>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?w=400'); background-color: #8b0000;">
-                            <span class="product-badge">Aged</span>
-                        </div>
-                        <div class="product-info">
-                            <h3>Tombo Brandy</h3>
-                            <p>Rich, oak-aged brandy with complex flavors.</p>
-                            <a href="products.html#tombo-brandy" class="learn-more">Product Details</a>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1584225064785-c62a8b43d148?w=400'); background-color: #0a1929;">
-                            <span class="product-badge">Classic</span>
-                        </div>
-                        <div class="product-info">
-                            <h3>Tombo Whiskey</h3>
-                            <p>Premium blended whiskey with deep character.</p>
-                            <a href="products.html#tombo-whiskey" class="learn-more">Product Details</a>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?w=400'); background-color: #d4af37;">
-                            <span class="product-badge">Refreshing</span>
-                        </div>
-                        <div class="product-info">
-                            <h3>Cremica</h3>
-                            <p>Delightful cream liqueur with richness and sweetness.</p>
-                            <a href="products.html#cremica" class="learn-more">Product Details</a>
-                        </div>
-                    </div>
-                </div>
-                <button class="product-nav next" onclick="moveProducts(1)">❯</button>
-            </div>
-        </div>
-    </section>
+    <div class="grid-card" data-category="payments">
+      <div class="card-image">
+        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=1712&auto=format&fit=crop" alt="Secure Payments">
+        <div class="card-overlay"></div>
+      </div>
+      <div class="card-content">
+        <span class="card-tag">Safe</span>
+        <h3>Bank Transfer Payments</h3>
+        <p>Secure transactions with instant bank verification</p>
+        <a href="#" class="card-link">Learn More <span>→</span></a>
+      </div>
+      <div class="card-shine"></div>
+    </div>
 
-    <!-- Subsidiaries Section -->
-    <section class="subsidiaries-section" id="subsidiaries">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Subsidiaries</h2>
-                <p>Specialized companies delivering excellence in their respective markets</p>
-            </div>
-            <div class="subsidiary-grid">
-                <div class="subsidiary-card">
-                    <div class="card-header">
-                        <h3>Agrim Global</h3>
-                        <p>Confectionery & Sweets Division</p>
-                    </div>
-                    <div class="card-body">
-                        <ul class="product-list">
-                            <li>Tobo Orange Sweet</li>
-                            <li>Tobo Pineapple Sweet</li>
-                            <li>Tobo Popup Lollipop</li>
-                            <li>Eclairs</li>
-                        </ul>
-                        <a href="agrim-global.html" class="learn-more">Explore Agrim Global →</a>
-                    </div>
-                </div>
-                <div class="subsidiary-card">
-                    <div class="card-header">
-                        <h3>Agrim Pharmaceutical & Healthcare</h3>
-                        <p>Healthcare & Wellness Division</p>
-                    </div>
-                    <div class="card-body">
-                        <ul class="product-list">
-                            <li>4D Womaneezz Sanitary Pad</li>
-                            <li>4D Babyeezz Open Diaper</li>
-                            <li>4D Babyeezz Nappy Pants</li>
-                            <li>Tango Condom</li>
-                            <li>Kuchi Kuchi Condom</li>
-                            <li>Treejet Syringe</li>
-                        </ul>
-                        <a href="agrim-pharmaceutical.html" class="learn-more">Explore Healthcare →</a>
-                    </div>
-                </div>
-                <div class="subsidiary-card">
-                    <div class="card-header">
-                        <h3>Mohan Afro Foods</h3>
-                        <p>Food Products Division</p>
-                    </div>
-                    <div class="card-body">
-                        <ul class="product-list">
-                            <li>Topisto Tomato</li>
-                        </ul>
-                        <a href="mohan-afro-foods.html" class="learn-more">Explore Foods →</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div class="grid-card" data-category="authenticity">
+      <div class="card-image">
+        <img src="https://images.unsplash.com/photo-1557180295-76eee20ae8aa?q=80&w=1740&auto=format&fit=crop" alt="Authenticity Guaranteed">
+        <div class="card-overlay"></div>
+      </div>
+      <div class="card-content">
+        <span class="card-tag">Verified</span>
+        <h3>Authenticity Guaranteed</h3>
+        <p>Every item authenticated by our expert team</p>
+        <a href="#" class="card-link">Our Process <span>→</span></a>
+      </div>
+      <div class="card-shine"></div>
+    </div>
+  </div>
+</section>
 
-    <!-- Blog Section -->
-    <section class="blog-section" id="blog">
-        <div class="container">
-            <div class="section-title">
-                <h2>Latest Insights</h2>
-                <p>Industry news, product updates, and market trends</p>
-            </div>
-            <div class="blog-grid">
-                <article class="blog-card">
-                    <div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1569529465841-dfecdab7503b?w=600')">
-                        <span class="blog-category">Beverages</span>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span><i class="far fa-calendar"></i> May 20, 2024</span>
-                            <span><i class="far fa-user"></i> Agrim Media</span>
-                        </div>
-                        <h3>The Rise of Premium African Spirits</h3>
-                        <p>How Tombo beverages are gaining international recognition for quality and authenticity.</p>
-                        <a href="#" class="learn-more">Read More →</a>
-                    </div>
-                </article>
-                <article class="blog-card">
-                    <div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600')">
-                        <span class="blog-category">Healthcare</span>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span><i class="far fa-calendar"></i> May 15, 2024</span>
-                            <span><i class="far fa-user"></i> Agrim Media</span>
-                        </div>
-                        <h3>Advancing Maternal & Child Health</h3>
-                        <p>Agrim Pharmaceutical's commitment to quality healthcare products for families.</p>
-                        <a href="#" class="learn-more">Read More →</a>
-                    </div>
-                </article>
-                <article class="blog-card">
-                    <div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1488459717020-2f9f0c9a78c4?w=600')">
-                        <span class="blog-category">Food</span>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span><i class="far fa-calendar"></i> May 10, 2024</span>
-                            <span><i class="far fa-user"></i> Agrim Media</span>
-                        </div>
-                        <h3>Quality Food Products for African Kitchens</h3>
-                        <p>Mohan Afro Foods bringing premium tomato products to households across the continent.</p>
-                        <a href="#" class="learn-more">Read More →</a>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
+<!-- Stats Counter Section -->
+<section class="stats-section">
+  <div class="stats-container">
+    <div class="stat-item">
+      <div class="stat-icon">🌍</div>
+      <div class="stat-number" data-target="50000">0</div>
+      <div class="stat-label">Happy Customers</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-icon">👗</div>
+      <div class="stat-number" data-target="120000">0</div>
+      <div class="stat-label">Products Listed</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-icon">✅</div>
+      <div class="stat-number" data-target="999">0</div>
+      <div class="stat-label">Authenticity Rate %</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-icon">🚀</div>
+      <div class="stat-number" data-target="150">0</div>
+      <div class="stat-label">Countries Served</div>
+    </div>
+  </div>
+</section>
 
-    <!-- Contact Section -->
-    <section class="contact-section" id="contact">
-        <div class="container">
-            <div class="section-title">
-                <h2>Get in Touch</h2>
-                <p>Partner with us or inquire about our products</p>
-            </div>
-            <div class="contact-grid">
-                <div class="contact-form">
-                    <h3 style="margin-bottom: 30px; color: var(--primary);">Send Us a Message</h3>
-                    <form id="mainContactForm" onsubmit="handleContactSubmit(event)">
-                        <div class="form-group">
-                            <label for="name">Full Name *</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address *</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="company">Company / Organization</label>
-                            <input type="text" id="company" name="company">
-                        </div>
-                        <div class="form-group">
-                            <label for="interest">Area of Interest</label>
-                            <select id="interest" name="interest">
-                                <option value="">Select an option</option>
-                                <option value="beverages">Tombo Beverages</option>
-                                <option value="agrimGlobal">Agrim Global (Confectionery)</option>
-                                <option value="agrimPharma">Agrim Pharmaceutical & Healthcare</option>
-                                <option value="mohanAfro">Mohan Afro Foods</option>
-                                <option value="distribution">Distribution Partnership</option>
-                                <option value="general">General Inquiry</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Your Message *</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="submit-btn">Send Message</button>
-                    </form>
-                </div>
-                <div class="contact-info">
-                    <div class="info-item">
-                        <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
-                        <div>
-                            <h3>Headquarters</h3>
-                            <p>15 Agrim Business District<br>calabar, Nigeria</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-icon"><i class="fas fa-phone"></i></div>
-                        <div>
-                            <h3>Phone</h3>
-                            <p>+234 800 000 0000<br>+234 800 000 0001</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-icon"><i class="fas fa-envelope"></i></div>
-                        <div>
-                            <h3>Email</h3>
-                            <p>info@agriminternational.com<br>sales@agriminternational.com</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-icon"><i class="fas fa-clock"></i></div>
-                        <div>
-                            <h3>Business Hours</h3>
-                            <p>Monday - Friday: 8:00 AM - 6:00 PM<br>Saturday: 9:00 AM - 1:00 PM</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- Hot Picks Product Carousel Section -->
+<section class="hot-picks">
+  <div class="hot-picks-header">
+    <h2>🔥 Hot Picks This Week</h2>
+    <div class="carousel-controls">
+      <button class="carousel-btn prev-btn" aria-label="Previous">←</button>
+      <button class="carousel-btn next-btn" aria-label="Next">→</button>
+    </div>
+  </div>
+  
+  <div class="product-carousel-wrapper">
+    <div class="product-carousel" id="productCarousel">
+      <!-- Products will be loaded here via JavaScript -->
+    </div>
+  </div>
+</section>
 
-    <!-- Footer -->
-    <footer class="main-footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-column">
-                    <h3>Agrim International</h3>
-                    <p>Delivering excellence across beverages, healthcare, and food products throughout Africa and beyond.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                <div class="footer-column">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="index.html#about">About Us</a></li>
-                        <li><a href="products.html">Our Products</a></li>
-                        <li><a href="index.html#subsidiaries">Subsidiaries</a></li>
-                        <li><a href="index.html#blog">Blog</a></li>
-                        <li><a href="index.html#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Our Companies</h3>
-                    <ul>
-                        <li><a href="agrim-global.html">Agrim Global</a></li>
-                        <li><a href="agrim-pharmaceutical.html">Agrim Pharmaceutical</a></li>
-                        <li><a href="mohan-afro-foods.html">Mohan Afro Foods</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Newsletter</h3>
-                    <p>Subscribe for product updates and industry news</p>
-                    <form id="newsletterForm" onsubmit="handleNewsletterSubmit(event)" style="margin-top: 20px;">
-                        <div class="form-group">
-                            <input type="email" placeholder="Enter your email" required style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); color: white;">
-                        </div>
-                        <button type="submit" class="submit-btn" style="background: var(--accent); color: var(--dark);">Subscribe</button>
-                    </form>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Agrim International. All Rights Reserved. | <a href="#" style="color: #b0b0b0;">Privacy Policy</a> | <a href="#" style="color: #b0b0b0;">Terms of Service</a></p>
-            </div>
-        </div>
-    </footer>
+<!-- Quickview Modal -->
+<div class="quickview-modal" id="quickviewModal">
+  <div class="quickview-overlay"></div>
+  <div class="quickview-content">
+    <button class="quickview-close" id="quickviewClose">✕</button>
+    <div class="quickview-body" id="quickviewBody">
+      <!-- Quickview content loaded dynamically -->
+    </div>
+  </div>
+</div>
 
-    <script src="js/main.js"></script>
+<!-- Cart Modal -->
+<div class="cart-modal" id="cartModal">
+  <div class="cart-overlay"></div>
+  <div class="cart-content">
+    <div class="cart-header">
+      <h2>Shopping Cart <span class="cart-item-count">(0 items)</span></h2>
+      <button class="cart-close" id="cartClose">✕</button>
+    </div>
+    <div class="cart-body" id="cartBody">
+      <!-- Cart items loaded dynamically -->
+    </div>
+    <div class="cart-footer" id="cartFooter">
+      <!-- Cart summary loaded dynamically -->
+    </div>
+  </div>
+</div>
+
+<!-- Wishlist Modal -->
+<div class="wishlist-modal" id="wishlistModal">
+  <div class="wishlist-overlay"></div>
+  <div class="wishlist-content">
+    <div class="wishlist-header">
+      <h2>My Wishlist <span class="wishlist-item-count">(0 items)</span></h2>
+      <button class="wishlist-close" id="wishlistClose">✕</button>
+    </div>
+    <div class="wishlist-body" id="wishlistBody">
+      <!-- Wishlist items loaded dynamically -->
+    </div>
+  </div>
+</div>
+
+<!-- Checkout Modal -->
+<div class="checkout-modal" id="checkoutModal">
+  <div class="checkout-overlay"></div>
+  <div class="checkout-content">
+    <div class="checkout-header">
+      <h2>Secure Checkout</h2>
+      <button class="checkout-close" id="checkoutClose">✕</button>
+    </div>
+    <div class="checkout-body" id="checkoutBody">
+      <!-- Checkout form loaded dynamically -->
+    </div>
+  </div>
+</div>
+
+  <script src="script.js"></script>
 </body>
 </html>
