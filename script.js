@@ -1082,3 +1082,882 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+// ============ Collection Products Data ============
+const collectionProducts = [
+  {
+    id: 101,
+    name: "Òṣùpá Evening Gown",
+    price: 450000,
+    image: "https://images.unsplash.com/photo-1566174053879-31528523f8ae?q=80&w=1888&auto=format&fit=crop",
+    description: "Floor-length silk gown with hand-beaded moon phases"
+  },
+  {
+    id: 102,
+    name: "Adire Blazer Set",
+    price: 280000,
+    image: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?q=80&w=1880&auto=format&fit=crop",
+    description: "Tailored blazer and trousers in indigo Adire"
+  },
+  {
+    id: 103,
+    name: "Moonlight Kaftan",
+    price: 195000,
+    image: "https://images.unsplash.com/photo-1591369822096-ffd140ec948f?q=80&w=1887&auto=format&fit=crop",
+    description: "Flowing silk kaftan with crystal embellishments"
+  },
+  {
+    id: 104,
+    name: "Yoruba Pearl Top",
+    price: 165000,
+    image: "https://images.unsplash.com/photo-1434389677669-e08b4cda3a20?q=80&w=1740&auto=format&fit=crop",
+    description: "Hand-embroidered top with freshwater pearls"
+  },
+  {
+    id: 105,
+    name: "Adire Midi Dress",
+    price: 220000,
+    image: "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?q=80&w=1892&auto=format&fit=crop",
+    description: "Contemporary midi dress in hand-dyed Adire"
+  },
+  {
+    id: 106,
+    name: "Beaded Headpiece",
+    price: 85000,
+    image: "https://images.unsplash.com/photo-1576053139778-7e32f2ae3cfd?q=80&w=1887&auto=format&fit=crop",
+    description: "Intricate beadwork crown with crystal drops"
+  }
+];
+
+// ============ Portfolio Modal Functions ============
+function openPortfolioModal() {
+  const modal = document.getElementById('portfolioModal');
+  if (!modal) return;
+  
+  // Reset to first tab
+  switchPortfolioTab('about', document.querySelector('.portfolio-tab'));
+  
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closePortfolioModal() {
+  const modal = document.getElementById('portfolioModal');
+  if (!modal) return;
+  
+  modal.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+function switchPortfolioTab(tabName, btnElement) {
+  // Update active tab button
+  document.querySelectorAll('.portfolio-tab').forEach(tab => {
+    tab.classList.remove('active');
+  });
+  if (btnElement) {
+    btnElement.classList.add('active');
+  }
+  
+  // Show corresponding content
+  document.querySelectorAll('.portfolio-tab-content').forEach(content => {
+    content.classList.remove('active');
+  });
+  
+  const targetContent = document.getElementById(`tab-${tabName}`);
+  if (targetContent) {
+    targetContent.classList.add('active');
+  }
+}
+
+// ============ Collection Modal Functions ============
+function openCollectionModal() {
+  const modal = document.getElementById('collectionModal');
+  if (!modal) return;
+  
+  renderCollectionProducts();
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeCollectionModal() {
+  const modal = document.getElementById('collectionModal');
+  if (!modal) return;
+  
+  modal.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+function renderCollectionProducts() {
+  const productsGrid = document.getElementById('collectionProducts');
+  if (!productsGrid) return;
+  
+  let productsHTML = '';
+  
+  collectionProducts.forEach(product => {
+    productsHTML += `
+      <div class="collection-product-card">
+        <div class="collection-product-image">
+          <img src="${product.image}" alt="${product.name}" loading="lazy">
+        </div>
+        <div class="collection-product-info">
+          <h4>${product.name}</h4>
+          <p class="price">${formatNaira(product.price)}</p>
+          <button class="collection-add-btn" onclick="addCollectionToCart(${product.id})">Add to Cart</button>
+        </div>
+      </div>
+    `;
+  });
+  
+  productsGrid.innerHTML = productsHTML;
+}
+
+function addCollectionToCart(productId) {
+  const product = collectionProducts.find(p => p.id === productId);
+  if (!product) return;
+  
+  const existingItem = cart.find(item => item.productId === productId);
+  if (existingItem) {
+    existingItem.quantity++;
+    showToast(`Updated "${product.name}" quantity in cart`);
+  } else {
+    cart.push({ productId, quantity: 1, isCollection: true });
+    showToast(`Added "${product.name}" to cart 🛒`);
+  }
+  
+  localStorage.setItem('fasNexiCart', JSON.stringify(cart));
+  updateCartCount();
+}
+
+// Update the existing addToCart function to handle collection products
+const originalAddToCart = addToCart;
+addToCart = function(productId) {
+  // Check if it's a collection product
+  const collectionProduct = collectionProducts.find(p => p.id === productId);
+  if (collectionProduct) {
+    addCollectionToCart(productId);
+    return;
+  }
+  // Otherwise use original function
+  originalAddToCart(productId);
+};
+
+// Update renderCartItems to handle collection products
+const originalRenderCartItems = renderCartItems;
+renderCartItems = function() {
+  const cartBody = document.getElementById('cartBody');
+  const cartFooter = document.getElementById('cartFooter');
+  const cartCount = document.querySelector('.cart-item-count');
+  
+  if (!cartBody || !cartFooter) return;
+  
+  cart = JSON.parse(localStorage.getItem('fasNexiCart')) || [];
+  
+  if (cart.length === 0) {
+    cartBody.innerHTML = `
+      <div class="empty-cart">
+        <div class="empty-icon">🛒</div>
+        <p>Your cart is empty</p>
+        <p style="font-size: 0.9rem; margin-top: 0.5rem;">Add some luxury pieces to get started</p>
+      </div>
+    `;
+    cartFooter.innerHTML = '';
+    if (cartCount) cartCount.textContent = '(0 items)';
+    return;
+  }
+  
+  let subtotal = 0;
+  let cartHTML = '';
+  
+  cart.forEach(item => {
+    // Check both regular products and collection products
+    let product = productsData.find(p => p.id === item.productId);
+    if (!product) {
+      product = collectionProducts.find(p => p.id === item.productId);
+    }
+    if (!product) return;
+    
+    const itemTotal = product.price * item.quantity;
+    subtotal += itemTotal;
+    
+    cartHTML += `
+      <div class="cart-item">
+        <div class="cart-item-image">
+          <img src="${product.image}" alt="${product.name}">
+        </div>
+        <div class="cart-item-details">
+          <p class="cart-item-brand">${product.brand || 'AMŌ Studio'}</p>
+          <p class="cart-item-name">${product.name}</p>
+          <p class="cart-item-price">${formatNaira(itemTotal)}</p>
+          <div class="cart-item-actions">
+            <div class="quantity-controls">
+              <button class="qty-btn" onclick="updateCartQuantity(${product.id}, ${item.quantity - 1})">−</button>
+              <span class="qty-input">${item.quantity}</span>
+              <button class="qty-btn" onclick="updateCartQuantity(${product.id}, ${item.quantity + 1})">+</button>
+            </div>
+            <button class="remove-item" onclick="removeFromCart(${product.id})">Remove</button>
+          </div>
+        </div>
+      </div>
+    `;
+  });
+  
+  cartBody.innerHTML = cartHTML;
+  
+  if (cartCount) cartCount.textContent = `(${cart.reduce((sum, item) => sum + item.quantity, 0)} items)`;
+  
+  cartFooter.innerHTML = `
+    <div class="cart-summary">
+      <div class="summary-row">
+        <span>Subtotal</span>
+        <span>${formatNaira(subtotal)}</span>
+      </div>
+      <div class="summary-row">
+        <span>Service Fee</span>
+        <span>${formatNaira(SERVICE_FEE)}</span>
+      </div>
+      <div class="summary-row total">
+        <span>Total</span>
+        <span>${formatNaira(subtotal + SERVICE_FEE)}</span>
+      </div>
+      <p style="font-size: 0.8rem; color: var(--mid); margin-top: 0.5rem;">* Delivery fee calculated at checkout</p>
+    </div>
+    <button class="checkout-btn" onclick="proceedToCheckout()">Proceed to Checkout</button>
+    <span class="continue-shopping" onclick="closeCartModal()">Continue Shopping</span>
+  `;
+};
+
+// ============ Countdown Timer ============
+function startCountdown() {
+  // Set countdown to 3 days from now
+  const endDate = new Date();
+  endDate.setDate(endDate.getDate() + 3);
+  endDate.setHours(23, 59, 59, 0);
+  
+  function updateCountdown() {
+    const now = new Date();
+    const diff = endDate - now;
+    
+    if (diff <= 0) {
+      // Reset countdown
+      endDate.setDate(endDate.getDate() + 7);
+      return;
+    }
+    
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+    
+    const daysEl = document.getElementById('countdownDays');
+    const hoursEl = document.getElementById('countdownHours');
+    const minutesEl = document.getElementById('countdownMinutes');
+    const secondsEl = document.getElementById('countdownSeconds');
+    
+    if (daysEl) daysEl.textContent = String(days).padStart(2, '0');
+    if (hoursEl) hoursEl.textContent = String(hours).padStart(2, '0');
+    if (minutesEl) minutesEl.textContent = String(minutes).padStart(2, '0');
+    if (secondsEl) secondsEl.textContent = String(seconds).padStart(2, '0');
+  }
+  
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+}
+
+// ============ Sticky Ad Bar ============
+function initStickyBar() {
+  const stickyBar = document.getElementById('adStickyBar');
+  if (!stickyBar) return;
+  
+  let lastScrollY = window.scrollY;
+  let showTimer = null;
+  
+  window.addEventListener('scroll', () => {
+    const currentScrollY = window.scrollY;
+    
+    // Show after scrolling past 1000px and scrolling up
+    if (currentScrollY > 1000 && currentScrollY < lastScrollY) {
+      if (showTimer) clearTimeout(showTimer);
+      showTimer = setTimeout(() => {
+        stickyBar.classList.add('visible');
+      }, 300);
+    } else if (currentScrollY < 500 || currentScrollY > lastScrollY + 50) {
+      stickyBar.classList.remove('visible');
+    }
+    
+    lastScrollY = currentScrollY;
+  });
+}
+
+function closeStickyBar() {
+  const stickyBar = document.getElementById('adStickyBar');
+  if (stickyBar) {
+    stickyBar.classList.remove('visible');
+    // Don't show again for this session
+    sessionStorage.setItem('stickyBarClosed', 'true');
+  }
+}
+
+// ============ Ad Click Handler ============
+function handleAdClick(type) {
+  switch(type) {
+    case 'sale':
+      showToast('🎉 Redirecting to Sale Page...');
+      // window.location.href = '/sale';
+      break;
+    case 'collections':
+      showToast('👗 Loading Designer Collections...');
+      break;
+    case 'new-arrivals':
+      showToast('✨ Browsing New Arrivals...');
+      break;
+    case 'custom':
+      showToast('📏 Opening Custom Tailoring...');
+      break;
+    case 'thrift':
+      showToast('🔍 Exploring Thrift Finds...');
+      break;
+    case 'shipping':
+      showToast('📦 Loading Shipping Information...');
+      break;
+    case 'flash-sale':
+      showToast('⚡ Flash Sale - Use code THRIFT30 at checkout!');
+      break;
+    default:
+      break;
+  }
+}
+
+// ============ Newsletter Subscription ============
+function subscribeNewsletter() {
+  const emailInput = document.getElementById('newsletterEmail');
+  if (!emailInput) return;
+  
+  const email = emailInput.value.trim();
+  
+  if (!email) {
+    showToast('⚠️ Please enter your email address');
+    return;
+  }
+  
+  if (!isValidEmail(email)) {
+    showToast('⚠️ Please enter a valid email address');
+    return;
+  }
+  
+  // Simulate subscription
+  showToast('🎉 Welcome to FasNexi! Check your email for your ₦10,000 discount code.');
+  emailInput.value = '';
+  
+  // Store in localStorage
+  const subscribers = JSON.parse(localStorage.getItem('fasNexiSubscribers')) || [];
+  if (!subscribers.includes(email)) {
+    subscribers.push(email);
+    localStorage.setItem('fasNexiSubscribers', JSON.stringify(subscribers));
+  }
+}
+
+function isValidEmail(email) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+
+// ============ Initialize Ad Section ============
+document.addEventListener('DOMContentLoaded', () => {
+  startCountdown();
+  initStickyBar();
+  
+  // Check if sticky bar was closed earlier
+  if (sessionStorage.getItem('stickyBarClosed') === 'true') {
+    const stickyBar = document.getElementById('adStickyBar');
+    if (stickyBar) {
+      stickyBar.classList.remove('visible');
+    }
+  }
+  
+  // Newsletter form submit on Enter key
+  const newsletterInput = document.getElementById('newsletterEmail');
+  if (newsletterInput) {
+    newsletterInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        subscribeNewsletter();
+      }
+    });
+  }
+});
+// ============ Virtual Fashion Shows JavaScript ============
+
+// Filter Shows
+function filterShows(category, btnElement) {
+  // Update active button
+  document.querySelectorAll('.virtual-filter').forEach(btn => {
+    btn.classList.remove('active');
+  });
+  if (btnElement) {
+    btnElement.classList.add('active');
+  }
+  
+  // Filter cards
+  const cards = document.querySelectorAll('.virtual-show-card');
+  cards.forEach(card => {
+    if (category === 'all' || card.dataset.category === category) {
+      card.classList.remove('hidden');
+    } else {
+      card.classList.add('hidden');
+    }
+  });
+}
+
+// Open Video Modal
+function openVideoModal(videoId, title, description, views, badge) {
+  const modal = document.getElementById('videoModal');
+  if (!modal) return;
+  
+  // Update modal content
+  document.getElementById('videoModalTitle').textContent = title;
+  document.getElementById('videoDescription').textContent = description;
+  document.getElementById('videoViews').textContent = '👁 ' + views;
+  
+  const badgeElement = document.getElementById('videoModalBadge');
+  badgeElement.textContent = badge;
+  
+  // Style badge based on type
+  if (badge.includes('LIVE')) {
+    badgeElement.style.background = 'var(--red)';
+  } else if (badge.includes('Upcoming')) {
+    badgeElement.style.background = 'var(--yellow)';
+    badgeElement.style.color = 'var(--off-black)';
+  } else {
+    badgeElement.style.background = 'rgba(255,255,255,0.15)';
+    badgeElement.style.color = 'white';
+  }
+  
+  // Reset to description tab
+  switchVideoTab('description', document.querySelector('.video-info-tab'));
+  
+  // Load YouTube video (using placeholder for demo)
+  const videoPlayer = document.getElementById('videoPlayer');
+  videoPlayer.innerHTML = `
+    <iframe 
+      width="100%" 
+      height="100%" 
+      src="https://www.youtube.com/embed/${videoId}?autoplay=1&mute=0" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen
+      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+    </iframe>
+  `;
+  
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+// Close Video Modal
+function closeVideoModal() {
+  const modal = document.getElementById('videoModal');
+  if (!modal) return;
+  
+  modal.classList.remove('active');
+  document.body.style.overflow = '';
+  
+  // Stop video by clearing iframe
+  const videoPlayer = document.getElementById('videoPlayer');
+  videoPlayer.innerHTML = `
+    <div class="video-placeholder">
+      <div class="video-placeholder-content">
+        <span class="video-placeholder-icon">🎬</span>
+        <p>Click play to start watching</p>
+      </div>
+    </div>
+  `;
+}
+
+// Switch Video Info Tab
+function switchVideoTab(tabName, btnElement) {
+  // Update active tab button
+  document.querySelectorAll('.video-info-tab').forEach(tab => {
+    tab.classList.remove('active');
+  });
+  if (btnElement) {
+    btnElement.classList.add('active');
+  }
+  
+  // Show corresponding content
+  document.querySelectorAll('.video-tab-content').forEach(content => {
+    content.classList.remove('active');
+  });
+  
+  const targetContent = document.getElementById(`videoTab-${tabName}`);
+  if (targetContent) {
+    targetContent.classList.add('active');
+  }
+}
+
+// Video Controls
+let isPlaying = false;
+
+function togglePlayPause() {
+  isPlaying = !isPlaying;
+  const icon = document.getElementById('playPauseIcon');
+  if (icon) {
+    icon.textContent = isPlaying ? '⏸' : '▶';
+  }
+}
+
+function seekVideo(seconds) {
+  showToast(`⏩ Skipped ${seconds > 0 ? 'forward' : 'backward'} ${Math.abs(seconds)} seconds`);
+  // In real implementation, would seek the YouTube player
+}
+
+function toggleTheaterMode() {
+  const modal = document.querySelector('.video-modal-content');
+  if (modal) {
+    modal.classList.toggle('theater-mode');
+  }
+}
+
+function toggleFullscreen() {
+  const videoPlayer = document.getElementById('videoPlayer');
+  if (videoPlayer) {
+    if (document.fullscreenElement) {
+      document.exitFullscreen();
+    } else {
+      videoPlayer.requestFullscreen();
+    }
+  }
+}
+
+function toggleMute() {
+  showToast('🔇 Audio toggled');
+}
+
+function adjustVolume(value) {
+  // In real implementation, would adjust YouTube player volume
+}
+
+// Chat Functions
+function sendChatMessage(event) {
+  if (event && event.key && event.key !== 'Enter') return;
+  
+  const input = document.getElementById('chatInput');
+  if (!input) return;
+  
+  const message = input.value.trim();
+  if (!message) return;
+  
+  const chatMessages = document.getElementById('videoChatMessages');
+  if (!chatMessages) return;
+  
+  const messageElement = document.createElement('div');
+  messageElement.className = 'chat-message';
+  messageElement.innerHTML = `
+    <span class="chat-user">You</span>
+    <span class="chat-text">${message}</span>
+  `;
+  
+  chatMessages.appendChild(messageElement);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+  
+  input.value = '';
+}
+
+// Additional Functions
+function setReminder(showName) {
+  showToast(`🔔 Reminder set for "${showName}"! You'll be notified before the show starts.`);
+}
+
+function shareShow(showName) {
+  if (navigator.share) {
+    navigator.share({
+      title: showName,
+      text: `Check out ${showName} on FasNexi!`,
+      url: window.location.href
+    });
+  } else {
+    showToast(`📤 Share link copied for "${showName}"!`);
+  }
+}
+
+function addToWatchlist(showName) {
+  const watchlist = JSON.parse(localStorage.getItem('fasNexiWatchlist')) || [];
+  if (!watchlist.includes(showName)) {
+    watchlist.push(showName);
+    localStorage.setItem('fasNexiWatchlist', JSON.stringify(watchlist));
+    showToast(`📋 "${showName}" added to your watchlist!`);
+  } else {
+    showToast(`"${showName}" is already in your watchlist`);
+  }
+}
+
+function shopLook(lookId) {
+  showToast(`🛍️ Opening Look #${lookId} for shopping...`);
+}
+
+function shopCollection() {
+  showToast('🛍️ Opening collection shop...');
+  closeVideoModal();
+  openCollectionModal();
+}
+
+function viewDesigners(showName) {
+  showToast(`👥 Loading designers for ${showName}...`);
+}
+
+function loadMoreShows() {
+  showToast('📺 Loading more shows...');
+}
+
+// Initialize
+document.addEventListener('DOMContentLoaded', () => {
+  // Close video modal on escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeVideoModal();
+    }
+  });
+});
+
+// ============ Blog Articles JavaScript ============
+
+// Blog article data
+const blogArticles = {
+  'sustainable-fashion-africa': {
+    title: 'The Rise of Sustainable Luxury in African Fashion',
+    category: 'Sustainability',
+    image: 'https://images.unsplash.com/photo-1485968579580-b6d095142e6e?q=80&w=1886&auto=format&fit=crop',
+    author: 'Chioma Adebayo',
+    date: 'May 28, 2026',
+    readTime: '8 min read',
+    content: `
+      <p>The African fashion landscape is undergoing a remarkable transformation. What was once dominated by fast fashion imports is now being reshaped by a new generation of designers who are putting sustainability at the heart of their creative process.</p>
+      
+      <p>At the forefront of this movement is a growing community of Nigerian designers who are reimagining traditional textiles through an eco-conscious lens. From organic cotton farming in Kano to natural indigo dyeing techniques passed down through generations in Abeokuta, the supply chain is becoming increasingly transparent and ethical.</p>
+      
+      <blockquote>"Sustainability isn't a trend for us—it's embedded in our heritage. Our grandmothers practiced zero-waste fashion long before it became a buzzword." <br>— Amina Okechukwu, AMŌ Studio</blockquote>
+      
+      <p>The numbers tell a compelling story. According to the African Fashion Council, sustainable fashion brands in Nigeria have seen a 150% increase in consumer demand over the past two years. International retailers are taking notice, with major department stores in London, Paris, and New York seeking out African sustainable luxury brands.</p>
+      
+      <h3>Innovative Approaches to Traditional Materials</h3>
+      
+      <p>Designers are finding creative ways to honor tradition while embracing sustainability. Lisa Folawiyo has pioneered the use of organic Ankara prints, while Tokyo James incorporates recycled polyester made from ocean plastics into his avant-garde designs.</p>
+      
+      <p>The Adire Workshop Collective in Lagos has trained over 200 women in natural dyeing techniques, creating a sustainable ecosystem that supports local communities while preserving cultural heritage. Each piece tells a story of craftsmanship, community, and conscious consumption.</p>
+      
+      <h3>The Future of African Sustainable Luxury</h3>
+      
+      <p>As consumers become more environmentally conscious, the demand for sustainable luxury is only expected to grow. African designers are uniquely positioned to lead this global conversation, armed with centuries of textile traditions and a deep connection to their materials.</p>
+      
+      <p>With investment in sustainable infrastructure, education, and international market access, African fashion has the potential to become the gold standard for ethical luxury worldwide.</p>
+    `
+  },
+  'styling-adire-modern-wardrobe': {
+    title: 'How to Style Adire: From Traditional to Contemporary',
+    category: 'Style Guide',
+    image: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1740&auto=format&fit=crop',
+    author: 'Emeka Nwosu',
+    date: 'May 25, 2026',
+    readTime: '6 min read',
+    content: `
+      <p>Adire, the iconic indigo-dyed fabric from Southwestern Nigeria, has evolved from ceremonial wear to a versatile fashion staple. Whether you're attending a formal event or heading to brunch, here's how to incorporate this beautiful textile into your everyday wardrobe.</p>
+      
+      <blockquote>"Adire is not just fabric—it's wearable art. Each pattern tells a story, and each piece is unique." <br>— Emeka Nwosu, Style Consultant</blockquote>
+      
+      <h3>Office Elegance</h3>
+      
+      <p>For a professional setting, opt for a tailored Adire blazer paired with solid-colored trousers or a pencil skirt. The key is to let the Adire be the statement piece while keeping accessories minimal. A simple pair of nude heels and gold jewelry completes the look.</p>
+      
+      <h3>Casual Chic</h3>
+      
+      <p>Weekend styling calls for an Adire midi dress or a matching two-piece set. Pair with white sneakers for a fresh, modern look, or dress it up with strappy sandals for a lunch date. Denim jackets also make excellent companions to Adire pieces.</p>
+      
+      <h3>Evening Glamour</h3>
+      
+      <p>For special occasions, an Adire floor-length gown with strategic cutouts and modern silhouettes turns heads. Accessorize with statement earrings and a metallic clutch. The deep indigo tones photograph beautifully under evening lights.</p>
+      
+      <p>Remember, the beauty of Adire lies in its imperfections—each piece is handcrafted, making it uniquely yours.</p>
+    `
+  },
+  'lagos-fashion-week-behind-scenes': {
+    title: 'Behind the Seams: A Day at Lagos Fashion Week 2026',
+    category: 'Behind the Scenes',
+    image: 'https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=1740&auto=format&fit=crop',
+    author: 'Fatima Ibrahim',
+    date: 'May 20, 2026',
+    readTime: '10 min read',
+    content: `
+      <p>It's 4:30 AM at the Eko Convention Centre, and the air is electric with anticipation. In less than 12 hours, the biggest names in African fashion will send their collections down the runway. But before the lights, cameras, and applause, there's organized chaos.</p>
+      
+      <blockquote>"Fashion week is 1% glamour and 99% adrenaline, coffee, and last-minute miracles." <br>— Fatima Ibrahim, Senior Correspondent</blockquote>
+      
+      <h3>The Calm Before the Storm</h3>
+      
+      <p>Backstage is a whirlwind of activity. Makeup artists set up their stations while hairstylists unpack their tools. Racks of garments are being steamed, shoes are being sorted by size, and models are checking in for their call times.</p>
+      
+      <h3>Designer Moments</h3>
+      
+      <p>We caught up with Amina Okechukwu as she made final adjustments to her Oṣùpá collection. "Every stitch, every bead—it all matters," she says, pinning a hem with surgical precision. "This collection represents two years of work with artisans from three different communities."</p>
+      
+      <h3>Showtime</h3>
+      
+      <p>When the lights dim and the music starts, all the chaos transforms into magic. Models glide down the runway, showcasing creations that blend centuries of tradition with cutting-edge design. The audience—a mix of buyers, celebrities, and fashion enthusiasts—erupts in applause.</p>
+      
+      <p>As the final designer takes their bow, there's a palpable sense of pride. African fashion has arrived on the global stage, and it's here to stay.</p>
+    `
+  }
+};
+
+// Bookmark article
+function bookmarkArticle(articleId) {
+  const bookmarks = JSON.parse(localStorage.getItem('fasNexiBookmarks')) || [];
+  const index = bookmarks.indexOf(articleId);
+  
+  if (index > -1) {
+    bookmarks.splice(index, 1);
+    showToast('🔖 Article removed from bookmarks');
+  } else {
+    bookmarks.push(articleId);
+    showToast('🔖 Article saved to bookmarks');
+  }
+  
+  localStorage.setItem('fasNexiBookmarks', JSON.stringify(bookmarks));
+  updateBookmarkButtons();
+}
+
+function updateBookmarkButtons() {
+  const bookmarks = JSON.parse(localStorage.getItem('fasNexiBookmarks')) || [];
+  document.querySelectorAll('.blog-bookmark').forEach(btn => {
+    const articleId = btn.getAttribute('onclick')?.match(/'([^']+)'/)?.[1];
+    if (articleId && bookmarks.includes(articleId)) {
+      btn.classList.add('saved');
+      btn.querySelector('.bookmark-icon').textContent = '🔖✓';
+    } else {
+      btn.classList.remove('saved');
+      btn.querySelector('.bookmark-icon').textContent = '🔖';
+    }
+  });
+}
+
+// Open blog article modal
+function openBlogArticle(articleId) {
+  const article = blogArticles[articleId];
+  if (!article) return;
+  
+  const modal = document.getElementById('blogModal');
+  const modalBody = document.getElementById('blogModalBody');
+  
+  if (!modal || !modalBody) return;
+  
+  modalBody.innerHTML = `
+    <div class="blog-article-header">
+      <span class="blog-category">${article.category}</span>
+      <h2>${article.title}</h2>
+      <div class="blog-meta">
+        <span>👤 ${article.author}</span>
+        <span>📅 ${article.date}</span>
+        <span>⏱ ${article.readTime}</span>
+      </div>
+    </div>
+    <img src="${article.image}" alt="${article.title}" class="blog-article-image">
+    <div class="blog-article-content">
+      ${article.content}
+    </div>
+    <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--pale); display: flex; gap: 1rem;">
+      <button class="video-footer-btn primary" onclick="shareArticle('${articleId}')" style="background: var(--green-dark); border-color: var(--green-dark); color: white;">
+        📤 Share Article
+      </button>
+      <button class="video-footer-btn" onclick="bookmarkArticle('${articleId}')" style="border-color: var(--mid); color: var(--charcoal);">
+        🔖 Bookmark
+      </button>
+    </div>
+  `;
+  
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+// Close blog article modal
+function closeBlogArticle() {
+  const modal = document.getElementById('blogModal');
+  if (!modal) return;
+  
+  modal.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+// Share article
+function shareArticle(articleId) {
+  const article = blogArticles[articleId];
+  if (!article) return;
+  
+  if (navigator.share) {
+    navigator.share({
+      title: article.title,
+      text: `Check out this article on FasNexi: ${article.title}`,
+      url: window.location.href
+    });
+  } else {
+    showToast('📤 Link copied to clipboard!');
+  }
+}
+
+// Subscribe to blog newsletter
+function subscribeBlogNewsletter() {
+  const emailInput = document.getElementById('blogNewsletterEmail');
+  if (!emailInput) return;
+  
+  const email = emailInput.value.trim();
+  
+  if (!email) {
+    showToast('⚠️ Please enter your email address');
+    return;
+  }
+  
+  if (!isValidEmail(email)) {
+    showToast('⚠️ Please enter a valid email address');
+    return;
+  }
+  
+  showToast('💌 Welcome to the FasNexi Style Journal! Check your inbox.');
+  emailInput.value = '';
+}
+
+// ============ Footer JavaScript ============
+
+// Scroll to top
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+}
+
+// Download app
+function downloadApp(platform) {
+  if (platform === 'ios') {
+    showToast('📱 Opening App Store...');
+  } else {
+    showToast('📱 Opening Google Play Store...');
+  }
+}
+
+// Initialize
+document.addEventListener('DOMContentLoaded', () => {
+  updateBookmarkButtons();
+  
+  // Close blog modal on escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeBlogArticle();
+    }
+  });
+  
+  // Blog newsletter Enter key support
+  const blogNewsletterInput = document.getElementById('blogNewsletterEmail');
+  if (blogNewsletterInput) {
+    blogNewsletterInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        subscribeBlogNewsletter();
+      }
+    });
+  }
+});

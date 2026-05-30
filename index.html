@@ -247,6 +247,1077 @@
   </div>
 </section>
 
+<!-- Designer of the Week Section -->
+<section class="designer-week">
+  <div class="designer-container">
+    <div class="designer-text">
+      <span class="designer-badge">✨ Designer of the Week</span>
+      <h2>Amina Okechukwu</h2>
+      <p class="designer-title">Creative Director, AMŌ Studio</p>
+      <p class="designer-bio">
+        Lagos-based designer Amina Okechukwu is redefining African luxury with her bold fusion of traditional 
+        Nigerian textiles and contemporary silhouettes. Her latest collection "Oṣùpá" (Moonlight) draws 
+        inspiration from Yoruba folklore, featuring hand-beaded Adire patterns and flowing silhouettes 
+        that celebrate feminine power. Each piece is ethically crafted by local artisans using 
+        sustainably sourced materials.
+      </p>
+      <div class="designer-stats">
+        <div class="designer-stat">
+          <span class="stat-value">12+</span>
+          <span class="stat-desc">Years Experience</span>
+        </div>
+        <div class="designer-stat">
+          <span class="stat-value">45</span>
+          <span class="stat-desc">Collections</span>
+        </div>
+        <div class="designer-stat">
+          <span class="stat-value">8</span>
+          <span class="stat-desc">Awards Won</span>
+        </div>
+      </div>
+      <div class="designer-cta">
+        <button class="cta-primary" onclick="openPortfolioModal()">View Portfolio</button>
+        <button class="cta-secondary" onclick="openCollectionModal()">Shop Collection</button>
+      </div>
+    </div>
+    <div class="designer-image">
+      <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=1961&auto=format&fit=crop" alt="Amina Okechukwu">
+      <div class="designer-image-accent"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Portfolio Modal -->
+<div class="portfolio-modal" id="portfolioModal">
+  <div class="portfolio-overlay" onclick="closePortfolioModal()"></div>
+  <div class="portfolio-content">
+    <div class="portfolio-header">
+      <div>
+        <h2>Amina Okechukwu</h2>
+        <p class="portfolio-subtitle">Portfolio & Achievements</p>
+      </div>
+      <button class="portfolio-close" onclick="closePortfolioModal()">✕</button>
+    </div>
+    <div class="portfolio-body">
+      <!-- About Tab -->
+      <div class="portfolio-tabs">
+        <button class="portfolio-tab active" onclick="switchPortfolioTab('about', this)">About</button>
+        <button class="portfolio-tab" onclick="switchPortfolioTab('experience', this)">Experience</button>
+        <button class="portfolio-tab" onclick="switchPortfolioTab('awards', this)">Awards</button>
+        <button class="portfolio-tab" onclick="switchPortfolioTab('press', this)">Press</button>
+      </div>
+      
+      <!-- About Tab Content -->
+      <div class="portfolio-tab-content active" id="tab-about">
+        <div class="portfolio-about-grid">
+          <div class="portfolio-bio-full">
+            <h3>Design Philosophy</h3>
+            <p>Amina Okechukwu believes fashion is a powerful medium for storytelling and cultural preservation. Her design philosophy centers on three core principles:</p>
+            <ul>
+              <li><strong>Heritage Reimagined:</strong> Transforming traditional African textiles and techniques for the modern wardrobe</li>
+              <li><strong>Ethical Luxury:</strong> Every piece is handcrafted by skilled artisans earning fair wages in safe conditions</li>
+              <li><strong>Sustainable Innovation:</strong> Using organic dyes, recycled materials, and zero-waste pattern cutting</li>
+            </ul>
+            <p>Born in Enugu and trained at Central Saint Martins in London, Amina returned to Nigeria in 2014 to launch AMŌ Studio. Her work has been featured in Vogue, Elle, and Business of Fashion.</p>
+          </div>
+          <div class="portfolio-skills">
+            <h3>Expertise</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Textile Design</span>
+              <span class="skill-tag">Pattern Making</span>
+              <span class="skill-tag">Beadwork</span>
+              <span class="skill-tag">Adire Art</span>
+              <span class="skill-tag">Sustainable Fashion</span>
+              <span class="skill-tag">Bridal Couture</span>
+              <span class="skill-tag">Menswear</span>
+              <span class="skill-tag">Accessories</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Experience Tab Content -->
+      <div class="portfolio-tab-content" id="tab-experience">
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-year">2023 - Present</div>
+            <div class="timeline-content">
+              <h4>Creative Director, AMŌ Studio</h4>
+              <p>Leading a team of 25 artisans. Launched 8 collections shown at Lagos Fashion Week and Paris Fashion Week.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2019 - 2023</div>
+            <div class="timeline-content">
+              <h4>Head Designer, House of Nkwo</h4>
+              <p>Revitalized the brand's ready-to-wear line, increasing sales by 200% and securing stockists in 12 countries.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2016 - 2019</div>
+            <div class="timeline-content">
+              <h4>Senior Designer, Lisa Folawiyo Studio</h4>
+              <p>Designed for the brand's international collections and developed new textile techniques using Ankara prints.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2014 - 2016</div>
+            <div class="timeline-content">
+              <h4>Junior Designer, Maki Oh</h4>
+              <p>Assisted in creating collections worn by Michelle Obama, Lupita Nyong'o, and Solange Knowles.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Awards Tab Content -->
+      <div class="portfolio-tab-content" id="tab-awards">
+        <div class="awards-grid">
+          <div class="award-card">
+            <div class="award-icon">🏆</div>
+            <h4>Lagos Fashion Awards 2024</h4>
+            <p>Designer of the Year</p>
+          </div>
+          <div class="award-card">
+            <div class="award-icon">🌟</div>
+            <h4>African Fashion International 2023</h4>
+            <p>Emerging Talent Award</p>
+          </div>
+          <div class="award-card">
+            <div class="award-icon">👗</div>
+            <h4>Vogue Talents 2022</h4>
+            <p>Best New Designer - Africa</p>
+          </div>
+          <div class="award-card">
+            <div class="award-icon">🌍</div>
+            <h4>Green Carpet Fashion Awards 2023</h4>
+            <p>Sustainable Design Excellence</p>
+          </div>
+          <div class="award-card">
+            <div class="award-icon">💎</div>
+            <h4>Glamour Women of the Year 2024</h4>
+            <p>Fashion Innovator</p>
+          </div>
+          <div class="award-card">
+            <div class="award-icon">🎨</div>
+            <h4>British Council Fashion Grant 2021</h4>
+            <p>Creative Enterprise Award</p>
+          </div>
+          <div class="award-card">
+            <div class="award-icon">⭐</div>
+            <h4>Nigeria Entrepreneurship Awards 2023</h4>
+            <p>Fashion Business of the Year</p>
+          </div>
+          <div class="award-card">
+            <div class="award-icon">📸</div>
+            <h4>Elle Style Awards 2024</h4>
+            <p>Contemporary Designer Award</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Press Tab Content -->
+      <div class="portfolio-tab-content" id="tab-press">
+        <div class="press-grid">
+          <div class="press-card">
+            <img src="https://images.unsplash.com/photo-1532453288672-3a27e9be9efd?q=80&w=1964&auto=format&fit=crop" alt="Vogue Feature">
+            <div class="press-info">
+              <h4>Vogue Italia</h4>
+              <p>"The New Wave of African Designers"</p>
+              <span>March 2024</span>
+            </div>
+          </div>
+          <div class="press-card">
+            <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=1740&auto=format&fit=crop" alt="Elle Magazine">
+            <div class="press-info">
+              <h4>Elle South Africa</h4>
+              <p>"Amina Okechukwu: Redefining African Luxury"</p>
+              <span>January 2024</span>
+            </div>
+          </div>
+          <div class="press-card">
+            <img src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?q=80&w=1740&auto=format&fit=crop" alt="Business of Fashion">
+            <div class="press-info">
+              <h4>Business of Fashion</h4>
+              <p>"How AMŌ Studio is Building a Sustainable Fashion Empire"</p>
+              <span>December 2023</span>
+            </div>
+          </div>
+          <div class="press-card">
+            <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1740&auto=format&fit=crop" alt="CNN Style">
+            <div class="press-info">
+              <h4>CNN Style</h4>
+              <p>"Lagos to Paris: The Rise of Nigerian Fashion"</p>
+              <span>November 2023</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Collection Modal -->
+<div class="collection-modal" id="collectionModal">
+  <div class="collection-overlay" onclick="closeCollectionModal()"></div>
+  <div class="collection-content">
+    <div class="collection-header">
+      <div>
+        <h2>Oṣùpá Collection</h2>
+        <p class="collection-subtitle">By Amina Okechukwu • AMŌ Studio</p>
+      </div>
+      <button class="collection-close" onclick="closeCollectionModal()">✕</button>
+    </div>
+    <div class="collection-body">
+      <div class="collection-description">
+        <p>Inspired by the luminous beauty of the moon and Yoruba mythology, the Oṣùpá collection features 15 pieces that blend hand-beaded Adire with fluid, modern silhouettes. Each garment tells a story of feminine strength and ethereal elegance.</p>
+        <div class="collection-highlights">
+          <span>✨ Hand-beaded details</span>
+          <span>🌿 Organic cotton & silk</span>
+          <span>🇳🇬 Made in Nigeria</span>
+          <span>♻️ Zero-waste production</span>
+        </div>
+      </div>
+      
+      <div class="collection-products-grid" id="collectionProducts">
+        <!-- Products loaded dynamically -->
+      </div>
+      
+      <div class="collection-footer-note">
+        <p>💫 Each piece is made to order with a 2-3 week production time. Custom sizing available upon request.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Advertisement Banner Section -->
+<section class="ad-section">
+  <div class="ad-container">
+    <!-- Main Hero Banner -->
+    <div class="ad-banner-hero">
+      <div class="ad-banner-content">
+        <span class="ad-badge">🔥 Limited Time Offer</span>
+        <h2>Luxury Fashion Week <br>Exclusive Sale</h2>
+        <p>Get up to <strong>40% off</strong> on designer collections. Use code <span class="promo-code">FASNEXI40</span> at checkout.</p>
+        <div class="ad-countdown" id="adCountdown">
+          <div class="countdown-item">
+            <span class="countdown-value" id="countdownDays">03</span>
+            <span class="countdown-label">Days</span>
+          </div>
+          <div class="countdown-separator">:</div>
+          <div class="countdown-item">
+            <span class="countdown-value" id="countdownHours">18</span>
+            <span class="countdown-label">Hours</span>
+          </div>
+          <div class="countdown-separator">:</div>
+          <div class="countdown-item">
+            <span class="countdown-value" id="countdownMinutes">45</span>
+            <span class="countdown-label">Mins</span>
+          </div>
+          <div class="countdown-separator">:</div>
+          <div class="countdown-item">
+            <span class="countdown-value" id="countdownSeconds">30</span>
+            <span class="countdown-label">Secs</span>
+          </div>
+        </div>
+        <div class="ad-cta-group">
+          <button class="ad-cta-primary" onclick="handleAdClick('sale')">Shop the Sale</button>
+          <button class="ad-cta-secondary" onclick="handleAdClick('collections')">View Collections</button>
+        </div>
+      </div>
+      <div class="ad-banner-visual">
+        <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?q=80&w=1742&auto=format&fit=crop" alt="Fashion Week Sale">
+        <div class="ad-discount-badge">40% OFF</div>
+      </div>
+    </div>
+
+    <!-- Small Promo Banners -->
+    <div class="ad-promo-grid">
+      <div class="ad-promo-card" style="background-image: url('https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1740&auto=format&fit=crop');">
+        <div class="ad-promo-overlay"></div>
+        <div class="ad-promo-content">
+          <span class="ad-promo-tag">New Arrivals</span>
+          <h3>Summer Collection 2026</h3>
+          <p>Fresh drops from top designers</p>
+          <button class="ad-promo-btn" onclick="handleAdClick('new-arrivals')">Explore Now →</button>
+        </div>
+      </div>
+      
+      <div class="ad-promo-card" style="background-image: url('https://images.unsplash.com/photo-1490114538077-0a7f8cb49891?q=80&w=1740&auto=format&fit=crop');">
+        <div class="ad-promo-overlay"></div>
+        <div class="ad-promo-content">
+          <span class="ad-promo-tag">Custom Tailoring</span>
+          <h3>Bespoke Suits</h3>
+          <p>Made-to-measure from ₦150,000</p>
+          <button class="ad-promo-btn" onclick="handleAdClick('custom')">Book Appointment →</button>
+        </div>
+      </div>
+      
+      <div class="ad-promo-card" style="background-image: url('https://images.unsplash.com/photo-1558769132-cb1aea458c5e?q=80&w=1887&auto=format&fit=crop');">
+        <div class="ad-promo-overlay"></div>
+        <div class="ad-promo-content">
+          <span class="ad-promo-tag">Thrift Finds</span>
+          <h3>Vintage Treasure Hunt</h3>
+          <p>One-of-a-kind pieces from ₦25,000</p>
+          <button class="ad-promo-btn" onclick="handleAdClick('thrift')">Start Hunting →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Full-Width Text Banner -->
+    <div class="ad-text-banner">
+      <div class="ad-text-banner-content">
+        <div class="ad-text-icon">🚚</div>
+        <div class="ad-text-details">
+          <h4>Free Delivery to Lagos & Abuja</h4>
+          <p>On all orders above ₦200,000. Same-day delivery available in select areas.</p>
+        </div>
+        <button class="ad-text-btn" onclick="handleAdClick('shipping')">Learn More</button>
+      </div>
+    </div>
+
+    <!-- Newsletter Banner -->
+    <div class="ad-newsletter-banner">
+      <div class="ad-newsletter-content">
+        <div class="ad-newsletter-text">
+          <h3>Join the FasNexi Family</h3>
+          <p>Subscribe to get exclusive offers, early access to sales, and style inspiration straight to your inbox.</p>
+          <div class="ad-newsletter-form">
+            <input type="email" id="newsletterEmail" placeholder="Enter your email address" class="ad-newsletter-input">
+            <button class="ad-newsletter-btn" onclick="subscribeNewsletter()">Subscribe ✨</button>
+          </div>
+          <p class="ad-newsletter-note">💎 Get <strong>₦10,000 off</strong> your first order when you sign up</p>
+        </div>
+        <div class="ad-newsletter-visual">
+          <div class="ad-newsletter-icons">
+            <span>🎁</span>
+            <span>💌</span>
+            <span>🌟</span>
+            <span>🛍️</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sticky Bottom Ad Bar (appears on scroll) -->
+    <div class="ad-sticky-bar" id="adStickyBar">
+      <div class="ad-sticky-content">
+        <div class="ad-sticky-text">
+          <span class="ad-sticky-icon">⚡</span>
+          <p>Flash Sale: <strong>30% OFF</strong> all thrift items! Use code <span class="promo-code">THRIFT30</span></p>
+        </div>
+        <button class="ad-sticky-btn" onclick="handleAdClick('flash-sale')">Shop Now</button>
+        <button class="ad-sticky-close" onclick="closeStickyBar()">✕</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Virtual Fashion Shows Section -->
+<section class="virtual-shows">
+  <div class="virtual-shows-container">
+    <div class="virtual-shows-header">
+      <div class="virtual-shows-title">
+        <span class="virtual-badge">🎬 Live & On-Demand</span>
+        <h2>Virtual Fashion Shows</h2>
+        <p>Experience the runway from anywhere in the world. Watch exclusive shows from Africa's top designers.</p>
+      </div>
+      <div class="virtual-shows-filters">
+        <button class="virtual-filter active" onclick="filterShows('all', this)">All Shows</button>
+        <button class="virtual-filter" onclick="filterShows('live', this)">🔴 Live Now</button>
+        <button class="virtual-filter" onclick="filterShows('upcoming', this)">📅 Upcoming</button>
+        <button class="virtual-filter" onclick="filterShows('past', this)">📺 Past Shows</button>
+      </div>
+    </div>
+
+    <div class="virtual-shows-grid" id="virtualShowsGrid">
+      <!-- Show Card 1 -->
+      <div class="virtual-show-card" data-category="live">
+        <div class="virtual-show-thumbnail">
+          <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1888&auto=format&fit=crop" alt="Lagos Fashion Week Live">
+          <div class="virtual-show-overlay">
+            <button class="virtual-play-btn" onclick="openVideoModal('dQw4w9WgXcQ', 'Lagos Fashion Week 2026 - Live Stream', 'Watch the biggest fashion event in Africa live from Lagos. Featuring collections from top Nigerian designers including Amina Okechukwu, Lisa Folawiyo, and Mai Atafo.', '2.5K watching', '🔴 LIVE')">
+              <span class="play-icon">▶</span>
+            </button>
+          </div>
+          <span class="virtual-live-badge pulse-live">🔴 LIVE</span>
+          <span class="virtual-duration">2:45:30</span>
+        </div>
+        <div class="virtual-show-info">
+          <div class="virtual-show-meta">
+            <span class="virtual-show-date">Today • 3:00 PM WAT</span>
+            <span class="virtual-show-views">👁 2.5K watching</span>
+          </div>
+          <h3>Lagos Fashion Week 2026</h3>
+          <p class="virtual-show-designer">Featuring 25+ African Designers</p>
+          <div class="virtual-show-actions">
+            <button class="virtual-action-btn primary" onclick="openVideoModal('dQw4w9WgXcQ', 'Lagos Fashion Week 2026 - Live Stream', 'Watch the biggest fashion event in Africa live from Lagos. Featuring collections from top Nigerian designers including Amina Okechukwu, Lisa Folawiyo, and Mai Atafo.', '2.5K watching', '🔴 LIVE')">
+              🎥 Watch Now
+            </button>
+            <button class="virtual-action-btn secondary" onclick="setReminder('Lagos Fashion Week 2026')">
+              🔔 Remind Me
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Show Card 2 -->
+      <div class="virtual-show-card" data-category="upcoming">
+        <div class="virtual-show-thumbnail">
+          <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1740&auto=format&fit=crop" alt="AMŌ Studio Showcase">
+          <div class="virtual-show-overlay">
+            <button class="virtual-play-btn" onclick="openVideoModal('dQw4w9WgXcQ', 'AMŌ Studio - Oṣùpá Collection Premiere', 'Amina Okechukwu presents her groundbreaking Oṣùpá collection in an immersive virtual runway experience. Shot on location at the Lekki Conservation Centre.', '1.8K interested', '📅 Upcoming')">
+              <span class="play-icon">▶</span>
+            </button>
+          </div>
+          <span class="virtual-upcoming-badge">📅 Jun 15</span>
+          <span class="virtual-duration">1:30:00</span>
+        </div>
+        <div class="virtual-show-info">
+          <div class="virtual-show-meta">
+            <span class="virtual-show-date">June 15 • 6:00 PM WAT</span>
+            <span class="virtual-show-views">👁 1.8K interested</span>
+          </div>
+          <h3>AMŌ Studio: Oṣùpá Collection</h3>
+          <p class="virtual-show-designer">By Amina Okechukwu</p>
+          <div class="virtual-show-actions">
+            <button class="virtual-action-btn primary" onclick="openVideoModal('dQw4w9WgXcQ', 'AMŌ Studio - Oṣùpá Collection Premiere', 'Amina Okechukwu presents her groundbreaking Oṣùpá collection in an immersive virtual runway experience. Shot on location at the Lekki Conservation Centre.', '1.8K interested', '📅 Upcoming')">
+              🎬 Set Reminder
+            </button>
+            <button class="virtual-action-btn secondary" onclick="shareShow('AMŌ Studio: Oṣùpá Collection')">
+              📤 Share
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Show Card 3 -->
+      <div class="virtual-show-card" data-category="past">
+        <div class="virtual-show-thumbnail">
+          <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?q=80&w=1887&auto=format&fit=crop" alt="South African Fashion Week">
+          <div class="virtual-show-overlay">
+            <button class="virtual-play-btn" onclick="openVideoModal('dQw4w9WgXcQ', 'South African Fashion Week 2025 - Highlights', 'Relive the best moments from South African Fashion Week 2025. Featuring David Tlale, Thebe Magugu, and Rich Mnisi.', '15K views', '📺 Past Show')">
+              <span class="play-icon">▶</span>
+            </button>
+          </div>
+          <span class="virtual-past-badge">📺 Past Show</span>
+          <span class="virtual-duration">45:20</span>
+        </div>
+        <div class="virtual-show-info">
+          <div class="virtual-show-meta">
+            <span class="virtual-show-date">March 2025</span>
+            <span class="virtual-show-views">👁 15K views</span>
+          </div>
+          <h3>SA Fashion Week Highlights</h3>
+          <p class="virtual-show-designer">Featuring Top SA Designers</p>
+          <div class="virtual-show-actions">
+            <button class="virtual-action-btn primary" onclick="openVideoModal('dQw4w9WgXcQ', 'South African Fashion Week 2025 - Highlights', 'Relive the best moments from South African Fashion Week 2025. Featuring David Tlale, Thebe Magugu, and Rich Mnisi.', '15K views', '📺 Past Show')">
+              ▶️ Replay
+            </button>
+            <button class="virtual-action-btn secondary" onclick="addToWatchlist('SA Fashion Week Highlights')">
+              📋 Save
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Show Card 4 -->
+      <div class="virtual-show-card" data-category="live">
+        <div class="virtual-show-thumbnail">
+          <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=1887&auto=format&fit=crop" alt="Paris Fashion Week Stream">
+          <div class="virtual-show-overlay">
+            <button class="virtual-play-btn" onclick="openVideoModal('dQw4w9WgXcQ', 'Paris Fashion Week - African Designers Spotlight', 'Live from Paris! Watch African designers showcase their collections on the global stage. Featuring Imane Ayissi, Kenneth Ize, and Mowalola.', '5.2K watching', '🔴 LIVE')">
+              <span class="play-icon">▶</span>
+            </button>
+          </div>
+          <span class="virtual-live-badge pulse-live">🔴 LIVE</span>
+          <span class="virtual-duration">3:15:00</span>
+        </div>
+        <div class="virtual-show-info">
+          <div class="virtual-show-meta">
+            <span class="virtual-show-date">Today • 12:00 PM CET</span>
+            <span class="virtual-show-views">👁 5.2K watching</span>
+          </div>
+          <h3>Paris Fashion Week: Africa Spotlight</h3>
+          <p class="virtual-show-designer">African Designers on Global Stage</p>
+          <div class="virtual-show-actions">
+            <button class="virtual-action-btn primary" onclick="openVideoModal('dQw4w9WgXcQ', 'Paris Fashion Week - African Designers Spotlight', 'Live from Paris! Watch African designers showcase their collections on the global stage. Featuring Imane Ayissi, Kenneth Ize, and Mowalola.', '5.2K watching', '🔴 LIVE')">
+              🎥 Watch Live
+            </button>
+            <button class="virtual-action-btn secondary" onclick="setReminder('Paris Fashion Week')">
+              🔔 Notify
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Show Card 5 -->
+      <div class="virtual-show-card" data-category="upcoming">
+        <div class="virtual-show-thumbnail">
+          <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=1740&auto=format&fit=crop" alt="Emerging Designers Showcase">
+          <div class="virtual-show-overlay">
+            <button class="virtual-play-btn" onclick="openVideoModal('dQw4w9WgXcQ', 'FasNexi Emerging Designers Showcase 2026', 'Discover the next generation of African fashion talent. 10 emerging designers present their debut collections in this exclusive virtual showcase.', '890 interested', '📅 Upcoming')">
+              <span class="play-icon">▶</span>
+            </button>
+          </div>
+          <span class="virtual-upcoming-badge">📅 Jun 28</span>
+          <span class="virtual-duration">2:00:00</span>
+        </div>
+        <div class="virtual-show-info">
+          <div class="virtual-show-meta">
+            <span class="virtual-show-date">June 28 • 4:00 PM WAT</span>
+            <span class="virtual-show-views">👁 890 interested</span>
+          </div>
+          <h3>Emerging Designers Showcase</h3>
+          <p class="virtual-show-designer">10 Rising Stars of African Fashion</p>
+          <div class="virtual-show-actions">
+            <button class="virtual-action-btn primary" onclick="openVideoModal('dQw4w9WgXcQ', 'FasNexi Emerging Designers Showcase 2026', 'Discover the next generation of African fashion talent. 10 emerging designers present their debut collections in this exclusive virtual showcase.', '890 interested', '📅 Upcoming')">
+              🎬 Reserve Spot
+            </button>
+            <button class="virtual-action-btn secondary" onclick="viewDesigners('Emerging Designers Showcase')">
+              👥 Meet Designers
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Show Card 6 -->
+      <div class="virtual-show-card" data-category="past">
+        <div class="virtual-show-thumbnail">
+          <img src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?q=80&w=1740&auto=format&fit=crop" alt="Arise Fashion Week">
+          <div class="virtual-show-overlay">
+            <button class="virtual-play-btn" onclick="openVideoModal('dQw4w9WgXcQ', 'Arise Fashion Week 2025 - Full Show', 'The complete Arise Fashion Week 2025 experience. Watch all the runway shows, backstage access, and exclusive designer interviews.', '28K views', '📺 Past Show')">
+              <span class="play-icon">▶</span>
+            </button>
+          </div>
+          <span class="virtual-past-badge">📺 Past Show</span>
+          <span class="virtual-duration">4:20:15</span>
+        </div>
+        <div class="virtual-show-info">
+          <div class="virtual-show-meta">
+            <span class="virtual-show-date">February 2025</span>
+            <span class="virtual-show-views">👁 28K views</span>
+          </div>
+          <h3>Arise Fashion Week 2025</h3>
+          <p class="virtual-show-designer">Complete Runway Experience</p>
+          <div class="virtual-show-actions">
+            <button class="virtual-action-btn primary" onclick="openVideoModal('dQw4w9WgXcQ', 'Arise Fashion Week 2025 - Full Show', 'The complete Arise Fashion Week 2025 experience. Watch all the runway shows, backstage access, and exclusive designer interviews.', '28K views', '📺 Past Show')">
+              ▶️ Watch Replay
+            </button>
+            <button class="virtual-action-btn secondary" onclick="addToWatchlist('Arise Fashion Week 2025')">
+              📋 Save
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="virtual-shows-footer">
+      <button class="virtual-load-more" onclick="loadMoreShows()">
+        View All Shows → 
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- YouTube Video Modal -->
+<div class="video-modal" id="videoModal">
+  <div class="video-modal-overlay" onclick="closeVideoModal()"></div>
+  <div class="video-modal-content">
+    <div class="video-modal-header">
+      <div class="video-modal-title-group">
+        <span class="video-modal-badge" id="videoModalBadge">🔴 LIVE</span>
+        <h2 id="videoModalTitle">Lagos Fashion Week 2026</h2>
+      </div>
+      <button class="video-modal-close" onclick="closeVideoModal()">✕</button>
+    </div>
+    <div class="video-modal-body">
+      <div class="video-player-wrapper">
+        <div class="video-player" id="videoPlayer">
+          <!-- YouTube iframe will be inserted here -->
+          <div class="video-placeholder">
+            <div class="video-placeholder-content">
+              <span class="video-placeholder-icon">🎬</span>
+              <p>Click play to start watching</p>
+            </div>
+          </div>
+        </div>
+        <div class="video-controls">
+          <div class="video-controls-left">
+            <button class="video-control-btn" onclick="togglePlayPause()">
+              <span id="playPauseIcon">▶</span>
+            </button>
+            <button class="video-control-btn" onclick="seekVideo(-10)">⏪ 10s</button>
+            <button class="video-control-btn" onclick="seekVideo(10)">10s ⏩</button>
+            <div class="video-progress-bar">
+              <div class="video-progress" id="videoProgress" style="width: 35%"></div>
+            </div>
+            <span class="video-time" id="videoTime">15:30 / 45:20</span>
+          </div>
+          <div class="video-controls-right">
+            <button class="video-control-btn" onclick="toggleTheaterMode()">🖥</button>
+            <button class="video-control-btn" onclick="toggleFullscreen()">⛶</button>
+            <div class="video-volume">
+              <button class="video-control-btn" onclick="toggleMute()">🔊</button>
+              <input type="range" class="volume-slider" min="0" max="100" value="75" onchange="adjustVolume(this.value)">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="video-info-panel">
+        <div class="video-info-tabs">
+          <button class="video-info-tab active" onclick="switchVideoTab('description', this)">Description</button>
+          <button class="video-info-tab" onclick="switchVideoTab('designers', this)">Designers</button>
+          <button class="video-info-tab" onclick="switchVideoTab('looks', this)">Featured Looks</button>
+          <button class="video-info-tab" onclick="switchVideoTab('chat', this)">Live Chat</button>
+        </div>
+        
+        <!-- Description Tab -->
+        <div class="video-tab-content active" id="videoTab-description">
+          <div class="video-description-content">
+            <div class="video-stats">
+              <span id="videoViews">👁 2.5K watching</span>
+              <span>👍 1.2K</span>
+              <span>💬 342 comments</span>
+            </div>
+            <p id="videoDescription">Watch the biggest fashion event in Africa live from Lagos. Featuring collections from top Nigerian designers.</p>
+            <div class="video-tags">
+              <span class="video-tag">#LagosFashionWeek</span>
+              <span class="video-tag">#AfricanFashion</span>
+              <span class="video-tag">#NigeriaFashion</span>
+              <span class="video-tag">#RunwayShow</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Designers Tab -->
+        <div class="video-tab-content" id="videoTab-designers">
+          <div class="video-designers-list">
+            <div class="video-designer-item">
+              <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=100&auto=format&fit=crop" alt="Designer">
+              <div class="video-designer-info">
+                <h4>Amina Okechukwu</h4>
+                <p>AMŌ Studio</p>
+              </div>
+              <button class="video-designer-follow">Follow</button>
+            </div>
+            <div class="video-designer-item">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=100&auto=format&fit=crop" alt="Designer">
+              <div class="video-designer-info">
+                <h4>Lisa Folawiyo</h4>
+                <p>Lisa Folawiyo Studio</p>
+              </div>
+              <button class="video-designer-follow">Follow</button>
+            </div>
+            <div class="video-designer-item">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=100&auto=format&fit=crop" alt="Designer">
+              <div class="video-designer-info">
+                <h4>Mai Atafo</h4>
+                <p>Mai Atafo</p>
+              </div>
+              <button class="video-designer-follow">Follow</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Looks Tab -->
+        <div class="video-tab-content" id="videoTab-looks">
+          <div class="video-looks-grid">
+            <div class="video-look-item" onclick="shopLook(1)">
+              <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=80&w=300&auto=format&fit=crop" alt="Look 1">
+              <div class="video-look-info">
+                <span>Look 1</span>
+                <button class="video-look-shop">Shop This Look</button>
+              </div>
+            </div>
+            <div class="video-look-item" onclick="shopLook(2)">
+              <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?q=80&w=300&auto=format&fit=crop" alt="Look 2">
+              <div class="video-look-info">
+                <span>Look 2</span>
+                <button class="video-look-shop">Shop This Look</button>
+              </div>
+            </div>
+            <div class="video-look-item" onclick="shopLook(3)">
+              <img src="https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?q=80&w=300&auto=format&fit=crop" alt="Look 3">
+              <div class="video-look-info">
+                <span>Look 3</span>
+                <button class="video-look-shop">Shop This Look</button>
+              </div>
+            </div>
+            <div class="video-look-item" onclick="shopLook(4)">
+              <img src="https://images.unsplash.com/photo-1566174053879-31528523f8ae?q=80&w=300&auto=format&fit=crop" alt="Look 4">
+              <div class="video-look-info">
+                <span>Look 4</span>
+                <button class="video-look-shop">Shop This Look</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Chat Tab -->
+        <div class="video-tab-content" id="videoTab-chat">
+          <div class="video-chat-container">
+            <div class="video-chat-messages" id="videoChatMessages">
+              <div class="chat-message">
+                <span class="chat-user">FashionLover_NG</span>
+                <span class="chat-text">This collection is absolutely stunning! 🔥</span>
+              </div>
+              <div class="chat-message">
+                <span class="chat-user">StyleEnthusiast</span>
+                <span class="chat-text">Love the Adire patterns! So unique 🇳🇬</span>
+              </div>
+              <div class="chat-message">
+                <span class="chat-user">DesignWatch</span>
+                <span class="chat-text">Amina's work is revolutionary. True talent!</span>
+              </div>
+              <div class="chat-message">
+                <span class="chat-user">FashionWeekFan</span>
+                <span class="chat-text">When is the next collection dropping?</span>
+              </div>
+            </div>
+            <div class="video-chat-input">
+              <input type="text" placeholder="Say something..." id="chatInput" onkeypress="sendChatMessage(event)">
+              <button onclick="sendChatMessage()">Send</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="video-modal-footer">
+      <button class="video-footer-btn" onclick="shareShow(document.getElementById('videoModalTitle').textContent)">
+        📤 Share
+      </button>
+      <button class="video-footer-btn" onclick="addToWatchlist(document.getElementById('videoModalTitle').textContent)">
+        📋 Save to Watchlist
+      </button>
+      <button class="video-footer-btn primary" onclick="shopCollection()">
+        🛍️ Shop This Collection
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Blog Articles Section -->
+<section class="blog-section">
+  <div class="blog-container">
+    <div class="blog-header">
+      <div class="blog-title-group">
+        <span class="blog-badge">📝 Style Journal</span>
+        <h2>Latest from the Blog</h2>
+        <p>Discover fashion insights, styling tips, and behind-the-scenes stories from the world of African luxury.</p>
+      </div>
+      <a href="#" class="blog-view-all">View All Articles →</a>
+    </div>
+
+    <div class="blog-grid">
+      <!-- Article 1 -->
+      <article class="blog-card">
+        <div class="blog-card-image">
+          <img src="https://images.unsplash.com/photo-1485968579580-b6d095142e6e?q=80&w=1886&auto=format&fit=crop" alt="Sustainable African Fashion">
+          <div class="blog-category">Sustainability</div>
+          <button class="blog-bookmark" onclick="bookmarkArticle('sustainable-fashion-africa')" aria-label="Bookmark article">
+            <span class="bookmark-icon">🔖</span>
+          </button>
+        </div>
+        <div class="blog-card-content">
+          <div class="blog-meta">
+            <span class="blog-date">📅 May 28, 2026</span>
+            <span class="blog-read-time">⏱ 8 min read</span>
+          </div>
+          <h3>The Rise of Sustainable Luxury in African Fashion</h3>
+          <p>How Nigerian designers are leading the charge in ethical fashion with innovative approaches to traditional textiles and zero-waste production methods.</p>
+          <div class="blog-card-footer">
+            <div class="blog-author">
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=100&auto=format&fit=crop" alt="Author">
+              <div class="blog-author-info">
+                <span class="author-name">Chioma Adebayo</span>
+                <span class="author-role">Fashion Editor</span>
+              </div>
+            </div>
+            <div class="blog-stats">
+              <span>❤️ 234</span>
+              <span>💬 45</span>
+            </div>
+          </div>
+          <a href="#" class="blog-read-more" onclick="openBlogArticle('sustainable-fashion-africa')">
+            Read Full Article
+            <span class="read-more-arrow">→</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- Article 2 -->
+      <article class="blog-card">
+        <div class="blog-card-image">
+          <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1740&auto=format&fit=crop" alt="Styling Adire">
+          <div class="blog-category">Style Guide</div>
+          <button class="blog-bookmark" onclick="bookmarkArticle('styling-adire-modern-wardrobe')" aria-label="Bookmark article">
+            <span class="bookmark-icon">🔖</span>
+          </button>
+        </div>
+        <div class="blog-card-content">
+          <div class="blog-meta">
+            <span class="blog-date">📅 May 25, 2026</span>
+            <span class="blog-read-time">⏱ 6 min read</span>
+          </div>
+          <h3>How to Style Adire: From Traditional to Contemporary</h3>
+          <p>Expert tips on incorporating Nigeria's iconic indigo-dyed fabric into your modern wardrobe, from office wear to evening glamour.</p>
+          <div class="blog-card-footer">
+            <div class="blog-author">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=100&auto=format&fit=crop" alt="Author">
+              <div class="blog-author-info">
+                <span class="author-name">Emeka Nwosu</span>
+                <span class="author-role">Style Consultant</span>
+              </div>
+            </div>
+            <div class="blog-stats">
+              <span>❤️ 567</span>
+              <span>💬 89</span>
+            </div>
+          </div>
+          <a href="#" class="blog-read-more" onclick="openBlogArticle('styling-adire-modern-wardrobe')">
+            Read Full Article
+            <span class="read-more-arrow">→</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- Article 3 -->
+      <article class="blog-card">
+        <div class="blog-card-image">
+          <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=1740&auto=format&fit=crop" alt="Fashion Week Behind Scenes">
+          <div class="blog-category">Behind the Scenes</div>
+          <button class="blog-bookmark" onclick="bookmarkArticle('lagos-fashion-week-behind-scenes')" aria-label="Bookmark article">
+            <span class="bookmark-icon">🔖</span>
+          </button>
+        </div>
+        <div class="blog-card-content">
+          <div class="blog-meta">
+            <span class="blog-date">📅 May 20, 2026</span>
+            <span class="blog-read-time">⏱ 10 min read</span>
+          </div>
+          <h3>Behind the Seams: A Day at Lagos Fashion Week 2026</h3>
+          <p>An exclusive backstage pass to the chaos, creativity, and craftsmanship that brings Africa's biggest fashion event to life.</p>
+          <div class="blog-card-footer">
+            <div class="blog-author">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=100&auto=format&fit=crop" alt="Author">
+              <div class="blog-author-info">
+                <span class="author-name">Fatima Ibrahim</span>
+                <span class="author-role">Senior Correspondent</span>
+              </div>
+            </div>
+            <div class="blog-stats">
+              <span>❤️ 892</span>
+              <span>💬 156</span>
+            </div>
+          </div>
+          <a href="#" class="blog-read-more" onclick="openBlogArticle('lagos-fashion-week-behind-scenes')">
+            Read Full Article
+            <span class="read-more-arrow">→</span>
+          </a>
+        </div>
+      </article>
+    </div>
+
+    <div class="blog-newsletter">
+      <div class="blog-newsletter-content">
+        <div class="blog-newsletter-icon">💌</div>
+        <div class="blog-newsletter-text">
+          <h3>Never Miss a Post</h3>
+          <p>Get weekly fashion insights, exclusive designer interviews, and style inspiration delivered to your inbox.</p>
+        </div>
+        <div class="blog-newsletter-form">
+          <input type="email" id="blogNewsletterEmail" placeholder="Enter your email" class="blog-newsletter-input">
+          <button class="blog-newsletter-btn" onclick="subscribeBlogNewsletter()">Subscribe</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Blog Article Modal -->
+<div class="blog-modal" id="blogModal">
+  <div class="blog-modal-overlay" onclick="closeBlogArticle()"></div>
+  <div class="blog-modal-content">
+    <button class="blog-modal-close" onclick="closeBlogArticle()">✕</button>
+    <div class="blog-modal-body" id="blogModalBody">
+      <!-- Article content loaded dynamically -->
+    </div>
+  </div>
+</div>
+
+<!-- Footer Section -->
+<footer class="footer">
+  <div class="footer-container">
+    <!-- Main Footer Content -->
+    <div class="footer-grid">
+      <!-- Brand Column -->
+      <div class="footer-brand">
+        <a href="#" class="footer-logo">Fas<span>Nexi</span></a>
+        <p class="footer-description">
+          Africa's premier luxury fashion marketplace. Connecting visionary designers, curated vintage, and fashion enthusiasts across the globe.
+        </p>
+        <div class="footer-social">
+          <a href="#" class="social-link" aria-label="Instagram">📷</a>
+          <a href="#" class="social-link" aria-label="Twitter">🐦</a>
+          <a href="#" class="social-link" aria-label="Facebook">📘</a>
+          <a href="#" class="social-link" aria-label="YouTube">▶️</a>
+          <a href="#" class="social-link" aria-label="TikTok">🎵</a>
+          <a href="#" class="social-link" aria-label="Pinterest">📌</a>
+        </div>
+        <div class="footer-app-download">
+          <p>Download our app</p>
+          <div class="app-buttons">
+            <button class="app-btn" onclick="downloadApp('ios')">
+              <span>🍎</span> App Store
+            </button>
+            <button class="app-btn" onclick="downloadApp('android')">
+              <span>🤖</span> Google Play
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-links">
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="#">Designers</a></li>
+          <li><a href="#">Collections</a></li>
+          <li><a href="#">Thrift Finds</a></li>
+          <li><a href="#">Custom Tailoring</a></li>
+          <li><a href="#">Luxury Rentals</a></li>
+          <li><a href="#">New Arrivals</a></li>
+          <li><a href="#">Sale</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h4>About</h4>
+        <ul>
+          <li><a href="#">Our Story</a></li>
+          <li><a href="#">How It Works</a></li>
+          <li><a href="#">Authenticity Guarantee</a></li>
+          <li><a href="#">Sustainability</a></li>
+          <li><a href="#">Press & Media</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Partner With Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">FAQs</a></li>
+          <li><a href="#">Shipping & Delivery</a></li>
+          <li><a href="#">Returns & Exchanges</a></li>
+          <li><a href="#">Size Guide</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Track Order</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Cookie Policy</a></li>
+          <li><a href="#">Refund Policy</a></li>
+          <li><a href="#">Seller Agreement</a></li>
+          <li><a href="#">Affiliate Program</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Column -->
+      <div class="footer-contact">
+        <h4>Get in Touch</h4>
+        <ul class="footer-contact-list">
+          <li>
+            <span class="contact-icon">📍</span>
+            <span>15 Admiralty Way, Lekki Phase 1<br>Lagos, Nigeria</span>
+          </li>
+          <li>
+            <span class="contact-icon">📞</span>
+            <span>+234 800 000 0000<br>+234 800 000 0001</span>
+          </li>
+          <li>
+            <span class="contact-icon">📧</span>
+            <span>hello@fasnexi.com<br>support@fasnexi.com</span>
+          </li>
+          <li>
+            <span class="contact-icon">🕐</span>
+            <span>Mon - Fri: 9:00 AM - 6:00 PM<br>Sat: 10:00 AM - 4:00 PM</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Payment Methods -->
+    <div class="footer-payment">
+      <div class="payment-methods">
+        <span class="payment-label">We Accept:</span>
+        <div class="payment-icons">
+          <span class="payment-icon" title="Bank Transfer">🏦 Bank Transfer</span>
+          <span class="payment-icon" title="Visa">💳 Visa</span>
+          <span class="payment-icon" title="Mastercard">💳 Mastercard</span>
+          <span class="payment-icon" title="Verve">💳 Verve</span>
+          <span class="payment-icon" title="USSD">📱 USSD</span>
+          <span class="payment-icon" title="Paystack">🔒 Paystack</span>
+          <span class="payment-icon" title="Flutterwave">🔒 Flutterwave</span>
+        </div>
+      </div>
+      <div class="footer-security">
+        <span>🔒 SSL Secured</span>
+        <span>✅ Verified by Visa</span>
+        <span>🛡️ Buyer Protection</span>
+      </div>
+    </div>
+
+    <!-- Trust Badges -->
+    <div class="footer-trust">
+      <div class="trust-item">
+        <span class="trust-icon">✅</span>
+        <span>100% Authenticity Guaranteed</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-icon">🚚</span>
+        <span>Free Shipping over ₦200,000</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-icon">🔄</span>
+        <span>7-Day Easy Returns</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-icon">🔒</span>
+        <span>Secure Bank Transfer Payments</span>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="footer-bottom">
+      <div class="footer-bottom-left">
+        <p>&copy; 2026 FasNexi. All rights reserved.</p>
+        <p>Proudly made in 🇳🇬 Nigeria</p>
+      </div>
+      <div class="footer-bottom-right">
+        <a href="#">Terms</a>
+        <span class="footer-divider">|</span>
+        <a href="#">Privacy</a>
+        <span class="footer-divider">|</span>
+        <a href="#">Cookies</a>
+        <span class="footer-divider">|</span>
+        <a href="#">Sitemap</a>
+      </div>
+      <button class="footer-back-to-top" onclick="scrollToTop()" aria-label="Back to top">
+        ↑ Back to Top
+      </button>
+    </div>
+  </div>
+</footer>
+
 <!-- Quickview Modal -->
 <div class="quickview-modal" id="quickviewModal">
   <div class="quickview-overlay"></div>
